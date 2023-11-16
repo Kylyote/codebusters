@@ -2,6 +2,7 @@ const db = require('./connection');
 const { User, Product, Category } = require('../models');
 const cleanDB = require('./cleanDB');
 
+
 db.once('open', async () => {
   await cleanDB('Category', 'categories');
   await cleanDB('Product', 'products');
@@ -18,120 +19,148 @@ db.once('open', async () => {
   console.log('categories seeded');
 
   const products = await Product.insertMany([
-    {
-      name: 'Tin of Cookies',
-      description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
-      category: categories[0]._id,
-      price: 2.99,
-      quantity: 500
-    },
-    {
-      name: 'Canned Coffee',
-      description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
-      category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
-    },
-    {
-      name: 'Toilet Paper',
-      category: categories[1]._id,
-      description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
-    },
-    {
-      name: 'Handmade Soap',
-      category: categories[1]._id,
-      description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
-    },
-    {
-      name: 'Set of Wooden Spoons',
-      category: categories[1]._id,
-      description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
-      price: 14.99,
-      quantity: 100
-    },
-    {
-      name: 'Camera',
-      category: categories[2]._id,
-      description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
-      price: 399.99,
-      quantity: 30
-    },
-    {
-      name: 'Tablet',
-      category: categories[2]._id,
-      description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
-      price: 199.99,
-      quantity: 30
-    },
-    {
-      name: 'Tales at Bedtime',
-      category: categories[3]._id,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
-      price: 9.99,
-      quantity: 100
-    },
-    {
-      name: 'Spinning Top',
-      category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 1.99,
-      quantity: 1000
-    },
-    {
-      name: 'Set of Plastic Horses',
-      category: categories[4]._id,
-      description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 2.99,
-      quantity: 1000
-    },
-    {
-      name: 'Teddy Bear',
-      category: categories[4]._id,
-      description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
-    },
-    {
-      name: 'Alphabet Blocks',
-      category: categories[4]._id,
-      description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      quantity: 600
-    }
-  ]);
-
-  console.log('products seeded');
+      {
+        name: 'Intel Core i7 Processor',
+        description:
+          'High-performance processor for demanding applications.',
+        image: 'computer.png',
+        category: categories[0]._id,
+        price: 399.99,
+        quantity: 100
+      },
+      {
+        name: '16GB DDR4 RAM',
+        description:
+          'High-speed memory for smooth multitasking.',
+        image: 'computer.png',
+        category: categories[0]._id,
+        price: 149.99,
+        quantity: 200
+      },
+      {
+        name: '256GB SSD',
+        category: categories[1]._id,
+        description:
+          'Fast solid-state drive for quick data access.',
+        image: 'computer.png',
+        price: 129.99,
+        quantity: 50
+      },
+      {
+        name: 'GeForce RTX 3080 Graphics Card',
+        category: categories[1]._id,
+        description:
+          'Powerful graphics card for gaming and 3D rendering.',
+        image: 'computer.png',
+        price: 699.99,
+        quantity: 20
+      },
+      {
+        name: 'Dell XPS 15 Laptop',
+        category: categories[1]._id,
+        description:
+          'High-performance laptop for professional use.',
+        image: 'computer.png',
+        price: 1299.99,
+        quantity: 30
+      },
+      {
+        name: 'ASUS ROG Strix Motherboard',
+        category: categories[2]._id,
+        description:
+          'High-quality motherboard for building custom PCs.',
+        image: 'computer.png',
+        price: 449.99,
+        quantity: 10
+      },
+      {
+        name: 'Corsair RM850x Power Supply',
+        category: categories[2]._id,
+        description:
+          'High-capacity power supply for power-hungry systems.',
+        image: 'computer.png',
+        price: 199.99,
+        quantity: 50
+      },
+      {
+        name: 'Cooler Master Hyper 212 RGB CPU Cooler',
+        category: categories[2]._id,
+        description:
+          'Efficient CPU cooler with customizable RGB lighting.',
+        image: 'computer.png',
+        price: 129.99,
+        quantity: 100
+      },
+      {
+        name: 'Razer Naga Pro Wireless Gaming Mouse',
+        category: categories[3]._id,
+        description:
+          'High-precision wireless gaming mouse.',
+        image: 'computer.png',
+        price: 149.99,
+        quantity: 200
+      },
+      {
+        name: 'Logitech G502 HERO Gaming Mouse',
+        category: categories[3]._id,
+        description:
+          'High-performance gaming mouse with customizable buttons.',
+        image: 'computer.png',
+        price: 89.99,
+        quantity: 300
+      },
+      {
+        name: 'Amazon Fire TV Stick 4K',
+        category: categories[3]._id,
+        description:
+          'Streaming device for watching movies and TV shows.',
+        image: 'computer.png',
+        price: 39.99,
+        quantity: 1000
+      },
+      {
+        name: 'Samsung 970 EVO Plus SSD',
+        category: categories[4]._id,
+        description:
+          'High-speed solid-state drive for quick data access.',
+        image: 'computer.png',
+        price: 149.99,
+        quantity: 200
+      },
+      {
+        name: 'ASUS ROG Zephyrus G14 Gaming Laptop',
+        category: categories[4]._id,
+        description:
+          'High-performance gaming laptop with powerful hardware.',
+        image: 'computer.png',
+        price: 1999.99,
+        quantity: 30
+      },
+      {
+        name: 'HP ENVY x360 2-in-1 Laptop',
+        category: categories[4]._id,
+        description:
+          'Versatile 2-in-1 laptop for both work and play.',
+        image: 'computer.png',
+        price: 1199.99,
+        quantity: 10
+      },
+      {
+        name: 'Razer Blade 15 Advanced Model',
+        category: categories[4]._id,
+        description:
+          'High-performance gaming laptop with powerful hardware.',
+        image: 'computer.png',
+        price: 1799.99,
+        quantity: 5
+      }
+    ]
+  );
 
   await User.create({
     firstName: 'Pamela',
     lastName: 'Washington',
+    username: 'pamela@testmail.com',
     email: 'pamela@testmail.com',
     password: 'password12345',
     orders: [
@@ -140,10 +169,12 @@ db.once('open', async () => {
       }
     ]
   });
+     
 
   await User.create({
     firstName: 'Elijah',
     lastName: 'Holt',
+    username: 'eholt@testmail.com',
     email: 'eholt@testmail.com',
     password: 'password12345'
   });

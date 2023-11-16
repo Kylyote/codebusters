@@ -20,6 +20,11 @@ const typeDefs = `
     products: [Product]
   }
 
+  type Language {
+    _id: ID
+    enum: String
+  }
+
   type User {
     _id: ID
     firstName: String

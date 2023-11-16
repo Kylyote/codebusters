@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 const Order = require("./Order");
+const Language = require("./Language");
 
 const userSchema = new Schema({
   firstName: {
@@ -17,10 +18,10 @@ const userSchema = new Schema({
   },
   username: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     minlength: 6,
-    maxlength: 18,
+    maxlength: 20,
   },
   email: {
     type: String,

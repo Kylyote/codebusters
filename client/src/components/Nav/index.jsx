@@ -7,9 +7,30 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
+          
           <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
+            <Link to="/profile">
+              Dashboard
+            </Link>
+          </li>
+          {/* <li className="mx-1">
+            <Link to="/free">
+              Free Software
+            </Link>
+          </li> */}
+          {/* <li className="mx-1">
+            <Link to="/resume">
+              Resume Builder
+            </Link>
+          </li> */}
+          <li className="mx-1">
+            <Link to="/services">
+              Services
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/">
+              Products
             </Link>
           </li>
           <li className="mx-1">
@@ -17,6 +38,11 @@ function Nav() {
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
+          </li> 
+          <li className="mx-1">
+            <Link to="/settings">
+              Settings
+            </Link>
           </li>
         </ul>
       );
@@ -33,6 +59,16 @@ function Nav() {
               Login
             </Link>
           </li>
+          <li className="mx-1">
+            <Link to="/resume">
+              Resume Builder
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/services">
+              Services
+            </Link>
+          </li>
         </ul>
       );
     }
@@ -42,8 +78,8 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          <span role="img" aria-label="shopping bag">&#128123;</span>
+          Code Busters
         </Link>
       </h1>
 
