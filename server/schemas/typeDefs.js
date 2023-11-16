@@ -25,6 +25,7 @@ const typeDefs = `
     firstName: String
     lastName: String
     email: String
+    language: [Language]
     orders: [Order]
   }
 
