@@ -14,6 +14,11 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
+            <Link to="/free">
+              Free Software
+            </Link>
+          </li>
+          <li className="mx-1">
             <Link to="/resume">
               Resume Builder
             </Link>

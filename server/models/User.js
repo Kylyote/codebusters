@@ -21,7 +21,7 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     minlength: 6,
-    maxlength: 18,
+    maxlength: 20,
   },
   email: {
     type: String,

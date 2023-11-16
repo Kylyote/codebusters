@@ -52,6 +52,10 @@ function CategoryMenu() {
 <Link to="/resume">
  <button>Resume Builder</button>
 </Link>
+<Link to="/free">
+ <button>Free Software</button>
+</Link>
+
 
     </div>
   );

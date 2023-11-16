@@ -14,6 +14,7 @@ import ResumeBuilder from './pages/ResumeBuilder';
 import Profile from './pages/Profile';
 import Services from './pages/Services';
 import Settings from './pages/Settings';
+import FreeSoftware from './pages/FreeSoftware';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: '/settings',
         element: <Settings />
+      },
+      {
+        path: '/free',
+        element: <FreeSoftware />
       },
       {
         path: '*',

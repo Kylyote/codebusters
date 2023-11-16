@@ -18,8 +18,8 @@ db.once('open', async () => {
 
   console.log('categories seeded');
 
-  // const products = await Product.insertMany([
-    const products = await Product.insertMany([
+  const products = await Product.insertMany([
+    // const products = await Product.insertMany([
       {
         name: 'Intel Core i7 Processor',
         description:
@@ -155,15 +155,30 @@ db.once('open', async () => {
         price: 1799.99,
         quantity: 5
       }
-     ]);
+    ]
+  );
+
+  await User.create({
+    firstName: 'Pamela',
+    lastName: 'Washington',
+    username: 'pamela@testmail.com',
+    email: 'pamela@testmail.com',
+    password: 'password12345',
+    orders: [
+      {
+        products: [products[0]._id, products[0]._id, products[1]._id]
+      }
+    ]
+  });
      
 
-  // await User.create({
-  //   firstName: 'Elijah',
-  //   lastName: 'Holt',
-  //   email: 'eholt@testmail.com',
-  //   password: 'password12345'
-  // });
+  await User.create({
+    firstName: 'Elijah',
+    lastName: 'Holt',
+    username: 'eholt@testmail.com',
+    email: 'eholt@testmail.com',
+    password: 'password12345'
+  });
 
   console.log('users seeded');
 
