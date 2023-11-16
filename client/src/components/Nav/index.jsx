@@ -13,11 +13,11 @@ function Nav() {
               Dashboard
             </Link>
           </li>
-          <li className="mx-1">
+          {/* <li className="mx-1">
             <Link to="/free">
               Free Software
             </Link>
-          </li>
+          </li> */}
           {/* <li className="mx-1">
             <Link to="/resume">
               Resume Builder
@@ -26,6 +26,11 @@ function Nav() {
           <li className="mx-1">
             <Link to="/services">
               Services
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/">
+              Products
             </Link>
           </li>
           <li className="mx-1">
