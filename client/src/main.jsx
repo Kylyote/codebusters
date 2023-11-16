@@ -13,6 +13,7 @@ import OrderHistory from './pages/OrderHistory';
 import ResumeBuilder from './pages/ResumeBuilder';
 import Profile from './pages/Profile';
 import Services from './pages/Services';
+import Settings from './pages/Settings';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/services',
         element: <Services />
+      },
+      {
+        path: '/settings',
+        element: <Settings />
       },
       {
         path: '*',
