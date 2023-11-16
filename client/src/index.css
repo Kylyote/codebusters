@@ -1,6 +1,6 @@
 :root {
   --primary: #232F3E;
-  --secondary: #F3A847;
+  --secondary: lightgreen;
   --tertiary: #B12704;
   --light: #fafafa;
   --dark: #272f32;
@@ -26,6 +26,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
+  background-color: lightgrey;
 }
 
 h1,
