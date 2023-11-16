@@ -1,7 +1,7 @@
 const db = require('./connection');
 const { User, Product, Category } = require('../models');
 const cleanDB = require('./cleanDB');
-import computerImage from '../assets/images/computer.jng';
+
 
 db.once('open', async () => {
   await cleanDB('Category', 'categories');
@@ -24,7 +24,7 @@ db.once('open', async () => {
         name: 'Intel Core i7 Processor',
         description:
           'High-performance processor for demanding applications.',
-        image: 'computerImage',
+        image: '../../client/src/assets/img/computer.png',
         category: categories[0]._id,
         price: 399.99,
         quantity: 100
@@ -33,7 +33,7 @@ db.once('open', async () => {
         name: '16GB DDR4 RAM',
         description:
           'High-speed memory for smooth multitasking.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         category: categories[0]._id,
         price: 149.99,
         quantity: 200
@@ -43,7 +43,7 @@ db.once('open', async () => {
         category: categories[1]._id,
         description:
           'Fast solid-state drive for quick data access.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 129.99,
         quantity: 50
       },
@@ -52,7 +52,7 @@ db.once('open', async () => {
         category: categories[1]._id,
         description:
           'Powerful graphics card for gaming and 3D rendering.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 699.99,
         quantity: 20
       },
@@ -61,7 +61,7 @@ db.once('open', async () => {
         category: categories[1]._id,
         description:
           'High-performance laptop for professional use.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 1299.99,
         quantity: 30
       },
@@ -70,7 +70,7 @@ db.once('open', async () => {
         category: categories[2]._id,
         description:
           'High-quality motherboard for building custom PCs.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 449.99,
         quantity: 10
       },
@@ -79,7 +79,7 @@ db.once('open', async () => {
         category: categories[2]._id,
         description:
           'High-capacity power supply for power-hungry systems.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 199.99,
         quantity: 50
       },
@@ -88,7 +88,7 @@ db.once('open', async () => {
         category: categories[2]._id,
         description:
           'Efficient CPU cooler with customizable RGB lighting.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 129.99,
         quantity: 100
       },
@@ -97,7 +97,7 @@ db.once('open', async () => {
         category: categories[3]._id,
         description:
           'High-precision wireless gaming mouse.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 149.99,
         quantity: 200
       },
@@ -106,7 +106,7 @@ db.once('open', async () => {
         category: categories[3]._id,
         description:
           'High-performance gaming mouse with customizable buttons.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 89.99,
         quantity: 300
       },
@@ -115,7 +115,7 @@ db.once('open', async () => {
         category: categories[3]._id,
         description:
           'Streaming device for watching movies and TV shows.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 39.99,
         quantity: 1000
       },
@@ -124,7 +124,7 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'High-speed solid-state drive for quick data access.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 149.99,
         quantity: 200
       },
@@ -133,7 +133,7 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'High-performance gaming laptop with powerful hardware.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 1999.99,
         quantity: 30
       },
@@ -142,7 +142,7 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'Versatile 2-in-1 laptop for both work and play.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 1199.99,
         quantity: 10
       },
@@ -151,19 +151,19 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'High-performance gaming laptop with powerful hardware.',
-        image: computerImage,
+        image: '../../client/src/assets/img/computer.png',
         price: 1799.99,
         quantity: 5
       }
      ]);
      
 
-  await User.create({
-    firstName: 'Elijah',
-    lastName: 'Holt',
-    email: 'eholt@testmail.com',
-    password: 'password12345'
-  });
+  // await User.create({
+  //   firstName: 'Elijah',
+  //   lastName: 'Holt',
+  //   email: 'eholt@testmail.com',
+  //   password: 'password12345'
+  // });
 
   console.log('users seeded');
 
