@@ -12,6 +12,7 @@ import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import ResumeBuilder from './pages/ResumeBuilder';
 import Profile from './pages/Profile';
+import Services from './pages/Services';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile />
+      },
+      {
+        path: '/services',
+        element: <Services />
       },
       {
         path: '*',

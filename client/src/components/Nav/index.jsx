@@ -27,7 +27,11 @@ function Nav() {
               Resume Builder
             </Link>
           </li>
-         
+          <li className="mx-1">
+            <Link to="/services">
+              Services
+            </Link>
+          </li>
         </ul>
       );
     } else {
@@ -46,6 +50,11 @@ function Nav() {
           <li className="mx-1">
             <Link to="/resume">
               Resume Builder
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/services">
+              Services
             </Link>
           </li>
         </ul>
