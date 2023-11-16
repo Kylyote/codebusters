@@ -18,6 +18,16 @@ function Nav() {
               Logout
             </a>
           </li>
+          <li className="mx-1">
+            <Link to="/resume">
+              Resume Builder
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/profile">
+              Profile
+            </Link>
+          </li>
         </ul>
       );
     } else {
@@ -33,6 +43,11 @@ function Nav() {
               Login
             </Link>
           </li>
+          <li className="mx-1">
+            <Link to="/resume">
+              Resume Builder
+            </Link>
+          </li>
         </ul>
       );
     }
@@ -42,8 +57,8 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          <span role="img" aria-label="shopping bag">&#128123;</span>
+          Code Busters
         </Link>
       </h1>
 

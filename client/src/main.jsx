@@ -10,6 +10,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+import ResumeBuilder from './pages/ResumeBuilder';
+import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,18 @@ const router = createBrowserRouter([
       }, {
         path: '/products/:id',
         element: <Detail />
+      },
+      {
+        path: '/resume',
+        element: <ResumeBuilder />
+      },
+      {
+        path: '/profile',
+        element: <Profile />
+      },
+      {
+        path: '*',
+        element: <NoMatch />
       }
     ]
   }
