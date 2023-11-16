@@ -17,17 +17,17 @@ function Nav() {
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
+          </li> <li className="mx-1">
+            <Link to="/profile">
+              Dashboard
+            </Link>
           </li>
           <li className="mx-1">
             <Link to="/resume">
               Resume Builder
             </Link>
           </li>
-          <li className="mx-1">
-            <Link to="/profile">
-              Profile
-            </Link>
-          </li>
+         
         </ul>
       );
     } else {
