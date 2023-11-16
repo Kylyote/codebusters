@@ -46,14 +46,20 @@ function CategoryMenu() {
     <div>
       <h2>Categories:</h2>
     
-<Link to="/services">
- <button>Services</button>
-</Link>
 <Link to="/resume">
  <button>Resume Builder</button>
 </Link>
 <Link to="/free">
  <button>Free Software</button>
+</Link>
+<Link to="/search">
+ <button>Web Development Tutoring</button>
+</Link>
+<Link to="/search">
+ <button>Code Review</button>
+</Link>
+<Link to="/search">
+ <button>Website Building</button>
 </Link>
 
 

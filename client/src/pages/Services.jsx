@@ -4,9 +4,9 @@ const Services = () => {
    return (
        <div>
            <h1>Services</h1>
-           <p>Web Development Tutoring</p>
-           <p>Code Reviewing</p>
-           <p>Website Building</p>
+           <p><Link to="/search">Web Development Tutoring</Link></p>
+           <p><Link to="/search">Code Review</Link></p>
+           <p><Link to="/search">Website Building</Link></p>
            <p><Link to="/resume">Resume Building</Link></p>
        </div>
    )

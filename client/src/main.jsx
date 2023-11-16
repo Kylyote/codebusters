@@ -15,6 +15,7 @@ import Profile from './pages/Profile';
 import Services from './pages/Services';
 import Settings from './pages/Settings';
 import FreeSoftware from './pages/FreeSoftware';
+import Search from './pages/Search';
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: '/free',
         element: <FreeSoftware />
+      },
+      {
+        path: '/search',
+        element: <Search />
       },
       {
         path: '*',

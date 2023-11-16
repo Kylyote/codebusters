@@ -18,11 +18,11 @@ function Nav() {
               Free Software
             </Link>
           </li>
-          <li className="mx-1">
+          {/* <li className="mx-1">
             <Link to="/resume">
               Resume Builder
             </Link>
-          </li>
+          </li> */}
           <li className="mx-1">
             <Link to="/services">
               Services
