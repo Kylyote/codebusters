@@ -19,7 +19,6 @@ db.once('open', async () => {
   console.log('categories seeded');
 
   const products = await Product.insertMany([
-    // const products = await Product.insertMany([
       {
         name: 'Intel Core i7 Processor',
         description:
