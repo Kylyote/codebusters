@@ -71,7 +71,7 @@ function Nav() {
               Services
             </Link>
           </li>
-          <li>
+          <li className="mx-1">
             <Main />
           </li>
         </ul>

@@ -6,7 +6,7 @@ const Modal = ({ children }) => {
         <div className="modal">
             {children}
         </div>,
-        document.getElementById('root')
+        document.getElementById('modal-root')
     );
 };
 

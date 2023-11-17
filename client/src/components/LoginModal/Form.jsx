@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
-import { ADD_USER } from '../../utils/mutations';
+import { ADD_USER, LOGIN } from '../../utils/mutations';
 
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
     const [form, setForm] = useState({email: '', password: ''});
     const [addUser] = useMutation(ADD_USER);
+    const [login, { error }] = useMutation(LOGIN)
 
     const handleInputChange = (event) => {
         setForm({...form, [event.target.name]: event.target.value});
     };
 
-    const handleLoginSubmit = (event) => {
+    const handleLoginSubmit = async (event) => {
         event.preventDefault();
         //handle form submission here. will transfer from signup/login page
+        try {
+            const mutationResponse = await login ({
+                variables: {
+                    email: form.email,
+                    password: form.password
+                }
+            });
+            const token = mutationResponse.data.login.token;
+            Auth.login(token)
+        } catch (e) {
+            console.log(e)
+        }
     };
     const handleSignupSubmit = async (event) => {
         event.preventDefault();
@@ -40,8 +53,8 @@ function Form() {
                     <button onClick={() => setIsLogin(false)}>Signup</button>
                     <div className='modal-header'>Login</div>
                     <form onSubmit={handleLoginSubmit}>
-                        <input name='username' type="text" placeholder='Username' onChange={handleInputChange} />
-                        <input name='password' type="password" placeholder='Password' onChange={handleInputChange} />
+                        <input name='email' type='email' id='email' placeholder='Email' onChange={handleInputChange} />
+                        <input name='password' type='password' id='password' placeholder='Password' onChange={handleInputChange} />
                         <button type='submit'>Login</button>
                     </form>
                 </div>
