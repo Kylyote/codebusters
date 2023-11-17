@@ -10,6 +10,8 @@ const SearchResults = () => {
  
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
+
+ console.log(data.users)
  
  return (
    <Container>
@@ -27,11 +29,11 @@ const SearchResults = () => {
                <Card.Text>
                 <strong>Languages: </strong>
                 {user.languages && user.languages.map((language, index) => (
-                  <div key={index}>
+                  <span key={index}>
                     <i>{language.language}</i>
                     <strong> - Skill: </strong>
                     {language.skill}
-                  </div>
+                  </span>
                 ))}
                </Card.Text>
              </Card.Body>

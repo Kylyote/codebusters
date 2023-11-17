@@ -22,7 +22,8 @@ const typeDefs = `
 
   type Language {
     _id: ID
-    enum: String
+    language: String
+    skill: String
   }
 
   type User {
@@ -30,7 +31,9 @@ const typeDefs = `
     firstName: String
     lastName: String
     email: String
-    language: [Language]
+    username: String
+    subscription: String
+    languages: [Language]
     orders: [Order]
   }
 

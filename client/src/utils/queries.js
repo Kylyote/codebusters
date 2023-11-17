@@ -76,9 +76,12 @@ export const GET_ALL_USERS = gql`
      firstName
      lastName
      email
-     language {
+     username
+     subscription
+     languages {
        _id
-       enum
+       language
+       skill
      }
      orders {
        _id
