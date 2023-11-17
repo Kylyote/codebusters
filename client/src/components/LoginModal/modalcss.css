@@ -1,4 +1,6 @@
 .modal {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     height: 40%;
     width: 40%;
@@ -9,6 +11,7 @@
     border-radius: 15px;
     border: solid 2px black;
     box-shadow: 10px 5px 5px gray;
+    transition-timing-function: ease;
 }
 
 .modal-header {
@@ -16,8 +19,21 @@
 }
 
 .modal-cancel {
-    position: relative;
-    top: 3%;
-    left: -3%;
+    color: #aaaaaa;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px;
+    position: absolute;
+    right: 7px;
+    top: 0;
+}
+
+.non-button-btn {
+    justify-content: center;
+    background: none;
+}
+
+.non-button-btn:hover{
     background-color: red;
+    color: black;
 }

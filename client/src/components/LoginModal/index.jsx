@@ -11,7 +11,7 @@ function Main() {
 
             {showModal && (
                 <Modal>
-                    <button className='modal-cancel' onClick={() => setShowModal(false)}>X</button>
+                    <button className='modal-cancel non-button-btn' onClick={() => setShowModal(false)}>x</button>
                     <Form />
                 </Modal>
             )}
