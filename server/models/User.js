@@ -4,7 +4,10 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 const Order = require("./Order");
 const Language = require("./Language");
+const MessageChannel = require("./MessageChannel");
+const EmailChannel = require("./EmailChannel");
 
+// Remember to change username back to true when we're ready to implement it
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -41,6 +44,8 @@ const userSchema = new Schema({
   },
   languages: [Language.schema],
   orders: [Order.schema],
+  messages: [MessageChannel.schema],
+  emails: [EmailChannel.schema],
 });
 
 // set up pre-save middleware to create password
