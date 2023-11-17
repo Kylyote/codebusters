@@ -1,6 +1,7 @@
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import CB from "../../assets/img/codeBusters.png"
+import Main from '../LoginModal'
 
 function Nav() {
 
@@ -69,6 +70,9 @@ function Nav() {
             <Link to="/services" style={{marginRight: '10px'}}>
               Services
             </Link>
+          </li>
+          <li>
+            <Main />
           </li>
         </ul>
       );

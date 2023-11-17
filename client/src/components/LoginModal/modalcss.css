@@ -1,0 +1,23 @@
+.modal {
+    background-color: white;
+    height: 40%;
+    width: 40%;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    margin-left: -20%;
+    border-radius: 15px;
+    border: solid 2px black;
+    box-shadow: 10px 5px 5px gray;
+}
+
+.modal-header {
+    color: green
+}
+
+.modal-cancel {
+    position: relative;
+    top: 3%;
+    left: -3%;
+    background-color: red;
+}

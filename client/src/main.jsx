@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import './components/LoginModal/modalcss.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
