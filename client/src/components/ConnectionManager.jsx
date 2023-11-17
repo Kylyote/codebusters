@@ -1,19 +1,27 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { socket } from '../socket';
 
 export function ConnectionManager() {
-  function connect() {
-    socket.connect();
-  }
+ const [isConnected, setIsConnected] = useState(false);
 
-  function disconnect() {
-    socket.disconnect();
-  }
+ function connect() {
+   socket.connect();
+   setIsConnected(true);
+ }
 
-  return (
-    <>
-      <button onClick={ connect }>Connect</button>
-      <button onClick={ disconnect }>Disconnect</button>
-    </>
-  );
+ function disconnect() {
+   socket.disconnect();
+   setIsConnected(false);
+ }
+
+ return (
+   <>
+     <button onClick={ connect } style={{display: isConnected ? 'none' : 'inline'}}>Connect</button>
+     <button onClick={ disconnect } style={{display: isConnected ? 'inline' : 'none'}}>Disconnect</button>
+   </>
+ );
 }
+
+
+

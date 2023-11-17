@@ -78,10 +78,12 @@ useEffect(() => {
     <StoreProvider>
       <Nav />
       <Outlet />
+      <div style={{ position: 'absolute', right: '0' }}>
       <ConnectionState isConnected={ isConnected } />
       <Events events={ fooEvents } />
       <ConnectionManager />
       <MyForm />
+      </div>
     </StoreProvider>
   </ApolloProvider>
   );
