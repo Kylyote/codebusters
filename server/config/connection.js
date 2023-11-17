@@ -5,5 +5,3 @@ mongoose.connect(
 );
 
 module.exports = mongoose.connection;
-
-//user: kjocoy and password: yT9RtLiq3fkkJvkN
