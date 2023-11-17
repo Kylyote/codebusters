@@ -68,3 +68,33 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const GET_ALL_USERS = gql`
+ query GetAllUsers {
+   users {
+     _id
+     firstName
+     lastName
+     email
+     language {
+       _id
+       enum
+     }
+     orders {
+       _id
+       purchaseDate
+       products {
+         _id
+         name
+         description
+         price
+         quantity
+         image
+         category {
+           _id
+         }
+       }
+     }
+   }
+ }
+`;
