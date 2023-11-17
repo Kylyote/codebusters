@@ -77,12 +77,17 @@ useEffect(() => {
     <StoreProvider>
       <Nav />
       <Outlet />
-      <div style={{ position: 'absolute', right: '0' }}>
-      <ConnectionState isConnected={ isConnected } />
-      <Events events={ fooEvents } />
-      <ConnectionManager />
-      <MyForm />
-      </div>
+      
+<div style={{ position: 'absolute', right: '0', border: '2px solid black', marginRight: '20px', marginBottom: '10px'}}>
+ <div style={{ backgroundColor: 'blue', color: 'white', padding: '10px' }}>
+   <h1>Messenger</h1>
+ </div>
+ <ConnectionState isConnected={ isConnected } />
+ <Events events={ fooEvents } />
+ <ConnectionManager />
+ <MyForm />
+</div>
+
     </StoreProvider>
   </ApolloProvider>
   );

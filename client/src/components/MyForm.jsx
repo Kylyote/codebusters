@@ -17,8 +17,9 @@ export function MyForm() {
   return (
     <form onSubmit={ onSubmit }>
       <input onChange={ e => setValue(e.target.value) } placeholder="Send Message" />
-
-      <button type="submit" disabled={ isLoading } >Submit</button>
+ <br></br>
+      <button type="submit" disabled={ isLoading } >Send Message</button>
+     
     </form>
   );
 }
