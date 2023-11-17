@@ -7,11 +7,11 @@ function Main() {
 
     return (
         <div>
-            <button onClick={() => setShowModal(true)}>Logup</button>
+            <button onClick={() => setShowModal(true)}>Login</button>
 
             {showModal && (
                 <Modal>
-                    <button className='modal-cancel non-button-btn' onClick={() => setShowModal(false)}>x</button>
+                    <button className='modal-cancel non-btn' onClick={() => setShowModal(false)}>x</button>
                     <Form />
                 </Modal>
             )}

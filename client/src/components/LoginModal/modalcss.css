@@ -1,17 +1,31 @@
 .modal {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    z-index: 11;
     background-color: white;
-    height: 40%;
-    width: 40%;
-    position: fixed;
+    max-height: fit-content;
+    width: 400px;
+    position: absolute;
     top: 30%;
-    left: 50%;
-    margin-left: -20%;
+    left: 35%;  
     border-radius: 15px;
     border: solid 2px black;
     box-shadow: 10px 5px 5px gray;
-    transition-timing-function: ease;
+    overflow: hidden;
+}
+
+.modal-content {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    margin: 5px 0
 }
 
 .modal-header {
@@ -20,20 +34,29 @@
 
 .modal-cancel {
     color: #aaaaaa;
+    background: none;
     font-size: 20px;
     text-decoration: none;
     padding: 10px;
     position: absolute;
     right: 7px;
-    top: 0;
+    top: 5px;
 }
 
-.non-button-btn {
-    justify-content: center;
+.modal-cancel:hover{
+    background-color: red;
+    color: black;
+}
+
+.form-change {
     background: none;
 }
 
-.non-button-btn:hover{
-    background-color: red;
-    color: black;
+.form-change:hover {
+    background-color: rgb(0, 145, 255);
+}
+
+.error-text-div {
+    display: flex;
+    width: 300px;
 }

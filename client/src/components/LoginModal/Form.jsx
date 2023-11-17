@@ -46,56 +46,100 @@ function Form() {
     };
 
     return (
-        <div>
-            {console.log(event.target.value)}
+        <div className='modal-content'>
             {isLogin ? (
+                <>
                 <div>
-                    <button onClick={() => setIsLogin(false)}>Signup</button>
-                    <div className='modal-header'>Login</div>
-                    <form onSubmit={handleLoginSubmit}>
-                        <input name='email' type='email' id='email' placeholder='Email' onChange={handleInputChange} />
-                        <input name='password' type='password' id='password' placeholder='Password' onChange={handleInputChange} />
+                    <h2 className='modal-header'>Login</h2>
+                    <hr />
+                    <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}} onSubmit={handleLoginSubmit}>
+                        <div className='modal-form'>
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                name='email'
+                                type='email'
+                                id='email'
+                                placeholder='Email'
+                                onChange={handleInputChange} />
+                        </div>
+                        <div className='modal-form'>
+                            <label htmlFor="password">Password:</label>
+                            <input
+                                name='password'
+                                type='password'
+                                id='password'
+                                placeholder='Password'
+                                onChange={handleInputChange} />
+                            </div>
+                            {error ? (
+                                <div className='error-text-div'>
+                                  <p className="error-text">The provided credentials are incorrect</p>
+                                </div>
+                            ) : null}
                         <button type='submit'>Login</button>
                     </form>
                 </div>
-            ) : (
                 <div>
-                    <button onClick={() => setIsLogin(true)}>Login</button>
-                    <div className='modal-header'>Signup</div>
-                    <form onSubmit={handleSignupSubmit}>
-                        <input 
-                            name='firstName'
-                            type='firstName'
-                            id='firstName'
-                            placeholder='First Name'
-                            onChange={handleInputChange} />
-                        <input 
-                            name='lastName'
-                            type='lastName'
-                            id='lastName'
-                            placeholder='Last Name'
-                            onChange={handleInputChange} />
-                        <input 
-                            name='username' 
-                            type='username'
-                            id='username'
-                            placeholder='Username' 
-                            onChange={handleInputChange} />
-                        <input 
-                            name='email'
-                            type='email'
-                            id='email'
-                            placeholder='Email'
-                            onChange={handleInputChange} />
-                        <input 
-                            name='password'
-                            type='password'
-                            id='password'
-                            placeholder='Password'
-                            onChange={handleInputChange} />
+                    <button className='form-change' onClick={() => setIsLogin(false)}>Don't have an account? Signup here!</button>
+                </div>
+                </>
+            ) : (
+                <>
+                <div>
+                    <h2 className='modal-header'>Signup</h2>
+                    <hr />
+                    <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}} onSubmit={handleSignupSubmit}>
+                        <div className='modal-form'>
+                            <label htmlFor="firstName">First Name:</label>
+                            <input 
+                                name='firstName'
+                                type='firstName'
+                                id='firstName'
+                                placeholder='First Name'
+                                onChange={handleInputChange} />
+                        </div>
+                        <div className='modal-form'>
+                            <label htmlFor="lastName">Last Name:</label>
+                            <input 
+                                name='lastName'
+                                type='lastName'
+                                id='lastName'
+                                placeholder='Last Name'
+                                onChange={handleInputChange} />
+                        </div>
+                        <div className='modal-form'>
+                            <label htmlFor="username">Username:</label>
+                            <input 
+                                name='username'
+                                type='username'
+                                id='username'
+                                placeholder='Username'
+                                onChange={handleInputChange} />
+                        </div>
+                        <div className='modal-form'>
+                            <label htmlFor="email">Email:</label>
+                            <input 
+                                name='email'
+                                type='email'
+                                id='email'
+                                placeholder='Email'
+                                onChange={handleInputChange} />
+                        </div>
+                        <div className='modal-form'>
+                            <label htmlFor="password">Password:</label>
+                            <input 
+                                name='password'
+                                type='password'
+                                id='password'
+                                placeholder='Password'
+                                onChange={handleInputChange} />
+                        </div>
+                        
                         <button type='submit'>Signup</button>
                     </form>
                 </div>
+                <button className='form-change' onClick={() => setIsLogin(true)}>Already have an account? Login here</button>
+                </>
             )}
         </div>
     )
