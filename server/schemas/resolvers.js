@@ -1,8 +1,8 @@
 const { User, Product, Category, Order } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
-const stripe = require("stripe")(
-  "sk_test_51MmUhiJWBUm8M1eN7zGH87OtGnQPi1BiZMFgpcHzpEQa86sUDL0pGs6mV9fuddjdJrEImyvK5tJCqexf4DBJOo5000BOOUZLm7"
-);
+// const stripe = require("stripe")(
+//   "sk_test_51MmUhiJWBUm8M1eN7zGH87OtGnQPi1BiZMFgpcHzpEQa86sUDL0pGs6mV9fuddjdJrEImyvK5tJCqexf4DBJOo5000BOOUZLm7"
+// );
 
 const resolvers = {
   Query: {

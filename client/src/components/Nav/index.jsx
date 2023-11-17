@@ -44,11 +44,6 @@ function Nav() {
               Settings
             </Link>
           </li>
-          <li className="mx-1">
-            <Link to="/chat">
-              Chat
-            </Link>
-          </li>
         </ul>
       );
     } else {

@@ -16,7 +16,7 @@ import Services from './pages/Services';
 import Settings from './pages/Settings';
 import FreeSoftware from './pages/FreeSoftware';
 import Search from './pages/Search';
-import ChatPage from './pages/Chat';
+import SearchResults from './pages/SearchResults';
 
 const router = createBrowserRouter([
   {
@@ -68,9 +68,10 @@ const router = createBrowserRouter([
         element: <Search />
       },
       {
-        path: '/chat',
-        element: <ChatPage />
+        path: '/results',
+        element: <SearchResults />
       },
+  
       {
         path: '*',
         element: <NoMatch />
