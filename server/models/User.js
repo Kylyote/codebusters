@@ -7,6 +7,7 @@ const Language = require("./Language");
 const MessageChannel = require("./MessageChannel");
 const EmailChannel = require("./EmailChannel");
 
+// Remember to change username back to true when we're ready to implement it
 const userSchema = new Schema({
   firstName: {
     type: String,
