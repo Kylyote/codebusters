@@ -16,6 +16,7 @@ import Services from './pages/Services';
 import Settings from './pages/Settings';
 import FreeSoftware from './pages/FreeSoftware';
 import Search from './pages/Search';
+import ChatPage from './pages/Chat';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <Search />
+      },
+      {
+        path: '/chat',
+        element: <ChatPage />
       },
       {
         path: '*',

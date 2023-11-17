@@ -6,9 +6,20 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
+
+/* Socket.IO */
+
+/* Socket.io  imports */
+import {useState, useEffect} from 'react'
+import {socket} from './socket'
+import {ConnectionState} from './components/ConnectionState'
+import {ConnectionManager} from './components/ConnectionManager'
+import {Events} from './components/Events'
+import {MyForm} from './components/MyForm'
+/* End Socket.IO */
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -30,13 +41,49 @@ const client = new ApolloClient({
 });
 
 function App() {
+/* Socket.io state variables */
+const [isConnected, setIsConnected] = useState(socket.connected)
+const [fooEvents, setFooEvents] = useState([])
+
+/* Socket.io event handlers */
+useEffect(() => {
+  function onConnect() {
+    setIsConnected(true);
+  }
+ 
+  function onDisconnect() {
+    setIsConnected(false);
+  }
+ 
+  function onFooEvent(value) {
+    setFooEvents(previous => [...previous, value]);
+  }
+ 
+  socket.on('connect', onConnect);
+  socket.on('disconnect', onDisconnect);
+  socket.on('foo', onFooEvent);
+ 
+  return () => {
+    socket.off('connect', onConnect);
+    socket.off('disconnect', onDisconnect);
+    socket.off('foo', onFooEvent);
+  };
+ }, []);
+ 
+/* End Socket.IO */
+
+
   return (
     <ApolloProvider client={client}>
-      <StoreProvider>
-        <Nav />
-        <Outlet />
-      </StoreProvider>
-    </ApolloProvider>
+    <StoreProvider>
+      <Nav />
+      <Outlet />
+      <ConnectionState isConnected={ isConnected } />
+      <Events events={ fooEvents } />
+      <ConnectionManager />
+      <MyForm />
+    </StoreProvider>
+  </ApolloProvider>
   );
 }
 
