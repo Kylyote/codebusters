@@ -11,13 +11,37 @@ const SearchResults = () => {
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
 
+// Sort the users based on their subscription level
+const sortedUsers = [...data.users].sort((a, b) => {
+  if (a.subscription === 'gold' && b.subscription !== 'gold') {
+    return 1;
+  }
+  if (a.subscription !== 'gold' && b.subscription === 'gold') {
+    return -1;
+  }
+  if (a.subscription === 'free' && b.subscription !== 'free') {
+    return 1;
+  }
+  if (a.subscription !== 'free' && b.subscription === 'free') {
+    return -1;
+  }
+  if (a.subscription === null && b.subscription !== null) {
+    return 1;
+  }
+  if (a.subscription !== null && b.subscription === null) {
+    return -1;
+  }
+  return 0;
+ });
+ 
+ 
  console.log(data.users)
  
  return (
    <Container>
      <h1>Search Results Page</h1>
      <Row>
-       {data.users.map((user) => (
+       {sortedUsers.map((user) => (
          <Col sm={4} key={user._id}>
            <Card style={{ width: '18rem', backgroundColor: 'lightgreen' }}>
              <Card.Img variant="top" src={profileImage} />
@@ -28,11 +52,13 @@ const SearchResults = () => {
                <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
                <Card.Text>
                 <strong>Languages: </strong>
+                <br></br>
                 {user.languages && user.languages.map((language, index) => (
                   <span key={index}>
                     <i>{language.language}</i>
                     <strong> - Skill: </strong>
                     {language.skill}
+                    <br></br>
                   </span>
                 ))}
                </Card.Text>
