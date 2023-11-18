@@ -74,7 +74,8 @@ useEffect(() => {
 /* End Socket.IO */
 
   return (
-    <ApolloProvider client={client}>
+    <div>
+    <ApolloProvider client={client} >
     <StoreProvider>
       <Nav />
       <Outlet />
@@ -90,7 +91,7 @@ useEffect(() => {
 </div>
 
     </StoreProvider>
-  </ApolloProvider>
+  </ApolloProvider></div>
   );
 }
 
