@@ -86,7 +86,7 @@ console.log(filteredUsers);
      const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
      return (
        <Col sm={4} key={user._id}>
-         <Card style={{ width: '18rem', backgroundColor: 'lightgreen' }}>
+         <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
            <Card.Img variant="top" src={randomAvatar} />
            <Card.Body>
              <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
@@ -115,7 +115,7 @@ console.log(filteredUsers);
      const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
      return (
        <Col sm={4} key={user._id}>
-         <Card style={{ width: '18rem', backgroundColor: 'lightgreen' }}>
+        <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
            <Card.Img variant="top" src={randomAvatar} />
            <Card.Body>
              <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
