@@ -39,37 +39,19 @@ const avatars = [
 // import profileImage from '../assets/img/avatar_png_files/avatar_1.png'
 import {Container, Row, Col} from 'react-bootstrap';
 
+
 const SearchResults = () => {
  const { loading, error, data } = useQuery(GET_ALL_USERS);
  
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
 
-// Sort the users based on their subscription level
-const sortedUsers = [...data.users].sort((a, b) => {
-  if (a.subscription === 'gold' && b.subscription !== 'gold') {
-    return -1;
-  }
-  if (a.subscription !== 'gold' && b.subscription === 'gold') {
-    return 1;
-  }
-  if (a.subscription === 'free' && b.subscription !== 'free') {
-    return -1;
-  }
-  if (a.subscription !== 'free' && b.subscription === 'free') {
-    return 1;
-  }
-  if (a.subscription === null && b.subscription !== null) {
-    return -1;
-  }
-  if (a.subscription !== null && b.subscription === null) {
-    return 1;
-  }
-  return 0;
- });
- 
- console.log(data.users)
- 
+ const goldUsers = data.users.filter(user => user.subscription === 'Gold');
+ const freeUsers = data.users.filter(user => user.subscription === 'Free');
+ const nullUsers = data.users.filter(user => user.subscription === null);
+
+ const sortedUsers = [...goldUsers, ...freeUsers, ...nullUsers];
+
  return (
    <Container>
      <h1>Search Results Page</h1>
