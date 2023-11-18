@@ -9,7 +9,7 @@ const About = () => {
       <p>We believe in continuous learning and improvement. That's why we offer a range of resources for those looking to brush up on their skills. Our tutors are some of the best in the field, offering personalized lessons that cater to your specific needs and goals. Whether you're a beginner looking to start your journey in web development or an experienced professional looking to stay updated with the latest trends and technologies, we've got you covered.</p>
       <h2>Professional Web Development</h2>
       <p>We take pride in our team of professionals who have years of experience in web development. Our team is dedicated to delivering high-quality websites that not only look great but also function flawlessly. We understand that your website is a reflection of your brand, and we work tirelessly to ensure that it is as impressive as you are.</p>
-      <h2>Stoytelling</h2>
+      <h2>Story Telling</h2>
       <p>We believe in storytelling. We aim to tell a unique story that sets us apart from the crowd. Our story is about helping you achieve your goals in the digital realm, whether it's learning a new skill, finding the perfect hardware, or building a professional website 8.
 
 In conclusion, Code Buster is more than just a web development company. We're a community of learners, professionals, and enthusiasts who are passionate about the digital world. We're here to help you navigate the digital landscape, improve your skills, and achieve your goals.
