@@ -107,13 +107,12 @@ useEffect(() => {
                 <a href="https://github.com/user/project2">Project 2</a>
                 <a href="https://github.com/user/project3">Project 3</a>
             </div>
-            <div style={{ position: 'absolute', right: '0', border: '2px solid black', marginRight: '20px', marginBottom: '10px'}}>
+            <div style={{ position: 'absolute', right: '0', border: '2px solid black', marginRight: '20px', marginBottom: '10px', width: '400px', height: '400px'}}>
  <div style={{ backgroundColor: 'blue', color: 'white', padding: '10px' }}>
-   <h1>Messenger</h1>
+   <h1>Messenger <ConnectionManager /></h1>
  </div>
  <ConnectionState isConnected={ isConnected } />
  <Events events={ fooEvents } />
- <ConnectionManager />
  <MyForm />
 </div>
         </div>
