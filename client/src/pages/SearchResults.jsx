@@ -64,7 +64,7 @@ const SearchResults = () => {
 
  const sortedUsers = [...goldUsers, ...freeUsers, ...nullUsers];
 console.log(sortedUsers);
-/* filter users based on search state */
+/* filter users based on search state  this filtering logic will have to be evaluated futher to return correctly from properies of user*/
 const filteredUsers = sortedUsers.filter(user => 
   user.service === service && 
   user.experience === experience && 
@@ -72,12 +72,11 @@ const filteredUsers = sortedUsers.filter(user =>
   user.languages.some(lang => Array.isArray(languages) ? languages.includes(lang.language) : lang.language === languages)
  );
  
- 
  /* end filter users based on search state */
 console.log(filteredUsers);
  return (
    <Container>
-     <h1>Search Results Page</h1>
+     <h1>Search Results:</h1>
      <Row>
 
       {/* if filtered Users return empty then sortedUsers data populate */}
