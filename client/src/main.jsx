@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App.jsx';
 import Home from './pages/Home';
@@ -16,6 +17,8 @@ import Services from './pages/Services';
 import Settings from './pages/Settings';
 import FreeSoftware from './pages/FreeSoftware';
 import Search from './pages/Search';
+import SearchResults from './pages/SearchResults';
+import About from './pages/About';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, 
-        element: <Home />
+        element: <About />
       }, {
         path: '/login',
         element: <Login />
@@ -66,6 +69,16 @@ const router = createBrowserRouter([
         path: '/search',
         element: <Search />
       },
+      {
+        path: '/results',
+        element: <SearchResults />
+      },
+      {
+        path: '/home',
+        element: <Home />
+      },
+
+  
       {
         path: '*',
         element: <NoMatch />

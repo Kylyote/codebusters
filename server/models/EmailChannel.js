@@ -1,6 +1,8 @@
 // This is the ES6 way of importing modules. It's equivalent to "const mongoose = require('mongoose');"
-import mongoose from "mongoose";
-import { Schema } from "mongoose";
+// import mongoose from "mongoose";
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
+// import { Schema } from "mongoose";
 
 const emailChannelSchema = new mongoose.Schema({
   user1: {
@@ -23,4 +25,6 @@ const emailChannelSchema = new mongoose.Schema({
 });
 
 // Using "export" is the same as using "module.exports"
-export const EmailChannel = mongoose.model("EmailChannel", emailChannelSchema);
+// export const EmailChannel = mongoose.model("EmailChannel", emailChannelSchema);
+
+module.exports = mongoose.model("EmailChannel", emailChannelSchema);

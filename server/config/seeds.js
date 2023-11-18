@@ -179,6 +179,239 @@ db.once('open', async () => {
     password: 'password12345'
   });
 
+await User.create(
+  {
+    firstName: 'John',
+    lastName: 'Doe',
+    username: 'johndoe',
+    email: 'johndoe@example.com',
+    password: 'password',
+    subscription: 'Free',
+    languages: [
+      {
+        language: 'JavaScript',
+        skill: 'Jedi Knight'
+      },
+      {
+        language: 'Python',
+        skill: 'Padawan'
+      }
+    ]
+  });
+
+  await User.create(
+    {
+      firstName: 'Jane',
+      lastName: 'Doe',
+      username: 'janedoe',
+      email: 'janedoe@example.com',
+      password: 'password',
+      subscription: 'Gold',
+      languages: [
+        {
+          language: 'Python',
+          skill: 'Jedi Knight'
+        },
+        {
+          language: 'JavaScript',
+          skill: 'Padawan'
+        }
+      ]
+    });
+
+    await User.create(
+      {
+        firstName: 'Bob',
+        lastName: 'Smith',
+        username: 'bobsmith',
+        email: 'bobsmith@example.com',
+        password: 'password',
+        subscription: 'Free',
+        languages: [
+          {
+            language: 'Java',
+            skill: 'Youngling'
+          },
+          {
+            language: 'C++',
+            skill: 'Padawan'
+          }
+        ]
+      }),
+
+      await User.create(
+        {
+          firstName: 'Alice',
+          lastName: 'Smith',
+          username: 'alicesmith',
+          email: 'alicesmith@example.com',
+          password: 'password',
+          subscription: 'Gold',
+          languages: [
+            {
+              language: 'Python',
+              skill: 'Jedi Master'
+            },
+            {
+              language: 'JavaScript',
+              skill: 'Padawan'
+            }
+          ]
+        }
+       );
+
+await User.create({
+  firstName: 'Bob',
+  lastName: 'Johnson',
+  username: 'bobjohnson',
+  email: 'bobjohnson@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    {
+      language: 'HTML',
+      skill: 'Youngling'
+    },
+    {
+      language: 'CSS',
+      skill: 'Jedi Knight'
+    }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Charlie',
+  lastName: 'Williams',
+  username: 'charliewilliams',
+  email: 'charliewilliams@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  languages: [
+    {
+      language: 'SQL',
+      skill: 'Padawan'
+    },
+    {
+      language: 'NoSQL',
+      skill: 'Jedi Knight'
+    }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Dave',
+  lastName: 'Brown',
+  username: 'davebrown',
+  email: 'davebrown@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    {
+      language: 'Python',
+      skill: 'Youngling'
+    },
+    {
+      language: 'Java',
+      skill: 'Padawan'
+    }
+  ]
+ });
+
+ await User.create({
+  firstName: 'Emma',
+  lastName: 'Williams',
+  username: 'emmawilliams',
+  email: 'emmawilliams@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    {
+      language: 'C#',
+      skill: 'Youngling'
+    },
+    {
+      language: 'TypeScript',
+      skill: 'Padawan'
+    }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Sam',
+  lastName: 'Johnson',
+  username: 'samjohnson',
+  email: 'samjohnson@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  languages: [
+    {
+      language: 'Rust',
+      skill: 'Jedi Knight'
+    },
+    {
+      language: 'Go',
+      skill: 'Padawan'
+    }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Sophia',
+  lastName: 'Brown',
+  username: 'sophiabrown',
+  email: 'sophiabrown@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    {
+      language: 'Swift',
+      skill: 'Youngling'
+    },
+    {
+      language: 'Kotlin',
+      skill: 'Padawan'
+    }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Oliver',
+  lastName: 'Davis',
+  username: 'oliverdavis',
+  email: 'oliverdavis@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  languages: [
+    {
+      language: 'Lua',
+      skill: 'Jedi Master'
+    },
+    {
+      language: 'Zsh',
+      skill: 'Padawan'
+    }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Isabella',
+  lastName: 'Miller',
+  username: 'isabellamiller',
+  email: 'isabellamiller@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    {
+      language: 'Bash',
+      skill: 'Youngling'
+    },
+    {
+      language: 'PowerShell',
+      skill: 'Padawan'
+    }
+  ]
+ });
+ 
   console.log('users seeded');
 
   process.exit();

@@ -7,12 +7,20 @@ const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+const cors = require('cors');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
+
+/* Socket.io */
+const http = require('http')
+const socketIo = require('socket.io')
+const httpServer = http.createServer(app)
+const io = socketIo(httpServer);
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {
@@ -23,6 +31,8 @@ const startApolloServer = async () => {
 
   // Serve up static assets
   app.use('/images', express.static(path.join(__dirname, '../client/images')));
+
+  app.use(cors());
 
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware
@@ -37,9 +47,10 @@ const startApolloServer = async () => {
   }
 
   db.once('open', () => {
-    app.listen(PORT, () => {
+    httpServer.listen(PORT, () => { /*changed app.listen to httpServer.listen*/
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+      console.log(`Socket.io server running on port ${PORT}`)
     });
   });
 };

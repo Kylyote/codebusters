@@ -53,6 +53,14 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
+      email
+     username
+     subscription
+     languages {
+       _id
+       language
+       skill
+     }
       orders {
         _id
         purchaseDate
@@ -67,4 +75,37 @@ export const QUERY_USER = gql`
       }
     }
   }
+`;
+
+export const GET_ALL_USERS = gql`
+ query GetAllUsers {
+   users {
+     _id
+     firstName
+     lastName
+     email
+     username
+     subscription
+     languages {
+       _id
+       language
+       skill
+     }
+     orders {
+       _id
+       purchaseDate
+       products {
+         _id
+         name
+         description
+         price
+         quantity
+         image
+         category {
+           _id
+         }
+       }
+     }
+   }
+ }
 `;

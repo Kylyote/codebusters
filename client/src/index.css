@@ -142,6 +142,15 @@ input:focus {
   margin-right: auto;
 }
 
+.gold-card {
+  background-color: goldenrod!important;
+}
+
+.lightgreen-card {
+  background-color: lightgreen !important;
+}
+
+
 .flex-row {
   display: flex;
   flex-wrap: wrap;
