@@ -36,7 +36,48 @@ const avatars = [
  const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
 
 
+/* Socket.io */
+import {useState, useEffect} from 'react'
+import {socket} from '../socket'
+import {ConnectionState} from '../components/ConnectionState'
+import {ConnectionManager} from '../components/ConnectionManager'
+import {Events} from '../components/Events'
+import {MyForm} from '../components/MyForm'
+/* End Socket.IO */
+
+
 const Profile = () => {
+    /* Socket.io state variables */
+const [isConnected, setIsConnected] = useState(socket.connected)
+const [fooEvents, setFooEvents] = useState([])
+
+/* socket io */
+useEffect(() => {
+    function onConnect() {
+      setIsConnected(true);
+    }
+   
+    function onDisconnect() {
+      setIsConnected(false);
+    }
+   
+    function onFooEvent(value) {
+      setFooEvents(previous => [...previous, value]);
+    }
+   
+    socket.on('connect', onConnect);
+    socket.on('disconnect', onDisconnect);
+    socket.on('foo', onFooEvent);
+   
+    return () => {
+      socket.off('connect', onConnect);
+      socket.off('disconnect', onDisconnect);
+      socket.off('foo', onFooEvent);
+    };
+   }, []);
+    /* end socket io */
+
+
     const { loading, error, data } = useQuery(QUERY_USER);
     console.log(data)
 
@@ -66,7 +107,18 @@ const Profile = () => {
                 <a href="https://github.com/user/project2">Project 2</a>
                 <a href="https://github.com/user/project3">Project 3</a>
             </div>
+            <div style={{ position: 'absolute', right: '0', border: '2px solid black', marginRight: '20px', marginBottom: '10px'}}>
+ <div style={{ backgroundColor: 'blue', color: 'white', padding: '10px' }}>
+   <h1>Messenger</h1>
+ </div>
+ <ConnectionState isConnected={ isConnected } />
+ <Events events={ fooEvents } />
+ <ConnectionManager />
+ <MyForm />
+</div>
         </div>
+        
+        
     )
  }
  
