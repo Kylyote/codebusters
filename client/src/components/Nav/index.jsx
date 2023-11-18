@@ -1,5 +1,6 @@
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import CB from "../../assets/img/codeBusters.png"
 
 function Nav() {
 
@@ -9,7 +10,7 @@ function Nav() {
         <ul className="flex-row">
           
           <li className="mx-1">
-            <Link to="/profile">
+            <Link to="/profile" style={{marginRight: '10px'}}>
               Dashboard
             </Link>
           </li>
@@ -23,19 +24,19 @@ function Nav() {
               Resume Builder
             </Link>
           </li> */}
-          <li className="mx-1">
-            <Link to="/services">
+          <li className="mx-1" >
+            <Link to="/services" style={{marginRight: '10px'}}>
               Services
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/home">
+            <Link to="/home" style={{marginRight: '10px'}}>
               Products
             </Link>
           </li>
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
+            <a href="/" onClick={() => Auth.logout()} style={{marginRight: '10px'}}>
               Logout
             </a>
           </li> 
@@ -76,12 +77,16 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="shopping bag">&#128123;</span>
-          Code Busters
-        </Link>
-      </h1>
+  <h1>
+ <Link to="/">
+   <span role="img" aria-label="shopping bag">
+   <img style={{ width: '50px', height: '50px',marginRight: '10px' }} src={CB} alt="shopping bag" />
+   </span>
+    Code Busters
+ </Link>
+</h1>
+
+
 
       <nav>
         {showNavigation()}

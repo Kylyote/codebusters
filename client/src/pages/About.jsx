@@ -1,6 +1,11 @@
 const About = () => {
   return (
     <div>
+
+<h1 style={{textAlign: 'center', fontSize: '40px', color: 'green'}}><strong>We aint afraid of no Code</strong></h1>
+<br></br>
+
+
       <h1 style={{textAlign: 'center'}}>Who We Are</h1>
       <p style={{ marginLeft: '30px' }}> Code Buster is more than just a web development company. We're a comprehensive platform that caters to all your web development needs, providing a one-stop solution for everything you need in the digital realm.</p>
       <h2 style={{textAlign: 'center'}}>Hardware Shopping</h2>
