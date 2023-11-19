@@ -21,8 +21,6 @@ const messageChannelSchema = new mongoose.Schema({
   ],
 });
 
-// Using "export" is the same as using "module.exports"
-export const MessageChannel = mongoose.model(
-  "MessageChannel",
-  messageChannelSchema
-);
+const MessageChannel = mongoose.model("MessageChannel", messageChannelSchema);
+
+module.exports = MessageChannel;

@@ -20,5 +20,6 @@ const messageSchema = new mongoose.Schema({
   },
 });
 
-// Using "export" is the same as using "module.exports"
-export const Message = mongoose.model("Message", messageSchema);
+const Message = mongoose.model("Message", messageSchema);
+
+module.exports = Message;

@@ -21,5 +21,6 @@ const emailChannelSchema = new mongoose.Schema({
   ],
 });
 
-// Using "export" is the same as using "module.exports"
-export const EmailChannel = mongoose.model("EmailChannel", emailChannelSchema);
+const EmailChannel = mongoose.model("EmailChannel", emailChannelSchema);
+
+module.exports = EmailChannel;
