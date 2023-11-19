@@ -1,6 +1,5 @@
-// This is the ES6 way of importing modules. It's equivalent to "const mongoose = require('mongoose');"
-import mongoose from "mongoose";
-import { Schema } from "mongoose";
+const mongoose = require("mongoose");
+const { Schema } = require("mongoose");
 
 const messageSchema = new mongoose.Schema({
   sender: {
