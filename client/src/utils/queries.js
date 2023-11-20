@@ -61,6 +61,11 @@ export const QUERY_USER = gql`
        language
        skill
      }
+     services {
+        _id
+        service
+        skill
+      }
       orders {
         _id
         purchaseDate
@@ -91,6 +96,11 @@ export const GET_ALL_USERS = gql`
        language
        skill
      }
+     services {
+        _id
+        service
+        skill
+      }
      orders {
        _id
        purchaseDate

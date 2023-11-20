@@ -2,6 +2,8 @@ import React from 'react';
 import {useLocation} from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_USERS } from '../utils/queries';
+import {QUERY_USER} from '../utils/queries';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import avatar1 from '../assets/img/avatar_png_files/avatar_1.png';
 import avatar2 from '../assets/img/avatar_png_files/avatar_2.png';
@@ -42,18 +44,22 @@ import {Container, Row, Col} from 'react-bootstrap';
 
 
 const SearchResults = () => {
+  
   /* retrieve search state from Search.jsx */
   const location = useLocation();
-  const { service, experience, languages } = location.state;
+  const {services, language, skill} = location.state;
   /* end search state retrieval */
-  
- const { loading, error, data } = useQuery(GET_ALL_USERS);
+  console.log(services, language, skill, "search state SearchResults.jsx line 51")
+ const { loading, error, data } = useQuery(GET_ALL_USERS,
+   {
+   variables: { service: services, language: language, skill: skill },
+ })
 
- 
- 
+console.log(data, "data SearchResults.jsx line 57");
+
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
-
+ 
  /* 
   * Sort users by subscription level
   * Gold -> Free -> null
@@ -65,82 +71,90 @@ const SearchResults = () => {
  const sortedUsers = [...goldUsers, ...freeUsers, ...nullUsers];
 console.log(sortedUsers);
 /* filter users based on search state  this filtering logic will have to be evaluated futher to return correctly from properies of user*/
-const filteredUsers = sortedUsers.filter(user => 
-  user.service === service && 
-  user.experience === experience && 
-  Array.isArray(user.languages) && 
-  user.languages.some(lang => Array.isArray(languages) ? languages.includes(lang.language) : lang.language === languages)
- );
+const filteredUsers = sortedUsers.filter(user =>
+  user.services.some(service => service.service === services) &&
+  user.services.some(service => service.service.skill === skill) &&
+  user.languages.some(lang => Array.isArray(language) ? language.includes(lang.language) : lang.language === language)
+  );
  
  /* end filter users based on search state */
+ 
 console.log(filteredUsers);
- return (
-   <Container>
-     <h1>Search Results:</h1>
-     <Row>
 
-      {/* if filtered Users return empty then sortedUsers data populate */}
-{
- filteredUsers.length > 0 ? (
-   filteredUsers.map((user) => {
-     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-     return (
-       <Col sm={4} key={user._id}>
-         <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
-           <Card.Img variant="top" src={randomAvatar} />
-           <Card.Body>
-             <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
-             <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
-             <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
-             <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-             <Card.Text>
-               <strong>Languages: </strong>
-               <br></br>
-               {user.languages && user.languages.map((language, index) => (
-                <span key={index}>
-                  <i>{language.language}</i>
-                  <strong> - Rank: </strong>
-                  {language.skill}
-                  <br></br>
-                </span>
-               ))}
-             </Card.Text>
-           </Card.Body>
-         </Card>
-       </Col>
-     );
-   })
- ) : (
-   sortedUsers.map((user) => {
-     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-     return (
-       <Col sm={4} key={user._id}>
-        <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
-           <Card.Img variant="top" src={randomAvatar} />
-           <Card.Body>
-             <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
-             <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
-             <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
-             <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-             <Card.Text>
-               <strong>Languages: </strong>
-               <br></br>
-               {user.languages && user.languages.map((language, index) => (
-                <span key={index}>
-                  <i>{language.language}</i>
-                  <strong> - Rank: </strong>
-                  {language.skill}
-                  <br></br>
-                </span>
-               ))}
-             </Card.Text>
-           </Card.Body>
-         </Card>
-       </Col>
-     );
-   })
- )
-}
+return (
+ <Container>
+   <h1>Search Results:</h1>
+   <Row>
+
+    {/* if filtered Users return empty then sortedUsers data populate */}
+     {
+       filteredUsers.length > 0 ? (
+         filteredUsers.map((user) => {
+           const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+           return (
+             <Col sm={4} key={user._id}>
+               <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
+                <Link to={`/profile/${user._id}`}>
+                  <Card.Img variant="top" src={randomAvatar} />
+                </Link>
+                <Card.Body>
+                  <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
+                  <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
+                  <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
+                  <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
+                  <Card.Text>
+                    <strong>Languages: </strong>
+                    <br></br>
+                    {user.languages && user.languages.map((language, index) => (
+                      <span key={index}>
+                        <i>{language.language}</i>
+                        <strong> - Rank: </strong>
+                        {language.skill}
+                        <br></br>
+                      </span>
+                    ))}
+                  </Card.Text>
+                </Card.Body>
+               </Card>
+             </Col>
+           );
+         })
+       ) : (
+         sortedUsers.map((user) => {
+           const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+           return (
+             <Col sm={4} key={user._id}>
+               <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
+                <Link to={`/profile/${user._id}`}>
+                  <Card.Img variant="top" src={randomAvatar} />
+                </Link>
+                <Card.Body>
+                  <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
+                  <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
+                  <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
+                  <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
+                  <Card.Text>
+                    <strong>Languages: </strong>
+                    <br></br>
+                    {user.languages && user.languages.map((language, index) => (
+                      <span key={index}>
+                        <i>{language.language}</i>
+                        <strong> - Rank: </strong>
+                        {language.skill}
+                        <br></br>
+                      </span>
+                    ))}
+                  </Card.Text>
+                </Card.Body>
+               </Card>
+             </Col>
+           );
+         })
+       )
+     }
+   </Row>
+ </Container>
+);
 
 
 
@@ -149,9 +163,6 @@ console.log(filteredUsers);
 
 
 
-     </Row>
-   </Container>
-  );
 };
  
 export default SearchResults;

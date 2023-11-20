@@ -5,26 +5,25 @@ const Search = () => {
  const navigate = useNavigate()
 
  /* search component state */
-const [service, setService] = useState('');
-const [experience, setExperience] = useState('');
-const [languages, setLanguages] = useState('');
+const [services, setService] = useState('');
+const [skill, setSkill] = useState('');
+const [language, setLanguage] = useState('');
 /* end search component state */
 
- const handleSubmit = (event) => {
-   event.preventDefault()
+const handleSubmit = (event) => {
+  event.preventDefault()
+  console.log(services, language, skill, "search state Search.jsx line 16")
+  /* navigate to SearchResults.jsx with search state */
+  navigate('/results', {state: {services: event.target.services.value, language: event.target.language.value, skill: event.target.skill.value}})
+}
 
-   console.log(service, experience, languages, "search state Search.jsx line 16")
-
-   /* passes search state to results page */
-   navigate('/results', {state: {service, experience, languages}})
- }
   return(
       <div>
           <br></br>
           <form onSubmit={handleSubmit}>
               <div className="form-group">
-                 <label htmlFor="service">Service Desired</label>
-                 <select className="form-control" id="service" defaultValue=""onChange={(e) => setService(e.target.value)}>
+                 <label htmlFor="services"><strong>Service Desired</strong></label>
+                 <select className="form-control" id="services" defaultValue=""onChange={(e) => setService(e.target.value)}>
                   {/* onChange  updates the stat of the form based on inputs  */}
                    <option value="" disabled>Help Needed</option>
                    <option>Tutoring</option>
@@ -34,21 +33,8 @@ const [languages, setLanguages] = useState('');
               </div>
               <br></br>
               <div className="form-group">
-                 <label htmlFor="experience">Years of Experience</label>
-                 <select className="form-control" id="experience" defaultValue=""onChange={(e) => setExperience(e.target.value)}> 
-                 {/* onChange  updates the stat of the form based on inputs  */}
-                   <option value="" disabled>Experience Level</option>
-                   <option>Youngling</option>
-                   <option>Padawan</option>
-                   <option>Jedi Knight</option>
-                   <option>Jedi Master</option>
-                   <option>Jedi Council</option>
-                 </select>
-              </div>
-              <br></br>
-              <div className="form-group">
-                 <label htmlFor="languages">Coding Languages Known</label>
-                 <select className="form-control" id="languages" defaultValue=""onChange={(e) => setLanguages(e.target.value)}>
+                 <label htmlFor="language"><strong>Desired Coding Language</strong></label>
+                 <select className="form-control" id="language" defaultValue=""onChange={(e) => setLanguage(e.target.value)}>
                   {/* onChange  updates the stat of the form based on inputs  */}
                    <option value="" disabled>Language</option>
                    <option>JavaScript</option>
@@ -56,6 +42,19 @@ const [languages, setLanguages] = useState('');
                    <option>Java</option>
                    <option>C++</option>
                    <option>C#</option>
+                 </select>
+              </div>
+              <br></br>
+              <div className="form-group">
+                 <label htmlFor="skill"><strong>Skill Level Desired</strong></label>
+                 <select className="form-control" id="skill" defaultValue=""onChange={(e) => setSkill(e.target.value)}> 
+                 {/* onChange  updates the stat of the form based on inputs  */}
+                   <option value="" disabled>Experience Level</option>
+                   <option>Youngling</option>
+                   <option>Padawan</option>
+                   <option>Jedi Knight</option>
+                   <option>Jedi Master</option>
+                   <option>Jedi Council</option>
                  </select>
               </div>
               <br></br>
