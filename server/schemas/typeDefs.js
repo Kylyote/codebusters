@@ -26,6 +26,12 @@ const typeDefs = `
     skill: String
   }
 
+  type Service {
+    _id: ID
+    service: String
+    skill: String
+  }
+
   type User {
     _id: ID
     firstName: String
@@ -35,6 +41,7 @@ const typeDefs = `
     subscription: String
     languages: [Language]
     orders: [Order]
+    services: [Service]
   }
 
   type Checkout {

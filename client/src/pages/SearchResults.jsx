@@ -44,16 +44,22 @@ import {Container, Row, Col} from 'react-bootstrap';
 
 
 const SearchResults = () => {
+  
   /* retrieve search state from Search.jsx */
   const location = useLocation();
-  const { service, experience, languages } = location.state;
+  const {services, language, skill} = location.state;
   /* end search state retrieval */
-  
- const { loading, error, data } = useQuery(GET_ALL_USERS);
+  console.log(services, language, skill, "search state SearchResults.jsx line 51")
+ const { loading, error, data } = useQuery(GET_ALL_USERS,
+   {
+   variables: { service: services, language: language, skill: skill },
+ })
+
+console.log(data, "data SearchResults.jsx line 57");
 
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
-
+ 
  /* 
   * Sort users by subscription level
   * Gold -> Free -> null
@@ -66,10 +72,10 @@ const SearchResults = () => {
 console.log(sortedUsers);
 /* filter users based on search state  this filtering logic will have to be evaluated futher to return correctly from properies of user*/
 const filteredUsers = sortedUsers.filter(user => 
-  user.services.service === service && 
-  user.services.skill === experience && 
+  user.services === services && 
+  user.service.skill === skill && 
   Array.isArray(user.languages) && 
-  user.languages.some(lang => Array.isArray(languages) ? languages.includes(lang.language) : lang.language === languages)
+  user.languages.some(lang => Array.isArray(language) ? language.includes(lang.language) : lang.language === language)
  );
  
  /* end filter users based on search state */
