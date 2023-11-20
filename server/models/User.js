@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 const Order = require("./Order");
@@ -25,6 +24,10 @@ const userSchema = new Schema({
     unique: true,
     minlength: 6,
     maxlength: 20,
+  },
+  image: {
+    type: String,
+    required: false,
   },
   email: {
     type: String,
