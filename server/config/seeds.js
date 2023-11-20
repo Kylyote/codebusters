@@ -207,6 +207,17 @@ await User.create(
       email: 'janedoe@example.com',
       password: 'password',
       subscription: 'Gold',
+      services: [
+        {
+          service: 'Websie Building',
+          skill: 'Jedi Master'
+        },
+        {
+          service: 'Tutoring',
+          skill: 'Padawan'
+        }
+      ],
+
       languages: [
         {
           language: 'Python',
@@ -227,6 +238,16 @@ await User.create(
         email: 'bobsmith@example.com',
         password: 'password',
         subscription: 'Free',
+        servies: [
+          {
+            service: 'Website Building',
+            skill: 'Youngling'
+          },
+          {
+            service: 'Code Review',
+            skill: 'Padawan'
+          }
+        ],
         languages: [
           {
             language: 'Java',
@@ -247,6 +268,16 @@ await User.create(
           email: 'alicesmith@example.com',
           password: 'password',
           subscription: 'Gold',
+          services: [
+            {
+              service: 'Website Building',
+              skill: 'Jedi Knight'
+            },
+            {
+              service: 'Code Review',
+              skill: 'Padawan'
+            }
+          ],
           languages: [
             {
               language: 'Python',
@@ -267,6 +298,12 @@ await User.create({
   email: 'bobjohnson@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    { service: 'Website Building',
+     skill: 'Youngling' },
+    { service: 'Code Review',
+      skill: 'Padawan' }
+  ],
   languages: [
     {
       language: 'HTML',
@@ -286,6 +323,16 @@ await User.create({
   email: 'charliewilliams@example.com',
   password: 'password',
   subscription: 'Gold',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Jedi Master'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'SQL',
@@ -305,6 +352,16 @@ await User.create({
   email: 'davebrown@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Tutoring',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Python',
@@ -324,6 +381,16 @@ await User.create({
   email: 'emmawilliams@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Tutoring',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'C#',
@@ -343,6 +410,16 @@ await User.create({
   email: 'samjohnson@example.com',
   password: 'password',
   subscription: 'Gold',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Jedi Knight'
+    },
+    {
+      service: 'Tutoring',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Rust',
@@ -362,6 +439,16 @@ await User.create({
   email: 'sophiabrown@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Swift',
@@ -381,6 +468,16 @@ await User.create({
   email: 'oliverdavis@example.com',
   password: 'password',
   subscription: 'Gold',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Jedi Knight'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Lua',
@@ -400,6 +497,16 @@ await User.create({
   email: 'isabellamiller@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Bash',

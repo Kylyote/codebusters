@@ -42,6 +42,7 @@ const userSchema = new Schema({
     default: "Free",
     required: true,
   },
+  services: [Service.schema],
   languages: [Language.schema],
   orders: [Order.schema],
   messages: [MessageChannel.schema],

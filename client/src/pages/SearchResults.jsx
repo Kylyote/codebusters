@@ -66,8 +66,8 @@ const SearchResults = () => {
 console.log(sortedUsers);
 /* filter users based on search state  this filtering logic will have to be evaluated futher to return correctly from properies of user*/
 const filteredUsers = sortedUsers.filter(user => 
-  user.service === service && 
-  user.experience === experience && 
+  user.services.service === service && 
+  user.services.skill === experience && 
   Array.isArray(user.languages) && 
   user.languages.some(lang => Array.isArray(languages) ? languages.includes(lang.language) : lang.language === languages)
  );
