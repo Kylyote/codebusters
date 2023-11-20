@@ -209,7 +209,7 @@ await User.create(
       subscription: 'Gold',
       services: [
         {
-          service: 'Websie Building',
+          service: 'Website Building',
           skill: 'Jedi Master'
         },
         {

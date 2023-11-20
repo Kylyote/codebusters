@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const serviceSchema = new Schema({
-    Services: {
+  service: {
     type: String,
     enum: ["Tutoring", "Website Building", "Code Review"],
 },
