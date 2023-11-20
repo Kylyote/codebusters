@@ -50,4 +50,15 @@ export const ADD_USER = gql`
   }
 `;
 
+export const UPDATE_USER = gql`
+mutation updateUser($id: ID!, $firstName: String, $lastName: String, $email: String, $skills: String) {
+  updateUser(id: $id, firstName: $firstName, lastName: $lastName, email: $email) {
+    _id
+    firstName
+    lastName
+    email
+  }
+ }
+`;
+ 
 

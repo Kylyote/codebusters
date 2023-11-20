@@ -77,8 +77,9 @@ const router = createBrowserRouter([
         path: '/home',
         element: <Home />
       },
+      { path: '/profile/:id', 
+      element: <Profile /> },
 
-  
       {
         path: '*',
         element: <NoMatch />
