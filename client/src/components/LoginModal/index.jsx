@@ -7,7 +7,9 @@ function Main() {
 
     return (
         <div>
-            <button onClick={() => setShowModal(true)}>Login</button>
+            <button onClick={() => {
+                console.log(showModal)
+                setShowModal(true)}}>Login</button>
 
             {showModal && (
                 <Modal>
