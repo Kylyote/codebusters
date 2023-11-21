@@ -87,71 +87,42 @@ return (
    <Row>
 
     {/* if filtered Users return empty then sortedUsers data populate */}
-     {
-       filteredUsers.length > 0 ? (
-         filteredUsers.map((user) => {
-           const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-           return (
-             <Col sm={4} key={user._id}>
-               <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
-                <Link to={`/profile/${user._id}`}>
-                  <Card.Img variant="top" src={randomAvatar} />
-                </Link>
-                <Card.Body>
-                  <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
-                  <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
-                  <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
-                  <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-                  <Card.Text>
-                    <strong>Languages: </strong>
-                    <br></br>
-                    {user.languages && user.languages.map((language, index) => (
-                      <span key={index}>
-                        <i>{language.language}</i>
-                        <strong> - Rank: </strong>
-                        {language.skill}
-                        <br></br>
-                      </span>
-                    ))}
-                  </Card.Text>
-                </Card.Body>
-               </Card>
-             </Col>
-           );
-         })
-       ) : (
-         sortedUsers.map((user) => {
-           const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-           return (
-             <Col sm={4} key={user._id}>
-               <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
-                <Link to={`/profile/${user._id}`}>
-                  <Card.Img variant="top" src={randomAvatar} />
-                </Link>
-                <Card.Body>
-                  <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
-                  <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
-                  <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
-                  <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-                  <Card.Text>
-                    <strong>Languages: </strong>
-                    <br></br>
-                    {user.languages && user.languages.map((language, index) => (
-                      <span key={index}>
-                        <i>{language.language}</i>
-                        <strong> - Rank: </strong>
-                        {language.skill}
-                        <br></br>
-                      </span>
-                    ))}
-                  </Card.Text>
-                </Card.Body>
-               </Card>
-             </Col>
-           );
-         })
-       )
-     }
+    {
+ filteredUsers.length > 0 ? (
+   filteredUsers.map((user) => {
+     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+     return (
+       <Col sm={4} key={user._id}>
+         <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
+           <Link to={`/profile/${user._id}`}>
+             <Card.Img variant="top" src={randomAvatar} />
+           </Link>
+           <Card.Body>
+             <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
+             <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
+             <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
+             <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
+             <Card.Text>
+               <strong>Languages: </strong>
+               <br></br>
+               {user.languages && user.languages.map((language, index) => (
+                <span key={index}>
+                  <i>{language.language}</i>
+                  <strong> - Rank: </strong>
+                  {language.skill}
+                  <br></br>
+                </span>
+               ))}
+             </Card.Text>
+           </Card.Body>
+         </Card>
+       </Col>
+     );
+   })
+ ) : (
+   <p>No users available that match your requests.</p>
+ )
+}
    </Row>
  </Container>
 );
