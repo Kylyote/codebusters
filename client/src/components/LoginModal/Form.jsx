@@ -46,12 +46,13 @@ function Form() {
     };
 
     return (
+        <>
+        <div className='overlay'></div>
         <div className='modal-content'>
             {isLogin ? (
                 <>
                 <div>
                     <h2 className='modal-header'>Login</h2>
-                    <hr />
                     <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}} onSubmit={handleLoginSubmit}>
                         <div className='modal-form'>
                             <label htmlFor="email">Email:</label>
@@ -88,7 +89,7 @@ function Form() {
                 <div>
                     <h2 className='modal-header'>Signup</h2>
                     <hr />
-                    <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}} onSubmit={handleSignupSubmit}>
+                    <form onSubmit={handleSignupSubmit}>
                         <div className='modal-form'>
                             <label htmlFor="firstName">First Name:</label>
                             <input 
@@ -142,6 +143,7 @@ function Form() {
                 </>
             )}
         </div>
+        </>
     )
 }
 

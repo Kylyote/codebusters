@@ -52,16 +52,6 @@ function Nav() {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/signup" style={{marginRight: '10px'}}>
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1" >
-            <Link to="/login" style={{marginRight: '10px'}}>
-              Login
-            </Link>
-          </li>
-          <li className="mx-1">
             <Link to="/resume" style={{marginRight: '10px'}}>
               Resume Builder
             </Link>

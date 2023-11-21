@@ -1,12 +1,12 @@
-.modal {
+.custom-modal {
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 11;
     background-color: white;
-    max-height: fit-content;
+    height: max-content;
     width: 400px;
-    position: absolute;
+    position: fixed;
     top: 30%;
     left: 35%;  
     border-radius: 15px;
@@ -15,6 +15,7 @@
 }
 
 .modal-content {
+    z-index: 11;
     margin-top: 15px;
     display: flex;
     flex-direction: column;
@@ -28,15 +29,17 @@
 }
 
 .modal-header {
-    color: green
+    color: green;
+    margin-left: 1rem;
 }
 
 .modal-cancel {
+    z-index: 12;
     color: #aaaaaa;
     background: none;
+    border: solid 2px black;
     font-size: 20px;
     text-decoration: none;
-    padding: 10px;
     position: absolute;
     right: 7px;
     top: 5px;
@@ -59,3 +62,14 @@
     display: flex;
     width: 300px;
 }
+
+.overlay {
+    z-index: 9;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background-color:#000;
+    opacity:0.5;
+  }
