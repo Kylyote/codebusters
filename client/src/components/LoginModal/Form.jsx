@@ -4,7 +4,7 @@ import Auth from '../../utils/auth';
 import { ADD_USER, LOGIN } from '../../utils/mutations';
 
 function showPassword() {
-    var x = document.getElementById('showPassword').type
+    var x = document.getElementById('showPassword')
     if (x.type === 'password') {
         x.type = 'text';
     } else {
@@ -85,7 +85,7 @@ function Form() {
                             </div>
                             <div>
                                 <label htmlFor="showPassword">Show Password</label>
-                                <input type="checkbox" onclick={showPassword} />
+                                <input type="checkbox" onClick={showPassword} />
                             </div>
                             {error ? (
                                 <div className='error-text-div'>
