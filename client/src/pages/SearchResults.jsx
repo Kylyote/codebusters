@@ -69,17 +69,17 @@ console.log(data, "data SearchResults.jsx line 57");
  const nullUsers = data.users.filter(user => user.subscription === null);
 
  const sortedUsers = [...goldUsers, ...freeUsers, ...nullUsers];
-console.log(sortedUsers);
+console.log(sortedUsers, " Sorted Users SearchResults.jsx line 72")
 /* filter users based on search state  this filtering logic will have to be evaluated futher to return correctly from properies of user*/
 const filteredUsers = sortedUsers.filter(user =>
   user.services.some(service => service.service === services) &&
-  user.services.some(service => service.service.skill === skill) &&
+  user.services.some(service => service.skill === skill) &&
   user.languages.some(lang => Array.isArray(language) ? language.includes(lang.language) : lang.language === language)
   );
  
  /* end filter users based on search state */
  
-console.log(filteredUsers);
+console.log(filteredUsers, "filtered users SearchResults.jsx line 82");
 
 return (
  <Container>
@@ -87,71 +87,42 @@ return (
    <Row>
 
     {/* if filtered Users return empty then sortedUsers data populate */}
-     {
-       filteredUsers.length > 0 ? (
-         filteredUsers.map((user) => {
-           const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-           return (
-             <Col sm={4} key={user._id}>
-               <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
-                <Link to={`/profile/${user._id}`}>
-                  <Card.Img variant="top" src={randomAvatar} />
-                </Link>
-                <Card.Body>
-                  <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
-                  <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
-                  <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
-                  <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-                  <Card.Text>
-                    <strong>Languages: </strong>
-                    <br></br>
-                    {user.languages && user.languages.map((language, index) => (
-                      <span key={index}>
-                        <i>{language.language}</i>
-                        <strong> - Rank: </strong>
-                        {language.skill}
-                        <br></br>
-                      </span>
-                    ))}
-                  </Card.Text>
-                </Card.Body>
-               </Card>
-             </Col>
-           );
-         })
-       ) : (
-         sortedUsers.map((user) => {
-           const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-           return (
-             <Col sm={4} key={user._id}>
-               <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
-                <Link to={`/profile/${user._id}`}>
-                  <Card.Img variant="top" src={randomAvatar} />
-                </Link>
-                <Card.Body>
-                  <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
-                  <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
-                  <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
-                  <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-                  <Card.Text>
-                    <strong>Languages: </strong>
-                    <br></br>
-                    {user.languages && user.languages.map((language, index) => (
-                      <span key={index}>
-                        <i>{language.language}</i>
-                        <strong> - Rank: </strong>
-                        {language.skill}
-                        <br></br>
-                      </span>
-                    ))}
-                  </Card.Text>
-                </Card.Body>
-               </Card>
-             </Col>
-           );
-         })
-       )
-     }
+    {
+ filteredUsers.length > 0 ? (
+   filteredUsers.map((user) => {
+     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+     return (
+       <Col sm={4} key={user._id}>
+         <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
+           <Link to={`/profile/${user._id}`}>
+             <Card.Img variant="top" src={randomAvatar} />
+           </Link>
+           <Card.Body>
+             <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
+             <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
+             <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
+             <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
+             <Card.Text>
+               <strong>Languages: </strong>
+               <br></br>
+               {user.languages && user.languages.map((language, index) => (
+                <span key={index}>
+                  <i>{language.language}</i>
+                  <strong> - Rank: </strong>
+                  {language.skill}
+                  <br></br>
+                </span>
+               ))}
+             </Card.Text>
+           </Card.Body>
+         </Card>
+       </Col>
+     );
+   })
+ ) : (
+   <p>No users available that match your requests.</p>
+ )
+}
    </Row>
  </Container>
 );
