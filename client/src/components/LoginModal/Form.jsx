@@ -3,6 +3,15 @@ import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { ADD_USER, LOGIN } from '../../utils/mutations';
 
+function showPassword() {
+    var x = document.getElementById('showPassword').type
+    if (x.type === 'password') {
+        x.type = 'text';
+    } else {
+        x.type = 'password'
+    }
+}
+
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
     const [form, setForm] = useState({email: '', password: ''});
@@ -69,9 +78,14 @@ function Form() {
                             <input
                                 name='password'
                                 type='password'
-                                id='password'
+                                id='showPassword'
                                 placeholder='Password'
-                                onChange={handleInputChange} />
+                                onChange={handleInputChange}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="showPassword">Show Password</label>
+                                <input type="checkbox" onclick={showPassword} />
                             </div>
                             {error ? (
                                 <div className='error-text-div'>
