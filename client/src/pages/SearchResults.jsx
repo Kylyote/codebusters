@@ -69,17 +69,17 @@ console.log(data, "data SearchResults.jsx line 57");
  const nullUsers = data.users.filter(user => user.subscription === null);
 
  const sortedUsers = [...goldUsers, ...freeUsers, ...nullUsers];
-console.log(sortedUsers);
+console.log(sortedUsers, " Sorted Users SearchResults.jsx line 72")
 /* filter users based on search state  this filtering logic will have to be evaluated futher to return correctly from properies of user*/
 const filteredUsers = sortedUsers.filter(user =>
   user.services.some(service => service.service === services) &&
-  user.services.some(service => service.service.skill === skill) &&
+  user.services.some(service => service.skill === skill) &&
   user.languages.some(lang => Array.isArray(language) ? language.includes(lang.language) : lang.language === language)
   );
  
  /* end filter users based on search state */
  
-console.log(filteredUsers);
+console.log(filteredUsers, "filtered users SearchResults.jsx line 82");
 
 return (
  <Container>
