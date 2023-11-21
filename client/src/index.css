@@ -234,6 +234,15 @@ input:focus {
   transition: transform 0.3s ease-in-out;
  }
 
+ .grow-on-hover { 
+  transition: all .2s ease-in-out; 
+}
+.grow-on-hover:hover { 
+  transform: scale(1.1); 
+}
+
+
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
