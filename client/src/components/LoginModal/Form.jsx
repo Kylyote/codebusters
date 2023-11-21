@@ -45,15 +45,16 @@ function Form() {
         Auth.login(token);
     };
 
+    
     return (
         <>
-        <div className='overlay'></div>
         <div className='modal-content'>
             {isLogin ? (
                 <>
+                <h2 className='modal-header'>Login</h2>
+                <hr />
                 <div>
-                    <h2 className='modal-header'>Login</h2>
-                    <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}} onSubmit={handleLoginSubmit}>
+                    <form className='modal-form-main' onSubmit={handleLoginSubmit}>
                         <div className='modal-form'>
                             <label htmlFor="email">Email:</label>
                             <input
@@ -77,19 +78,17 @@ function Form() {
                                   <p className="error-text">The provided credentials are incorrect</p>
                                 </div>
                             ) : null}
-                        <button type='submit'>Login</button>
+                        <button className='form-submit' type='submit'>Login</button>
                     </form>
                 </div>
-                <div>
-                    <button className='form-change' onClick={() => setIsLogin(false)}>Don't have an account? Signup here!</button>
-                </div>
+                <button className='form-change' onClick={() => setIsLogin(false)}>Don't have an account? Signup here!</button>
                 </>
             ) : (
                 <>
+                <h2 className='modal-header'>Signup</h2>
+                <hr />
                 <div>
-                    <h2 className='modal-header'>Signup</h2>
-                    <hr />
-                    <form onSubmit={handleSignupSubmit}>
+                    <form className='modal-form-main' onSubmit={handleSignupSubmit}>
                         <div className='modal-form'>
                             <label htmlFor="firstName">First Name:</label>
                             <input 
@@ -135,8 +134,12 @@ function Form() {
                                 placeholder='Password'
                                 onChange={handleInputChange} />
                         </div>
-                        
-                        <button type='submit'>Signup</button>
+                        {error ? (
+                                <div className='error-text-div'>
+                                  <p className="error-text">Please Fill out every field</p>
+                                </div>
+                            ) : null}
+                        <button className='form-submit' type='submit'>Signup</button>
                     </form>
                 </div>
                 <button className='form-change' onClick={() => setIsLogin(true)}>Already have an account? Login here</button>

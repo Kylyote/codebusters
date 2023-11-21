@@ -6,16 +6,17 @@ function Main() {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <div>
-            <button onClick={() => setShowModal(true)}>Login</button>
-
-            {showModal && (
-                <Modal>
-                    <button className='modal-cancel non-btn' onClick={() => setShowModal(false)}>X</button>
-                    <Form />
-                </Modal>
-            )}
-        </div>
+            <>
+                <div>
+                    <button onClick={() => setShowModal(true)}>Login</button>
+                    {showModal && (
+                        <Modal>
+                            <button className='modal-cancel non-btn' onClick={() => setShowModal(false)}>X</button>
+                            <Form />
+                        </Modal>
+                    )}
+                </div>
+            </>
     )
 };
 

@@ -1,9 +1,19 @@
+.overlay {
+    z-index: 9;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background-color:#000;
+    opacity:0.5;
+  }
+
 .custom-modal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 11;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     height: max-content;
     width: 400px;
     position: fixed;
@@ -19,6 +29,13 @@
     margin-top: 15px;
     display: flex;
     flex-direction: column;
+}
+
+.modal-form-main{
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    margin-left: 1rem;
 }
 
 .modal-form {
@@ -63,13 +80,6 @@
     width: 300px;
 }
 
-.overlay {
-    z-index: 9;
-    position:fixed;
-    left:0;
-    top:0;
-    width:100vw;
-    height:100vh;
-    background-color:#000;
-    opacity:0.5;
-  }
+.form-submit {
+    margin: 1rem;
+}
