@@ -1,6 +1,7 @@
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import CB from "../../assets/img/codeBusters.png"
+import Main from '../LoginModal'
 
 function Nav() {
 
@@ -51,24 +52,17 @@ function Nav() {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/resume">
+            <Link to="/resume" style={{marginRight: '10px'}}>
               Resume Builder
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/services">
+            <Link to="/services" style={{marginRight: '10px'}}>
               Services
             </Link>
+          </li>
+          <li className="mx-1">
+            <Main />
           </li>
         </ul>
       );

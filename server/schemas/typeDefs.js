@@ -26,6 +26,12 @@ const typeDefs = `
     skill: String
   }
 
+  type Service {
+    _id: ID
+    service: String
+    skill: String
+  }
+
   type User {
     _id: ID
     firstName: String
@@ -35,6 +41,7 @@ const typeDefs = `
     subscription: String
     languages: [Language]
     orders: [Order]
+    services: [Service]
   }
 
   type Checkout {
@@ -59,7 +66,7 @@ const typeDefs = `
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateUser(_id:ID firstName: String, lastName: String, email: String,skills: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }

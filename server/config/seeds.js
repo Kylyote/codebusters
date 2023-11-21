@@ -23,7 +23,7 @@ db.once('open', async () => {
         name: 'Intel Core i7 Processor',
         description:
           'High-performance processor for demanding applications.',
-        image: 'computer.png',
+        image: 'ICP.jpeg',
         category: categories[0]._id,
         price: 399.99,
         quantity: 100
@@ -32,7 +32,7 @@ db.once('open', async () => {
         name: '16GB DDR4 RAM',
         description:
           'High-speed memory for smooth multitasking.',
-        image: 'computer.png',
+        image: '3.jpeg',
         category: categories[0]._id,
         price: 149.99,
         quantity: 200
@@ -42,7 +42,7 @@ db.once('open', async () => {
         category: categories[1]._id,
         description:
           'Fast solid-state drive for quick data access.',
-        image: 'computer.png',
+        image: '256GB.png',
         price: 129.99,
         quantity: 50
       },
@@ -51,7 +51,7 @@ db.once('open', async () => {
         category: categories[1]._id,
         description:
           'Powerful graphics card for gaming and 3D rendering.',
-        image: 'computer.png',
+        image: '4.jpeg',
         price: 699.99,
         quantity: 20
       },
@@ -60,7 +60,7 @@ db.once('open', async () => {
         category: categories[1]._id,
         description:
           'High-performance laptop for professional use.',
-        image: 'computer.png',
+        image: '5.jpeg',
         price: 1299.99,
         quantity: 30
       },
@@ -69,7 +69,7 @@ db.once('open', async () => {
         category: categories[2]._id,
         description:
           'High-quality motherboard for building custom PCs.',
-        image: 'computer.png',
+        image: '6.jpeg',
         price: 449.99,
         quantity: 10
       },
@@ -78,7 +78,7 @@ db.once('open', async () => {
         category: categories[2]._id,
         description:
           'High-capacity power supply for power-hungry systems.',
-        image: 'computer.png',
+        image: '7.jpeg',
         price: 199.99,
         quantity: 50
       },
@@ -87,7 +87,7 @@ db.once('open', async () => {
         category: categories[2]._id,
         description:
           'Efficient CPU cooler with customizable RGB lighting.',
-        image: 'computer.png',
+        image: '8.jpeg',
         price: 129.99,
         quantity: 100
       },
@@ -96,7 +96,7 @@ db.once('open', async () => {
         category: categories[3]._id,
         description:
           'High-precision wireless gaming mouse.',
-        image: 'computer.png',
+        image: '9.jpeg',
         price: 149.99,
         quantity: 200
       },
@@ -105,7 +105,7 @@ db.once('open', async () => {
         category: categories[3]._id,
         description:
           'High-performance gaming mouse with customizable buttons.',
-        image: 'computer.png',
+        image: '10.jpeg',
         price: 89.99,
         quantity: 300
       },
@@ -114,7 +114,7 @@ db.once('open', async () => {
         category: categories[3]._id,
         description:
           'Streaming device for watching movies and TV shows.',
-        image: 'computer.png',
+        image: '11.jpeg',
         price: 39.99,
         quantity: 1000
       },
@@ -123,7 +123,7 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'High-speed solid-state drive for quick data access.',
-        image: 'computer.png',
+        image: '12.jpeg',
         price: 149.99,
         quantity: 200
       },
@@ -132,7 +132,7 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'High-performance gaming laptop with powerful hardware.',
-        image: 'computer.png',
+        image: '13.jpeg',
         price: 1999.99,
         quantity: 30
       },
@@ -141,7 +141,7 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'Versatile 2-in-1 laptop for both work and play.',
-        image: 'computer.png',
+        image: '14.jpeg',
         price: 1199.99,
         quantity: 10
       },
@@ -150,7 +150,7 @@ db.once('open', async () => {
         category: categories[4]._id,
         description:
           'High-performance gaming laptop with powerful hardware.',
-        image: 'computer.png',
+        image: '15.jpeg',
         price: 1799.99,
         quantity: 5
       }
@@ -207,6 +207,17 @@ await User.create(
       email: 'janedoe@example.com',
       password: 'password',
       subscription: 'Gold',
+      services: [
+        {
+          service: 'Website Building',
+          skill: 'Jedi Master'
+        },
+        {
+          service: 'Tutoring',
+          skill: 'Padawan'
+        }
+      ],
+
       languages: [
         {
           language: 'Python',
@@ -227,6 +238,16 @@ await User.create(
         email: 'bobsmith@example.com',
         password: 'password',
         subscription: 'Free',
+        servies: [
+          {
+            service: 'Website Building',
+            skill: 'Youngling'
+          },
+          {
+            service: 'Code Review',
+            skill: 'Padawan'
+          }
+        ],
         languages: [
           {
             language: 'Java',
@@ -247,6 +268,16 @@ await User.create(
           email: 'alicesmith@example.com',
           password: 'password',
           subscription: 'Gold',
+          services: [
+            {
+              service: 'Website Building',
+              skill: 'Jedi Knight'
+            },
+            {
+              service: 'Code Review',
+              skill: 'Padawan'
+            }
+          ],
           languages: [
             {
               language: 'Python',
@@ -267,6 +298,12 @@ await User.create({
   email: 'bobjohnson@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    { service: 'Website Building',
+     skill: 'Youngling' },
+    { service: 'Code Review',
+      skill: 'Padawan' }
+  ],
   languages: [
     {
       language: 'HTML',
@@ -286,6 +323,16 @@ await User.create({
   email: 'charliewilliams@example.com',
   password: 'password',
   subscription: 'Gold',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Jedi Master'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'SQL',
@@ -305,6 +352,16 @@ await User.create({
   email: 'davebrown@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Tutoring',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Python',
@@ -324,6 +381,16 @@ await User.create({
   email: 'emmawilliams@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Tutoring',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'C#',
@@ -343,6 +410,16 @@ await User.create({
   email: 'samjohnson@example.com',
   password: 'password',
   subscription: 'Gold',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Jedi Knight'
+    },
+    {
+      service: 'Tutoring',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Rust',
@@ -362,6 +439,16 @@ await User.create({
   email: 'sophiabrown@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Swift',
@@ -381,6 +468,16 @@ await User.create({
   email: 'oliverdavis@example.com',
   password: 'password',
   subscription: 'Gold',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Jedi Knight'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Lua',
@@ -400,6 +497,16 @@ await User.create({
   email: 'isabellamiller@example.com',
   password: 'password',
   subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
   languages: [
     {
       language: 'Bash',

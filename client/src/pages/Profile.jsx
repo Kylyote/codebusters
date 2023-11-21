@@ -1,6 +1,9 @@
 import profileImage from '../assets/img/Profile.jpeg'
 import { useQuery } from '@apollo/client';
+import {useMutation} from '@apollo/client'
+import {UPDATE_USER} from '../utils/mutations'
 import {QUERY_USER} from '../utils/queries'
+import { useParams } from 'react-router-dom';
 import avatar1 from '../assets/img/avatar_png_files/avatar_1.png';
 import avatar2 from '../assets/img/avatar_png_files/avatar_2.png';
 import avatar3 from '../assets/img/avatar_png_files/avatar_3.png';
@@ -47,11 +50,16 @@ import {MyForm} from '../components/MyForm'
 
 
 const Profile = () => {
+  const {id} = useParams();
+  
     /* Socket.io state variables */
 const [isConnected, setIsConnected] = useState(socket.connected)
 const [fooEvents, setFooEvents] = useState([])
 
+
 /* socket io */
+const [updateUser] = useMutation(UPDATE_USER);
+
 useEffect(() => {
     function onConnect() {
       setIsConnected(true);
@@ -77,9 +85,9 @@ useEffect(() => {
    }, []);
     /* end socket io */
 
-
-    const { loading, error, data } = useQuery(QUERY_USER);
-    console.log(data)
+    const { loading, error, data } = useQuery(QUERY_USER, {
+      variables: {id}});
+    console.log(data, "profile line 90")
 
     if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
@@ -92,17 +100,56 @@ useEffect(() => {
     const skills = data.user.skills;
 
 
+    /* function for handling page editing */
+    
+    function Editable({ text, type, onChange }) {
+      const [isEditing, setIsEditing] = useState(false);
+      const [value, setValue] = useState(text);
+      
+      const handleChange = e => {
+        setValue(e.target.value);
+        onChange(e.target.value);
+      };
+      
+      const handleEdit = () => {
+        setIsEditing(true);
+      };
+      
+      const { loading, error, data } = useQuery(QUERY_USER);
+
+      // ...
+      
+      function handleSave() {
+       setIsEditing(false);
+       updateUser({ variables: { id: data.user._id, username: username, firstName: firstName, lastName: lastName, email: email} });
+      }
+      
+      
+      return (
+        <span onClick={handleEdit}>
+          {isEditing ? (
+            <input type={type} value={value} onChange={handleChange} onBlur={handleSave} />
+          ) : (
+            <span>{value}</span>
+          )}
+        </span>
+      );
+     }
+     
+    /* end function for handling page editing */
+
     return (
         
         <div>
             <br></br>
-            <img src={randomAvatar}alt="Profile Picture" className="profile-pic" />
-            <h2>Name: {firstName}{lastName}</h2>
-            <p><strong>Username:</strong> {username}</p>
-            <p><strong>Email: </strong>{email}</p>
-            <p>Years of Experience: 5</p>
-            <p>Languages: {languages}</p>
-            <div className="projects">
+            <img src={randomAvatar}alt="Profile Picture" className="profile-pic" style={{marginLeft:'15px'}} />
+            <h2 style={{marginLeft:'15px'}}>Name: <Editable text={`${firstName} ${lastName}`} type="text" onChange={(newValue) => { console.log(newValue); }} /> </h2>
+
+            <p style={{marginLeft:'15px'}}><strong>Username:</strong><Editable text={`${username}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
+            <p style={{marginLeft:'15px'}}><strong>Email: </strong><Editable text={`${email}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
+            <p style={{marginLeft:'15px'}}><strong>Skill: <Editable text={`${languages}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></strong> </p>
+            <p style={{marginLeft:'15px'}}><strong>Languages:</strong><Editable text={`${languages}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
+            <div className="projects" style={{marginLeft:'15px'}}>
                 <a href="https://github.com/user/project1">Project 1</a>
                 <a href="https://github.com/user/project2">Project 2</a>
                 <a href="https://github.com/user/project3">Project 3</a>
@@ -119,7 +166,7 @@ useEffect(() => {
         
         
     )
+    console.log(data)
  }
  
  export default Profile
- 

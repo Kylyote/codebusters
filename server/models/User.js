@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 const Order = require("./Order");
 const Language = require("./Language");
+const Service = require("./Service");
 const MessageChannel = require("./MessageChannel");
 const EmailChannel = require("./EmailChannel");
 
@@ -45,6 +46,7 @@ const userSchema = new Schema({
     default: "Free",
     required: true,
   },
+  services: [Service.schema],
   languages: [Language.schema],
   orders: [Order.schema],
   messages: [MessageChannel.schema],
