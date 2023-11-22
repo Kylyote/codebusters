@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation} from 'react-router-dom'
 
 const Search = () => {
  const navigate = useNavigate()
+ const location = useLocation()
 
  /* search component state */
-const [services, setService] = useState('');
+ const [services, setService] = useState(location.state?.service || '');
 const [skill, setSkill] = useState('');
 const [language, setLanguage] = useState('');
 /* end search component state */
@@ -18,8 +19,9 @@ const handleSubmit = (event) => {
 }
 
   return(
-      <div>
+      <div style={{marginLeft:"15px"}}>
           <br></br>
+          <h1 style={{textAlign:'center'}}><strong>How Can We Help You</strong></h1>
           <form onSubmit={handleSubmit}>
               <div className="form-group">
                  <label htmlFor="services"><strong>Service Desired</strong></label>
@@ -42,6 +44,22 @@ const handleSubmit = (event) => {
                    <option>Java</option>
                    <option>C++</option>
                    <option>C#</option>
+                    <option>PHP</option>
+                    <option>SQL</option>
+                    <option>Swift</option>
+                    <option>Ruby</option>
+                    <option>Go</option>
+                    <option>Assembly</option>
+                    <option>Perl</option>
+                    <option>Scala</option>
+                    <option>R</option>
+                    <option>Objective-C</option>
+                    <option>Visual Basic</option>
+                    <option>Matlab</option>
+                    <option>Kotlin</option>
+                    <option>Other</option>
+
+
                  </select>
               </div>
               <br></br>
