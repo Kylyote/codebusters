@@ -91,7 +91,7 @@ return (
      const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
      return (
        <Col sm={4} key={user._id}>
-         <Card className={user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'} style={{ width: '18rem'}}>
+         <Card className={`glow-on-hover ${user.subscription === 'Gold' ? 'gold-card' : 'lightgreen-card'}`} style={{ width: '18rem'}}>
            <Link to={`/profile/${user._id}`}>
              <Card.Img variant="top" src={randomAvatar} />
            </Link>

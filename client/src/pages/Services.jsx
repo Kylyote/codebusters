@@ -24,7 +24,6 @@ const Services = () => {
                 </Link>
              </div> 
              
-            
               <div style={{backgroundColor:"lightblue"}} className="col-md-6 text-zoom glow-on-hover">
                 <h2 className="text-center"><strong>Code Review</strong></h2>
                 <p><i>Our code review service is designed to help you identify and rectify any issues in your code. Our review specialist excel in providing professional reviews that ensure your code is clean, efficient, and ready for deployment. Whether you're struggling with a bug or need a professional review of a completed project, our code review specialists can help. Our team of experienced developers will provide detailed feedback and suggestions to improve your code, ensuring that it meets the highest standards of quality and performance.</i></p>
