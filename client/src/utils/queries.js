@@ -1,3 +1,4 @@
+
 import { gql } from '@apollo/client';
 
 export const QUERY_PRODUCTS = gql`
@@ -51,6 +52,7 @@ export const QUERY_CATEGORIES = gql`
 export const QUERY_USER = gql`
   {
     user {
+      _id
       firstName
       lastName
       email
@@ -114,6 +116,41 @@ export const GET_ALL_USERS = gql`
          category {
            _id
          }
+       }
+     }
+   }
+ }
+`;
+
+export const QUERY_USER_BY_ID = gql`
+ query getUserById($id: ID!) {
+   user(_id: $id) {
+     _id
+     firstName
+     lastName
+     email
+     username
+     subscription
+     languages {
+       _id
+       language
+       skill
+     }
+     services {
+       _id
+       service
+       skill
+     }
+     orders {
+       _id
+       purchaseDate
+       products {
+         _id
+         name
+         description
+         price
+         quantity
+         image
        }
      }
    }

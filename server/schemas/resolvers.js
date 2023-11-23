@@ -28,7 +28,18 @@ const resolvers = {
       return await Product.findById(_id).populate("category");
     },
     user: async (parent, args, context) => {
-      if (context.user) {
+      console.log(args);
+      if (args._id) { 
+        const user = await User.findById(args._id).populate({
+        path: "orders.products",
+        populate: "category",
+      }).populate('services').populate('languages');
+
+      user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+      return user;
+        
+    } else if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: "orders.products",
           populate: "category",

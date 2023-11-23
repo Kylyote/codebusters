@@ -37,7 +37,7 @@ const avatars = [
   avatar14
  ];
 
- const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+//  const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
 
 // import profileImage from '../assets/img/avatar_png_files/avatar_1.png'
 import {Container, Row, Col} from 'react-bootstrap';
