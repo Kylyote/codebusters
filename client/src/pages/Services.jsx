@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import{useState, useEffect} from 'react';
 import webDevTutoring from '/images/Tutor.jpeg'
 import codeReview from '/images/codeReview.jpeg';
 import websiteBuilding from '/images/websiteBuilding.jpeg';
@@ -6,9 +7,13 @@ import resumeBuilding from '/images/resumeBuilder.png';
 import {useLocation} from 'react-router-dom'
 
 const Services = () => {
-    
     /* passing through the satate from the search component */
+    const [services, setService] = useState('');
     const location = useLocation();
+
+    useEffect(() => {
+        console.log(location.state, "state leaving Services Page line 15");
+    }, [location.state]);
     
   return (
       <div className="container">
@@ -19,9 +24,10 @@ const Services = () => {
  <div style={{backgroundColor:"gray"}} className="col-md-6 text-zoom glow-on-hover">
                 <h2 className="text-center"><strong>Web Development Tutoring</strong></h2>
                 <p><i>Our tutors provide personalized web development tutoring that will guide you through the process of creating a website. Our tutors have extensive experience in various web development languages and frameworks, and they will help you understand and implement best practices in your code. Whether you're a beginner or an experienced developer looking to enhance your skills, our tutoring service is designed to cater to your needs. With our expert guidance, you can overcome any hurdles and enhance your web development skills.</i></p>
-                <Link to={{ pathname: "/search", state: {services:"Website Building"}}}>
+                <Link to={{ pathname: "/search", state: {services:"Tutoring"}}}>
                 <p><img className='img-fluid' src={webDevTutoring} alt="Web Development Tutoring" /></p>
                 </Link>
+              
              </div> 
              
               <div style={{backgroundColor:"lightblue"}} className="col-md-6 text-zoom glow-on-hover">

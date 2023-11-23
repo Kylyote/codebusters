@@ -241,8 +241,20 @@ input:focus {
   transform: scale(1.1); 
 }
 
-
-
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+ }
+ 
+ .spin-on-hover {
+  transition: transform 0.5s;
+ }
+ 
+ .spin-on-hover:hover {
+  animation: spin 1s infinite linear;
+ }
+ 
+ 
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
