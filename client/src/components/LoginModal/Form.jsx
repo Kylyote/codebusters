@@ -17,7 +17,7 @@ function showPassword() {
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
     const [form, setForm] = useState({email: '', password: ''});
-    const [select, setSelect] = useState([''])
+    const [select, setSelect] = useState([{language: '', skill: ''}])
     const [addUser, {signuperror}] = useMutation(ADD_USER);
     const [login, { error }] = useMutation(LOGIN)
 
@@ -26,9 +26,14 @@ function Form() {
     };
 
     const handleSelectInputChange = (selectedOptions) => {
-        const languages = [...new Set(selectedOptions.map(item => item.value))];
-        console.log(languages)
-        setSelect(languages)
+        const data = (selectedOptions.map(item => item.value));
+        console.log(data)
+        const language = []
+        data.forEach((element => {
+            language.push({language: element, skill: "Padawan"})
+        }))
+        console.log(language)
+        setSelect(language)
     }
 
     const handleLoginSubmit = async (event) => {
