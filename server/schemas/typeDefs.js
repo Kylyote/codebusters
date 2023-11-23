@@ -53,11 +53,15 @@ const typeDefs = `
     user: User
   }
 
+  type id {
+    _id: ID
+  }
+
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
-    user: User
+    user(_id: ID): User
     users: [User]
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout

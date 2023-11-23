@@ -18,6 +18,7 @@ import FreeSoftware from './pages/FreeSoftware';
 import Search from './pages/Search';
 import SearchResults from './pages/SearchResults';
 import About from './pages/About';
+import SearchResultProfile from './pages/SearchResultProfile';
 
 const router = createBrowserRouter([
   {
@@ -71,7 +72,7 @@ const router = createBrowserRouter([
         element: <Home />
       },
       { path: '/profile/:id', 
-      element: <Profile /> },
+      element: <SearchResultProfile /> },
 
       {
         path: '*',
