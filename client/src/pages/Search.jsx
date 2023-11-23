@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
+import advertise from '/images/advertise1.jpeg'
 
 const Search = () => {
  const navigate = useNavigate()
@@ -19,7 +20,9 @@ const handleSubmit = (event) => {
 }
 
   return(
-      <div style={{marginLeft:"15px"}}>
+   <div className="container">
+       <div className="row">
+      <div className='col-md-6' style={{marginLeft:"15px"}}>
           <br></br>
           <h1 style={{textAlign:'center'}}><strong>How Can We Help You</strong></h1>
           <form onSubmit={handleSubmit}>
@@ -79,8 +82,19 @@ const handleSubmit = (event) => {
               <button type="submit" className="btn btn-primary">Search</button>
           </form>
       </div>
+      <div className="col-md-3">
+         <br></br>
+         <br></br>
+         <br></br>
+         <img className="glow-on-hover" src={advertise} alt="search" style={{width: "500px", height: "500px"}} onClick={() => window.location.href = "mailto:codebusters@gmail.com?subject=Advertise%20with%20Code%20Busters&body=I%20would%20like%20to%20advertise%20my%20business%20with%20Code%20Busters!"}></img>
+      </div>
+       </div>
+   </div>
+
   )
   }
+  
+  
   
   export default Search
  
