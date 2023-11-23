@@ -79,6 +79,7 @@ const SearchResultProfile = () => {
  const [fooEvents, setFooEvents] = useState([])
  /* socket io */ 
 
+ 
         const firstName = user?.firstName;
         const lastName = user?.lastName;
         const username = user?.username;
@@ -97,8 +98,10 @@ const SearchResultProfile = () => {
 
             <p style={{marginLeft:'15px'}}><strong>Username:</strong> {username} </p>
             <p style={{marginLeft:'15px'}}><strong>Email: </strong> {email} </p>
-            {/* <p style={{marginLeft:'15px'}}><strong>Skill:</strong> {user?.skills?.map(skill => skill.name)} </p> */}
-            {/* <p style={{marginLeft:'15px'}}><strong>Languages:</strong> {languages}</p> */}
+            {languages && languages.map((language, index) => (
+  <p key={index}><strong>{language.language}</strong> - {language.skill}</p>
+))}
+
             <div className="projects" style={{marginLeft:'15px'}}>
                 <a href="https://github.com/user/project1">Project 1</a>
                 <a href="https://github.com/user/project2">Project 2</a>

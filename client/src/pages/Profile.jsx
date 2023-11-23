@@ -148,7 +148,9 @@ useEffect(() => {
             <p style={{marginLeft:'15px'}}><strong>Username:</strong><Editable text={`${username}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
             <p style={{marginLeft:'15px'}}><strong>Email: </strong><Editable text={`${email}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
             <p style={{marginLeft:'15px'}}><strong>Skill: <Editable text={`${languages}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></strong> </p>
-            <p style={{marginLeft:'15px'}}><strong>Languages:</strong><Editable text={`${languages}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
+            {languages && languages.map((language, index) => (
+  <p key={index}><strong>{language.language}</strong> - {language.skill}</p>
+))}
             <div className="projects" style={{marginLeft:'15px'}}>
                 <a href="https://github.com/user/project1">Project 1</a>
                 <a href="https://github.com/user/project2">Project 2</a>
