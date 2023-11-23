@@ -33,6 +33,7 @@ const handleSubmit = (event) => {
             <br></br>
               <div className="form-group">
                  <label style={{color:'blue'}} htmlFor="services"><strong>Service</strong></label>
+                 <img src={service} style={{width: '100%', height: 'auto'}}></img>
                 
                  <select className="form-control glow-on-hover" id="services" defaultValue=""onChange={(e) => setService(e.target.value)}>
                   {/* onChange  updates the stat of the form based on inputs  */}
@@ -41,11 +42,11 @@ const handleSubmit = (event) => {
                    <option>Code Review</option>
                    <option>Website Building</option>
                  </select>
-                  <img src={service}></img>
               </div>
               <br></br>
               <div className="form-group">
                  <label style={{color:'blue'}} htmlFor="language"><strong> Coding Language</strong></label>
+                 <img src={languagePic} style={{width: '100%', height: 'auto'}}></img>
                  <select className="form-control glow-on-hover" id="language" defaultValue=""onChange={(e) => setLanguage(e.target.value)}>
                   {/* onChange  updates the stat of the form based on inputs  */}
                    <option value="" disabled>Language</option>
@@ -70,12 +71,13 @@ const handleSubmit = (event) => {
                     <option>Other</option>
 
                  </select>
-                <img src={languagePic}></img>
+                 
               </div>
                
               <br></br>
               <div className="form-group">
                  <label style={{color:'blue'}} htmlFor="skill"><strong>Skill Level Required</strong></label>
+                 <img src={SkillPic} style={{width: '100%', height: 'auto'}}></img>
                  <select className="form-control glow-on-hover" id="skill" defaultValue=""onChange={(e) => setSkill(e.target.value)}> 
                  {/* onChange  updates the stat of the form based on inputs  */}
                    <option value="" disabled>Experience Level</option>
@@ -85,7 +87,6 @@ const handleSubmit = (event) => {
                    <option>Jedi Master</option>
                    <option>Jedi Council</option>
                  </select>
-                 <img src={SkillPic}></img>
               </div>
               <br></br>
               <button type="submit" className="btn btn-primary glow-on-hover spin-on-hover">Search</button>

@@ -253,6 +253,12 @@ input:focus {
  .spin-on-hover:hover {
   animation: spin 1s infinite linear;
  }
+
+ .form-image {
+  width: 100%;
+  height: auto;
+ }
+ 
  
  
 @media screen and (max-width: 768px) {
