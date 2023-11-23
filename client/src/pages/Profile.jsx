@@ -150,110 +150,72 @@ const Profile = () => {
   /* end function for handling page editing */
 
   return (
-    <div className="container row">
-      <div className="col-4">
-        <br></br>
-        <img
-          src={randomAvatar}
-          alt="Profile Picture"
-          className="profile-pic"
-          style={{
-            marginLeft: "15px",
-            marginBottom: "15px",
-            boxShadow: "2px 2px 2px 2px",
+    <div>
+      <br></br>
+      <img
+        src={randomAvatar}
+        alt="Profile Picture"
+        className="profile-pic"
+        style={{ marginLeft: "15px" }}
+      />
+      <h2 style={{ marginLeft: "15px" }}>
+        Name:{" "}
+        <Editable
+          text={`${firstName} ${lastName}`}
+          type="text"
+          onChange={(newValue) => {
+            console.log(newValue);
+          }}
+        />{" "}
+      </h2>
+
+      <p style={{ marginLeft: "15px" }}>
+        <strong>Username:</strong>
+        <Editable
+          text={`${username}`}
+          type="text"
+          onChange={(newValue) => {
+            console.log(newValue);
           }}
         />
-      </div>
-      <div className="col-8">
-        <br></br>
-        <h2 style={{ marginLeft: "15px" }}>
-          Name:{" "}
+      </p>
+      <p style={{ marginLeft: "15px" }}>
+        <strong>Email: </strong>
+        <Editable
+          text={`${email}`}
+          type="text"
+          onChange={(newValue) => {
+            console.log(newValue);
+          }}
+        />
+      </p>
+      <p style={{ marginLeft: "15px" }}>
+        <strong>
+          Skill:{" "}
           <Editable
-            text={`${firstName} ${lastName}`}
+            text={`${languages}`}
             type="text"
             onChange={(newValue) => {
               console.log(newValue);
             }}
-          />{" "}
-        </h2>
+          />
+        </strong>{" "}
+      </p>
+      <p style={{ marginLeft: "15px" }}>
+        <strong>Languages:</strong>
+        <Editable
+          text={`${languages}`}
+          type="text"
+          onChange={(newValue) => {
+            console.log(newValue);
+          }}
+        />
+      </p>
+      <div className="projects" style={{ marginLeft: "15px" }}>
+        <a href="https://github.com/user/project1">Project 1</a>
+        <a href="https://github.com/user/project2">Project 2</a>
+        <a href="https://github.com/user/project3">Project 3</a>
       </div>
-      <div className="container col">
-        <div className="row-4">
-          <br></br>
-
-          <p style={{ marginLeft: "15px" }}>
-            <strong>Username:</strong>
-            <Editable
-              text={`${username}`}
-              type="text"
-              onChange={(newValue) => {
-                console.log(newValue);
-              }}
-            />
-          </p>
-        </div>
-        <div className="row-4">
-          <p style={{ marginLeft: "15px" }}>
-            <strong>Email: </strong>
-            <Editable
-              text={`${email}`}
-              type="text"
-              onChange={(newValue) => {
-                console.log(newValue);
-              }}
-            />
-          </p>
-        </div>
-
-        <div className="row-4">
-          <p style={{ marginLeft: "15px" }}>
-            <strong>
-              Skill:{" "}
-              <Editable
-                text={`${languages}`}
-                type="text"
-                onChange={(newValue) => {
-                  console.log(newValue);
-                }}
-              />
-            </strong>{" "}
-          </p>
-        </div>
-      </div>
-      {/* <div className="projects" style={{  boxShadow: "15px 15px 15px 15px" }}> */}
-      <div className="container row">
-        <div className="col-4">
-          <br></br>
-          <div
-            className="projects"
-            style={{ boxShadow: "1px 1px 1px 1px", minHeight: "200px" }}
-          >
-            <a href="https://github.com/user/project1">Project 1</a>
-          </div>
-        </div>
-        <div className="col-4">
-          <br></br>
-          <div
-            className="projects"
-            style={{
-              boxShadow: "1px 1px 1px 1px",
-              minHeight: "200px",
-            }}
-          >
-            <a href="https://github.com/user/project2">Project 2</a>
-          </div>
-        </div>
-        <div className="col-4">
-          <br></br>
-          <div
-            className="projects"
-            style={{ boxShadow: "1px 1px 1px 1px", minHeight: "200px" }}
-          >
-            <a href="https://github.com/user/project3">Project 3</a>
-          </div>
-        </div>
-      </div>
-      {/* </div> */}
       <div
         style={{
           position: "absolute",
