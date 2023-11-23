@@ -1,86 +1,88 @@
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css'
-import './components/LoginModal/modalcss.css'
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import "./components/LoginModal/modalcss.css";
 
-import App from './App.jsx';
-import Home from './pages/Home';
-import Detail from './pages/Detail';
-import NoMatch from './pages/NoMatch';
-import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
-import ResumeBuilder from './pages/ResumeBuilder';
-import Profile from './pages/Profile';
-import Services from './pages/Services';
-import Settings from './pages/Settings';
-import FreeSoftware from './pages/FreeSoftware';
-import Search from './pages/Search';
-import SearchResults from './pages/SearchResults';
-import About from './pages/About';
+import App from "./App.jsx";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch";
+import Success from "./pages/Success";
+import OrderHistory from "./pages/OrderHistory";
+import ResumeBuilder from "./pages/ResumeBuilder";
+import Profile from "./pages/Profile";
+import Services from "./pages/Services";
+import Settings from "./pages/Settings";
+import FreeSoftware from "./pages/FreeSoftware";
+import Search from "./pages/Search";
+import SearchResults from "./pages/SearchResults";
+import About from "./pages/About";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     error: <NoMatch />,
     children: [
       {
-        index: true, 
-        element: <About />
-      }, {
-        path: '/success',
-        element: <Success />
-      }, {
-        path: '/orderHistory',
-        element: <OrderHistory />
-      }, {
-        path: '/products/:id',
-        element: <Detail />
+        index: true,
+        element: <About />,
       },
       {
-        path: '/resume',
-        element: <ResumeBuilder />
+        path: "/success",
+        element: <Success />,
       },
       {
-        path: '/profile',
-        element: <Profile />
+        path: "/orderHistory",
+        element: <OrderHistory />,
       },
       {
-        path: '/services',
-        element: <Services />
+        path: "/products/:id",
+        element: <Detail />,
       },
       {
-        path: '/settings',
-        element: <Settings />
+        path: "/resume",
+        element: <ResumeBuilder />,
       },
       {
-        path: '/free',
-        element: <FreeSoftware />
+        path: "/profile",
+        element: <Profile />,
       },
       {
-        path: '/search',
-        element: <Search />
+        path: "/services",
+        element: <Services />,
       },
       {
-        path: '/results',
-        element: <SearchResults />
+        path: "/settings",
+        element: <Settings />,
       },
       {
-        path: '/home',
-        element: <Home />
+        path: "/free",
+        element: <FreeSoftware />,
       },
-      { path: '/profile/:id', 
-      element: <Profile /> },
+      {
+        path: "/search",
+        element: <Search />,
+      },
+      {
+        path: "/results",
+        element: <SearchResults />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      { path: "/profile/:id", element: <Profile /> },
 
       {
-        path: '*',
-        element: <NoMatch />
-      }
-    ]
-  }
+        path: "*",
+        element: <NoMatch />,
+      },
+    ],
+  },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
-)
+);

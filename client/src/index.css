@@ -1,5 +1,5 @@
 :root {
-  --primary: #232F3E;
+  --primary: #232f3e;
   --secondary: lightgreen;
   --tertiary: blue;
   --light: #fafafa;
@@ -21,7 +21,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
@@ -35,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
@@ -92,7 +92,7 @@ button {
   font-size: 1rem;
   text-decoration: none;
   padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border: none;
   outline: none;
   cursor: pointer;
@@ -101,12 +101,12 @@ button {
 }
 
 button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 button[disabled] {
   cursor: default;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 img {
@@ -132,7 +132,7 @@ input {
 
 input:focus {
   border: 1px solid var(--secondary);
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
 }
 
 .container {
@@ -143,13 +143,12 @@ input:focus {
 }
 
 .gold-card {
-  background-color: goldenrod!important;
+  background-color: goldenrod !important;
 }
 
 .lightgreen-card {
   background-color: lightgreen !important;
 }
-
 
 .flex-row {
   display: flex;
@@ -204,10 +203,10 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
-.card {
+/* .card {
   width: 25%;
   text-align: center;
-}
+} */
 
 .error-text {
   color: var(--error);
@@ -215,33 +214,32 @@ input:focus {
 
 .glow-on-hover {
   transition: box-shadow 0.3s ease-in-out;
- }
- 
- .glow-on-hover:hover {
-  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
- }
-
- .zoom-card {
-  transition: transform 0.3s ease-in-out;
- }
- 
- .zoom-card:hover {
-  transform: scale(1.1);
- }
-
- .text-zoom:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
- }
-
- .grow-on-hover { 
-  transition: all .2s ease-in-out; 
-}
-.grow-on-hover:hover { 
-  transform: scale(1.1); 
 }
 
+.glow-on-hover:hover {
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00,
+    0 0 40px #00ff00;
+}
 
+.zoom-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom-card:hover {
+  transform: scale(1.1);
+}
+
+.text-zoom:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.grow-on-hover {
+  transition: all 0.2s ease-in-out;
+}
+.grow-on-hover:hover {
+  transform: scale(1.1);
+}
 
 @media screen and (max-width: 768px) {
   .card {
