@@ -4,20 +4,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import "./components/LoginModal/modalcss.css";
 
-import App from "./App.jsx";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Success from "./pages/Success";
-import OrderHistory from "./pages/OrderHistory";
-import ResumeBuilder from "./pages/ResumeBuilder";
-import Profile from "./pages/Profile";
-import Services from "./pages/Services";
-import Settings from "./pages/Settings";
-import FreeSoftware from "./pages/FreeSoftware";
-import Search from "./pages/Search";
-import SearchResults from "./pages/SearchResults";
-import About from "./pages/About";
+import App from './App.jsx';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+import NoMatch from './pages/NoMatch';
+import Success from './pages/Success';
+import OrderHistory from './pages/OrderHistory';
+import ResumeBuilder from './pages/ResumeBuilder';
+import Profile from './pages/Profile';
+import Services from './pages/Services';
+import Settings from './pages/Settings';
+import FreeSoftware from './pages/FreeSoftware';
+import Search from './pages/Search';
+import SearchResults from './pages/SearchResults';
+import About from './pages/About';
+import SearchResultProfile from './pages/SearchResultProfile';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,7 @@ const router = createBrowserRouter([
         path: "/free",
         element: <FreeSoftware />,
       },
+
       {
         path: "/search",
         element: <Search />,
@@ -73,7 +75,10 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home />,
       },
-      { path: "/profile/:id", element: <Profile /> },
+
+      { path: '/profile/:id', 
+      element: <SearchResultProfile /> },
+
 
       {
         path: "*",
