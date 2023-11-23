@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { ADD_USER, LOGIN } from '../../utils/mutations';
+import Select from 'react-select'
+import options from '../Select'
 
 function showPassword() {
     var element = document.getElementById('showPassword')
@@ -15,12 +17,19 @@ function showPassword() {
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
     const [form, setForm] = useState({email: '', password: ''});
+    const [select, setSelect] = useState([''])
     const [addUser, {signuperror}] = useMutation(ADD_USER);
     const [login, { error }] = useMutation(LOGIN)
 
     const handleInputChange = (event) => {
         setForm({...form, [event.target.name]: event.target.value});
     };
+
+    const handleSelectInputChange = (selectedOptions) => {
+        const languages = [...new Set(selectedOptions.map(item => item.value))];
+        console.log(languages)
+        setSelect(languages)
+    }
 
     const handleLoginSubmit = async (event) => {
         event.preventDefault();
@@ -48,7 +57,8 @@ function Form() {
                     email: form.email,
                     password: form.password,
                     firstName: form.firstName,
-                    lastName: form.lastName
+                    lastName: form.lastName,
+                    languages: select
                 }
             });
             const token = mutationResponse.data.addUser.token;
@@ -88,7 +98,7 @@ function Form() {
                                 onChange={handleInputChange}
                                 />
                             </div>
-                            <div>
+                            <div className='modal-form'>
                                 <label htmlFor="showPassword">Show Password</label>
                                 <input className='show-password' type="checkbox" onClick={showPassword} />
                             </div>
@@ -156,6 +166,15 @@ function Form() {
                         <div>
                             <label htmlFor="showPassword">Show Password</label>
                             <input className='show-password' type="checkbox" onClick={showPassword} />
+                        </div>
+                        <div className='modal-form mt-2'>
+                            <label htmlFor="languages">Languages</label>
+                            <Select
+                            className='w-100'
+                            name='languages'
+                            isMulti
+                            onChange={handleSelectInputChange}
+                            options={options}/>
                         </div>
                         {signuperror ? (
                                 <div className='error-text-div'>
