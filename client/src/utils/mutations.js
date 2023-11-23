@@ -60,5 +60,9 @@ mutation updateUser($id: ID!, $firstName: String, $lastName: String, $email: Str
   }
  }
 `;
+
+// export const ADD_LANGUAGE = gql`
+// mutation addLanguage
+// `
  
 

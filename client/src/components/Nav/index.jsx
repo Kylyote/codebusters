@@ -2,6 +2,7 @@ import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import CB from "../../assets/img/codeBusters.png"
 import Main from '../LoginModal'
+import LanguageMain from "../LanguageModal";
 
 function Nav() {
 
@@ -45,6 +46,9 @@ function Nav() {
             <Link to="/settings">
               Settings
             </Link>
+          </li>
+          <li className="mx-1">
+            <LanguageMain />
           </li>
         </ul>
       );
