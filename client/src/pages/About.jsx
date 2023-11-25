@@ -42,7 +42,15 @@ const About = () => {
       />
       <Card 
         title="Hardware Shopping" 
-        content="We understand that not everyone is a tech expert, and sometimes, you might need a little help when it comes to hardware shopping. That's where we come in. With Code Buster, you can easily browse through our extensive selection of hardware and have everything you need delivered right to your doorstep. We offer a wide range of products, from laptops and desktops to peripherals and more, all at competitive prices."
+        content="At Code Buster, we understand that not everyone is a tech expert. Sometimes, you might need a little help when it comes to hardware shopping. That's where we come in. With Code Buster, you can easily browse through our extensive selection of hardware and have everything you need delivered right to your doorstep. We offer a wide range of products, from laptops and desktops to peripherals and more, all at competitive prices.
+
+        We pride ourselves on our user-friendly interface, which allows you to easily find the hardware that suits your needs. Whether you're a beginner or an advanced user, you'll find our range of products to be suitable for your requirements. From gaming laptops to business desktops, we have it all.
+        
+        Our delivery process is designed to ensure that your hardware arrives in perfect condition. We use secure and reliable delivery services to ensure that your order reaches you safely and on time.
+        
+        But we don't stop at delivery. We also offer comprehensive customer support to assist you at every step of your shopping journey. Whether you have a question about a product, need help with the delivery process, or encounter any issues, our customer support team is ready to assist you.
+        
+        At Code Buster, we believe in providing the best shopping experience for our customers. We're not just a hardware store; we're your one-stop shop for all your tech needs. With our extensive selection of hardware, user-friendly interface, secure delivery process, and excellent customer support, we're confident that you'll find shopping with us to be a smooth and enjoyable experience."
         index={1}
       />
       <Card 

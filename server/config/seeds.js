@@ -83,15 +83,6 @@ db.once('open', async () => {
         quantity: 50
       },
       {
-        name: 'Cooler Master Hyper 212 RGB CPU Cooler',
-        category: categories[2]._id,
-        description:
-          'Efficient CPU cooler with customizable RGB lighting.',
-        image: '8.jpeg',
-        price: 129.99,
-        quantity: 100
-      },
-      {
         name: 'Razer Naga Pro Wireless Gaming Mouse',
         category: categories[3]._id,
         description:
@@ -100,6 +91,16 @@ db.once('open', async () => {
         price: 149.99,
         quantity: 200
       },
+      {
+        name: 'Cooler Master Hyper 212 RGB CPU Cooler',
+        category: categories[2]._id,
+        description:
+          'Efficient CPU cooler with customizable RGB lighting.',
+        image: '8.jpeg',
+        price: 129.99,
+        quantity: 100
+      },
+      
       {
         name: 'Logitech G502 HERO Gaming Mouse',
         category: categories[3]._id,
