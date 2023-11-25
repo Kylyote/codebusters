@@ -147,7 +147,7 @@ useEffect(() => {
 
             <p style={{marginLeft:'15px'}}><strong>Username:</strong><Editable text={`${username}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
             <p style={{marginLeft:'15px'}}><strong>Email: </strong><Editable text={`${email}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
-            <p style={{marginLeft:'15px'}}><strong>Skill: <Editable text={`${languages}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></strong> </p>
+            {/* <p style={{marginLeft:'15px'}}><strong>Skill: <Editable text={`${languages}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></strong> </p> */}
             {languages && languages.map((language, index) => (
   <p key={index}><strong>{language.language}</strong> - {language.skill}</p>
 ))}

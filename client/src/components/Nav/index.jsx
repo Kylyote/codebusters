@@ -15,11 +15,11 @@ function Nav() {
               Dashboard
             </Link>
           </li>
-          {/* <li className="mx-1">
-            <Link to="/free">
+          <li className="mx-1">
+            <Link to="/free" style={{marginRight: '10px'}}>
               Free Software
             </Link>
-          </li> */}
+          </li> 
           {/* <li className="mx-1">
             <Link to="/resume">
               Resume Builder
