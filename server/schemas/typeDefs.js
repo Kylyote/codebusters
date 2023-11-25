@@ -39,6 +39,7 @@ const typeDefs = `
     email: String
     username: String
     subscription: String
+    reviews: [Review]
     languages: [Language]
     orders: [Order]
     services: [Service]

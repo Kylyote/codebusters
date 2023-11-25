@@ -29,21 +29,26 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       console.log(args);
-      if (args._id) { 
-        const user = await User.findById(args._id).populate({
-        path: "orders.products",
-        populate: "category",
-      }).populate('services').populate('languages');
+      if (args._id) {
+        const user = await User.findById(args._id)
+          .populate({
+            path: "orders.products",
+            populate: "category",
+          })
+          .populate("services")
+          .populate("languages");
 
-      user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
-      return user;
-        
-    } else if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: "orders.products",
-          populate: "category",
-        }).populate('services').populate('languages');
+        return user;
+      } else if (context.user) {
+        const user = await User.findById(context.user._id)
+          .populate({
+            path: "orders.products",
+            populate: "category",
+          })
+          .populate("services")
+          .populate("languages");
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -52,8 +57,8 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    users: async () => {  
-      return await User.find().populate('services').populate('languages');
+    users: async () => {
+      return await User.find().populate("services").populate("languages");
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
@@ -103,6 +108,7 @@ const resolvers = {
 
       return { session: session.id };
     },
+    ratingScore: async (parent, { _id }) => {},
   },
   Mutation: {
     addUser: async (parent, args) => {

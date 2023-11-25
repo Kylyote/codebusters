@@ -6,6 +6,7 @@ const Language = require("./Language");
 const Service = require("./Service");
 const MessageChannel = require("./MessageChannel");
 const EmailChannel = require("./EmailChannel");
+const Reviews = require("./Review");
 
 // Remember to change username back to true when we're ready to implement it
 const userSchema = new Schema({
@@ -46,6 +47,11 @@ const userSchema = new Schema({
     default: "Free",
     required: true,
   },
+  avgScore: {
+    type: Number,
+    default: 0,
+  },
+  reviews: [Reviews.schema],
   services: [Service.schema],
   languages: [Language.schema],
   orders: [Order.schema],
