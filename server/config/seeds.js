@@ -72,25 +72,17 @@ db.once('open', async () => {
         image: '6.jpeg',
         price: 449.99,
         quantity: 10
-      },
-      {
-        name: 'Corsair RM850x Power Supply',
-        category: categories[2]._id,
+      }, 
+       {
+        name: 'ASUS ROG Zephyrus G14 Gaming Laptop',
+        category: categories[4]._id,
         description:
-          'High-capacity power supply for power-hungry systems.',
-        image: '7.jpeg',
-        price: 199.99,
-        quantity: 50
+          'High-performance gaming laptop with powerful hardware.',
+        image: '13.jpeg',
+        price: 1999.99,
+        quantity: 30
       },
-      {
-        name: 'Cooler Master Hyper 212 RGB CPU Cooler',
-        category: categories[2]._id,
-        description:
-          'Efficient CPU cooler with customizable RGB lighting.',
-        image: '8.jpeg',
-        price: 129.99,
-        quantity: 100
-      },
+      
       {
         name: 'Razer Naga Pro Wireless Gaming Mouse',
         category: categories[3]._id,
@@ -101,6 +93,16 @@ db.once('open', async () => {
         quantity: 200
       },
       {
+        name: 'Cooler Master Hyper 212 RGB CPU Cooler',
+        category: categories[2]._id,
+        description:
+          'Efficient CPU cooler with customizable RGB lighting.',
+        image: '8.jpeg',
+        price: 129.99,
+        quantity: 100
+      },
+      
+      {
         name: 'Logitech G502 HERO Gaming Mouse',
         category: categories[3]._id,
         description:
@@ -109,6 +111,18 @@ db.once('open', async () => {
         price: 89.99,
         quantity: 300
       },
+     
+    
+      
+      {
+        name: 'Corsair RM850x Power Supply',
+        category: categories[2]._id,
+        description:
+          'High-capacity power supply for power-hungry systems.',
+        image: '7.jpeg',
+        price: 199.99,
+        quantity: 50
+      }, 
       {
         name: 'Amazon Fire TV Stick 4K',
         category: categories[3]._id,
@@ -128,15 +142,6 @@ db.once('open', async () => {
         quantity: 200
       },
       {
-        name: 'ASUS ROG Zephyrus G14 Gaming Laptop',
-        category: categories[4]._id,
-        description:
-          'High-performance gaming laptop with powerful hardware.',
-        image: '13.jpeg',
-        price: 1999.99,
-        quantity: 30
-      },
-      {
         name: 'HP ENVY x360 2-in-1 Laptop',
         category: categories[4]._id,
         description:
@@ -153,7 +158,7 @@ db.once('open', async () => {
         image: '15.jpeg',
         price: 1799.99,
         quantity: 5
-      }
+      },
     ]
   );
 
@@ -518,6 +523,329 @@ await User.create({
     }
   ]
  });
+
+ await User.create({
+  firstName: 'Tom',
+  lastName: 'Smith',
+  username: 'tomsmith',
+  email: 'tomsmith@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Jedi Knight'
+    },
+    {
+      service: 'Code Review',
+      skill: 'Padawan'
+    }
+  ],
+  languages: [
+    {
+      language: 'Ruby',
+      skill: 'Youngling'
+    },
+    {
+      language: 'PHP',
+      skill: 'Padawan'
+    }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Sarah',
+  lastName: 'Johnson',
+  username: 'sarahjohnson',
+  email: 'sarahjohnson@example.com',
+  password: 'password',
+  subscription: 'Free',
+  services: [
+    {
+      service: 'Website Building',
+      skill: 'Youngling'
+    },
+    {
+      service: 'Tutoring',
+      skill: 'Padawan'
+    }
+  ],
+  languages: [
+    {
+      language: 'R',
+      skill: 'Youngling'
+    },
+    {
+      language: 'Julia',
+      skill: 'Padawan'
+    }
+  ]
+ });
+
+ await User.create({
+  firstName: 'Eva',
+  lastName: 'Johnson',
+  username: 'evajohnson',
+  email: 'evajohnson@example.com',
+  password: 'password',
+  subscription: 'Free',
+  services: [
+    { service: 'Website Building', skill: 'Youngling' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'SQL', skill: 'Youngling' },
+    { language: 'NoSQL', skill: 'Jedi Knight' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'James',
+  lastName: 'Williams',
+  username: 'jameswilliams',
+  email: 'jameswilliams@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Master' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'HTML', skill: 'Youngling' },
+    { language: 'CSS', skill: 'Jedi Knight' }
+  ]
+ });
+
+ await User.create({
+  firstName: 'Robert',
+  lastName: 'Jones',
+  username: 'robertjones',
+  email: 'robertjones@example.com',
+  password: 'password',
+  subscription: 'Free',
+  services: [
+    { service: 'Website Building', skill: 'Youngling' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Python', skill: 'Youngling' },
+    { language: 'JavaScript', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Susan',
+  lastName: 'Williams',
+  username: 'susanwilliams',
+  email: 'susanwilliams@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Master' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'HTML', skill: 'Youngling' },
+    { language: 'CSS', skill: 'Jedi Knight' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Michael',
+  lastName: 'Doe',
+  username: 'michaeldoe',
+  email: 'michaeldoe@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    { language: 'JavaScript', skill: 'Jedi Knight' },
+    { language: 'Python', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Linda',
+  lastName: 'Doe',
+  username: 'lindadoe',
+  email: 'lindadoe@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Master' },
+    { service: 'Tutoring', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Python', skill: 'Jedi Knight' },
+    { language: 'JavaScript', skill: 'Padawan' }
+  ]
+ });
+
+ await User.create({
+  firstName: 'Maria',
+  lastName: 'Johnson',
+  username: 'mariajohnson',
+  email: 'mariajohnson@example.com',
+  password: 'password',
+  subscription: 'Free',
+  services: [
+    { service: 'Website Building', skill: 'Youngling' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Python', skill: 'Youngling' },
+    { language: 'JavaScript', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  username: 'jessicawilliams',
+  email: 'jessicawilliams@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Master' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'HTML', skill: 'Youngling' },
+    { language: 'CSS', skill: 'Jedi Knight' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Anthony',
+  lastName: 'Doe',
+  username: 'anthonydoe',
+  email: 'anthonydoe@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    { language: 'JavaScript', skill: 'Jedi Knight' },
+    { language: 'Python', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Lisa',
+  lastName: 'Doe',
+  username: 'lisadoe',
+  email: 'lisadoe@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Master' },
+    { service: 'Tutoring', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Python', skill: 'Jedi Knight' },
+    { language: 'JavaScript', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Peter',
+  lastName: 'Smith',
+  username: 'petersmith',
+  email: 'petersmith@example.com',
+  password: 'password',
+  subscription: 'Free',
+  services: [
+    { service: 'Website Building', skill: 'Youngling' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Java', skill: 'Youngling' },
+    { language: 'C++', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Paul',
+  lastName: 'Davis',
+  username: 'pauldavis',
+  email: 'pauldavis@example.com',
+  password: 'password',
+  subscription: 'Free',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Knight' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Swift', skill: 'Youngling' },
+    { language: 'Kotlin', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Emily',
+  lastName: 'Williams',
+  username: 'emilywilliams',
+  email: 'emilywilliams@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Master' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'HTML', skill: 'Youngling' },
+    { language: 'CSS', skill: 'Jedi Knight' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'William',
+  lastName: 'Doe',
+  username: 'williamdoe',
+  email: 'williamdoe@example.com',
+  password: 'password',
+  subscription: 'Free',
+  languages: [
+    { language: 'JavaScript', skill: 'Jedi Knight' },
+    { language: 'Python', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Laura',
+  lastName: 'Doe',
+  username: 'lauradoe',
+  email: 'lauradoe@example.com',
+  password: 'password',
+  subscription: 'Gold',
+  services: [
+    { service: 'Website Building', skill: 'Jedi Master' },
+    { service: 'Tutoring', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Python', skill: 'Jedi Knight' },
+    { language: 'JavaScript', skill: 'Padawan' }
+  ]
+ });
+ 
+ await User.create({
+  firstName: 'Henry',
+  lastName: 'Smith',
+  username: 'henrysmith',
+  email: 'henrysmith@example.com',
+  password: 'password',
+  subscription: 'Free',
+  services: [
+    { service: 'Website Building', skill: 'Youngling' },
+    { service: 'Code Review', skill: 'Padawan' }
+  ],
+  languages: [
+    { language: 'Java', skill: 'Youngling' },
+    { language: 'C++', skill: 'Padawan' }
+  ]
+ });
+
+ 
+ 
+ 
+ 
  
   console.log('users seeded');
 

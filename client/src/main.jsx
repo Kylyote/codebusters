@@ -20,6 +20,7 @@ import SearchResults from './pages/SearchResults';
 import About from './pages/About';
 import SearchResultProfile from './pages/SearchResultProfile';
 
+
 const router = createBrowserRouter([
   {
     path: '/',

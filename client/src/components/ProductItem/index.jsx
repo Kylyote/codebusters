@@ -3,6 +3,7 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import binary2 from "/images/binary2.gif"
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -39,11 +40,13 @@ function ProductItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
+    <div className="card px-1 py-1 mx-1 my-1">
+
       <Link to={`/products/${_id}`}>
         <img
           alt={name}
           src={`/images/${image}`}
+          style={{ width: '100px', height: '100px' }}
         />
         <p>{name}</p>
       </Link>
