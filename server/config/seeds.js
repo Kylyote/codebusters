@@ -72,16 +72,17 @@ db.once('open', async () => {
         image: '6.jpeg',
         price: 449.99,
         quantity: 10
-      },
-      {
-        name: 'Corsair RM850x Power Supply',
-        category: categories[2]._id,
+      }, 
+       {
+        name: 'ASUS ROG Zephyrus G14 Gaming Laptop',
+        category: categories[4]._id,
         description:
-          'High-capacity power supply for power-hungry systems.',
-        image: '7.jpeg',
-        price: 199.99,
-        quantity: 50
+          'High-performance gaming laptop with powerful hardware.',
+        image: '13.jpeg',
+        price: 1999.99,
+        quantity: 30
       },
+      
       {
         name: 'Razer Naga Pro Wireless Gaming Mouse',
         category: categories[3]._id,
@@ -110,6 +111,18 @@ db.once('open', async () => {
         price: 89.99,
         quantity: 300
       },
+     
+    
+      
+      {
+        name: 'Corsair RM850x Power Supply',
+        category: categories[2]._id,
+        description:
+          'High-capacity power supply for power-hungry systems.',
+        image: '7.jpeg',
+        price: 199.99,
+        quantity: 50
+      }, 
       {
         name: 'Amazon Fire TV Stick 4K',
         category: categories[3]._id,
@@ -129,15 +142,6 @@ db.once('open', async () => {
         quantity: 200
       },
       {
-        name: 'ASUS ROG Zephyrus G14 Gaming Laptop',
-        category: categories[4]._id,
-        description:
-          'High-performance gaming laptop with powerful hardware.',
-        image: '13.jpeg',
-        price: 1999.99,
-        quantity: 30
-      },
-      {
         name: 'HP ENVY x360 2-in-1 Laptop',
         category: categories[4]._id,
         description:
@@ -154,7 +158,7 @@ db.once('open', async () => {
         image: '15.jpeg',
         price: 1799.99,
         quantity: 5
-      }
+      },
     ]
   );
 
