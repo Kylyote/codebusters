@@ -1,12 +1,24 @@
 import binaryGif from '/images/binary.gif';
 
+const getRandomHslColor = () => {
+  const getRandomNumber = (min, max) => Math.round(Math.random() * (max - min) + min);
+  const { hue, saturation, lightness } = {
+    hue: getRandomNumber(0, 360),
+    saturation: getRandomNumber(50, 100),
+    lightness: getRandomNumber(50, 100),
+  };
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+ };
+
 const colors = ['gray', 'orange', 'lightblue', 'lightyellow', 'lightgreen'];
 
 function Card({ title, content, index }) {
  return (
-   <div style={{ backgroundColor: colors[index % colors.length], border:"solid", height: "100%" }}>
+  <div style={{marginTop:"30px", marginRight: "25px", marginBottom:"25px"}}>
+   <div style={{ backgroundColor: getRandomHslColor(), border:"solid", height: "100%", marginTop:"", marginRight:"25px", marginLeft:"25px" }}>
      <h2 style={{textAlign: 'center'}}><strong>{title}</strong></h2>
-     <p style={{ marginLeft: '30px',fontStyle: "italic" }}>{content}</p>
+     <p style={{ marginLeft: '30px',fontStyle: "italic", fontSize:"1.5rem" }}>{content}</p>
+   </div>
    </div>
  );
 }
@@ -18,10 +30,11 @@ const About = () => {
       gridTemplateColumns: 'repeat(2, 1fr)', 
       gap: '20px', 
       backgroundImage: `url(${binaryGif})`,
+      backgroundSize: '100% 100%',
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
-      height: "100vh",
+      height: "100%",
     }}>
       <Card 
         title="Who We Are" 

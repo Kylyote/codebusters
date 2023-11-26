@@ -13,7 +13,7 @@ const Home = () => {
       height: '100%',
       width: '100%',
       marginLeft:"15px"
-     }} className="container">
+     }} className="">
       {/* <CategoryMenu /> */}
       <ProductList />
       <Cart />
