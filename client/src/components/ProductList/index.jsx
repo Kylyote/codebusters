@@ -47,7 +47,7 @@ function ProductList() {
     <div style={{ width: '100%', height: '100%' }} className="my-2">
       <h2 style={{textAlign: "center", fontSize:"4rem", color:"white"}}>Our Products:</h2>
       {state.products.length ? (
-        <div style={{ width: '100%', height: '100%' }} className="flex-row">
+        <div style={{ width: '100%', height: '100%', justifyContent:"center" }} className="flex-row">
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}
