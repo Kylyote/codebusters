@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import { useMutation } from '@apollo/client';
 // import {ADD_LANGUAGE} from '../../utils/mutations';
 import Select from 'react-select';
-import languages from '../Select';
-import skills from '../Select'
-
+//import languages from '../Select';
+import languages from '../Select/languages'
+import skills from '../Select/skills'
 
 function Form () {
     const [language, setLanguage] = useState('');
@@ -15,7 +15,7 @@ function Form () {
         const language = selected.value;
         setLanguage(language);
     }
-    
+
     const handleSkillChange = (selected) => {
         const skill = selected.value;
         setSkill(skill);
@@ -36,7 +36,8 @@ function Form () {
 
     return (
         <>
-            <div className='modal-content'>
+            <div className='overlay'></div>
+            <div className='custom-modal-content'>
                 <h2 className='modal-header'>Add Language</h2>
                 <hr />
                 <div>
@@ -44,7 +45,7 @@ function Form () {
                         <div className='modal-form'>
                             <label htmlFor="language">Language:</label>
                             <Select 
-                            className='w-100'
+                            className='w-50'
                             name='language'
                             onChange={handleLanguageChange}
                             options={languages}
@@ -53,7 +54,7 @@ function Form () {
                         <div className='modal-form'>
                             <label htmlFor="skill">Skill Level:</label>
                             <Select 
-                            className='w-100'
+                            className='w-50'
                             name='skill'
                             onChange={handleSkillChange}
                             options={skills}

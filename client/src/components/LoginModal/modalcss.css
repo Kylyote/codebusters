@@ -25,7 +25,7 @@
     box-shadow: 10px 5px 5px gray;
 }
 
-.modal-content {
+.custom-modal-content {
     z-index: 11;
     margin-top: 15px;
     display: flex;

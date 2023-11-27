@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Form from './Form';
 import Modal from './Modal';
+import Form from './Form';
 
 function LanguageMain() {
     const [showModal, setShowModal] = useState(false);

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { ADD_USER, LOGIN } from '../../utils/mutations';
-import Select from 'react-select'
-import options from '../Select'
+
 
 function showPassword() {
     var element = document.getElementById('showPassword')
@@ -17,24 +16,12 @@ function showPassword() {
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
     const [form, setForm] = useState({email: '', password: ''});
-    const [select, setSelect] = useState([{language: '', skill: ''}])
     const [addUser, {signuperror}] = useMutation(ADD_USER);
     const [login, { error }] = useMutation(LOGIN)
 
     const handleInputChange = (event) => {
         setForm({...form, [event.target.name]: event.target.value});
     };
-
-    const handleSelectInputChange = (selectedOptions) => {
-        const data = (selectedOptions.map(item => item.value));
-        console.log(data)
-        const language = []
-        data.forEach((element => {
-            language.push({language: element, skill: "Padawan"})
-        }))
-        console.log(language)
-        setSelect(language)
-    }
 
     const handleLoginSubmit = async (event) => {
         event.preventDefault();
@@ -77,7 +64,7 @@ function Form() {
     return (
         <>
         <div className='overlay'></div>
-        <div className='modal-content'>
+        <div className='custom-modal-content'>
             {isLogin ? (
                 <>
                 <h2 className='modal-header'>Login</h2>
@@ -168,18 +155,9 @@ function Form() {
                                 placeholder='Password'
                                 onChange={handleInputChange} />
                         </div>
-                        <div>
+                        <div className='modal-form'>
                             <label htmlFor="showPassword">Show Password</label>
                             <input className='show-password' type="checkbox" onClick={showPassword} />
-                        </div>
-                        <div className='modal-form mt-2'>
-                            <label htmlFor="languages">Languages</label>
-                            <Select
-                            className='w-100'
-                            name='languages'
-                            isMulti
-                            onChange={handleSelectInputChange}
-                            options={options}/>
                         </div>
                         {signuperror ? (
                                 <div className='error-text-div'>
