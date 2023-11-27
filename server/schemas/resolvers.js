@@ -133,6 +133,24 @@ const resolvers = {
 
       throw AuthenticationError;
     },
+
+    addLanguage: async (parent, args, context) => {
+      if(context.user) {
+        console.log(context.user._id)
+        return await User.findByIdAndUpdate(context.user._id, {
+          $push: {
+            languages: {
+              language: args.language,
+              skill: args.skill
+            }
+          }
+        }, {
+          new: true,
+        });
+      }
+      throw AuthenticationError('You must be logged in to add a language');
+    },
+
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 

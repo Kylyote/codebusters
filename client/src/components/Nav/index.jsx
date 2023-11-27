@@ -9,7 +9,7 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row nav-content">
+        <ul className="nav-content">
           
           <li className="mx-1">
             <Link to="/profile" style={{marginRight: '10px'}}>

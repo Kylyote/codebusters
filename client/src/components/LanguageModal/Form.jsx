@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
 import { useMutation } from '@apollo/client';
-// import {ADD_LANGUAGE} from '../../utils/mutations';
+import {ADD_LANGUAGE} from '../../utils/mutations';
 import Select from 'react-select';
-//import languages from '../Select';
 import languages from '../Select/languages'
 import skills from '../Select/skills'
+import jwt_decode from 'jwt-decode'
 
 function Form () {
     const [language, setLanguage] = useState('');
     const [skill, setSkill] = useState('');
-    // const [addLanguage, { error }] = useMutation(ADD_LANGUAGE);
+    const [addLanguage, { error }] = useMutation(ADD_LANGUAGE);
+    const token = localStorage.getItem('id_token');
+    const decodedToken = jwt_decode(token);
+    const userId = decodedToken.id;
 
     const handleLanguageChange = (selected) => {
         const language = selected.value;
@@ -21,14 +24,24 @@ function Form () {
         setSkill(skill);
     }
 
-    const handleAddLanguageSubmit = async (e) => {
+    const handleSubmit = async (e) => {
+        console.log(language, skill)
+        e.preventDefault()
         try {
-            const mutationResponse = await addLanguage ({
+            if (!language || !skill){
+                alert('Please respond to both input prompts before submitting')
+                return
+            }
+            const mutationResponse = await addLanguage({
                 variables: {
-                    language: language,
-                    skill: skill
+                    languages: {
+                        language: language,
+                        skill: skill
+                    }
                 }
             });
+            const token = mutationResponse.data.updateUser.token;
+            Auth.login(token)
         } catch (e) {
             console.log(e);
         }
@@ -41,7 +54,7 @@ function Form () {
                 <h2 className='modal-header'>Add Language</h2>
                 <hr />
                 <div>
-                    <form className='modal-form-main' onSubmit={handleAddLanguageSubmit}>
+                    <form className='modal-form-main' onSubmit={handleSubmit}>
                         <div className='modal-form'>
                             <label htmlFor="language">Language:</label>
                             <Select 
@@ -60,7 +73,7 @@ function Form () {
                             options={skills}
                             />
                         </div>
-                        <button type='submit'></button>
+                        <button className='my-3' type='submit'>Submit</button>
                     </form>
                 </div>
             </div>

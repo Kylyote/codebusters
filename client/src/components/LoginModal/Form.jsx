@@ -49,8 +49,7 @@ function Form() {
                     email: form.email,
                     password: form.password,
                     firstName: form.firstName,
-                    lastName: form.lastName,
-                    languages: select
+                    lastName: form.lastName
                 }
             });
             const token = mutationResponse.data.addUser.token;
