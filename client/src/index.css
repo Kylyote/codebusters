@@ -271,6 +271,11 @@ input:focus {
   object-fit: contain;
  }
  
+ .nav-content {
+  display: flex;
+  margin-top: .75rem;
+  align-items: flex-end;
+ }
  
  
  
