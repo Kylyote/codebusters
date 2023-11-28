@@ -3,10 +3,20 @@ import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { ADD_USER, LOGIN } from '../../utils/mutations';
 
+
+function showPassword() {
+    var element = document.getElementById('showPassword')
+    if (element.type === 'password') {
+        element.type = 'text';
+    } else {
+        element.type = 'password'
+    }
+}
+
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
     const [form, setForm] = useState({email: '', password: ''});
-    const [addUser] = useMutation(ADD_USER);
+    const [addUser, {signuperror}] = useMutation(ADD_USER);
     const [login, { error }] = useMutation(LOGIN)
 
     const handleInputChange = (event) => {
@@ -32,23 +42,28 @@ function Form() {
     const handleSignupSubmit = async (event) => {
         event.preventDefault();
         //handle form submission here. will transfer from signup/login page
-        const mutationResponse = await addUser({
-            variables: {
-                username: form.username,
-                email: form.email,
-                password: form.password,
-                firstName: form.firstName,
-                lastName: form.lastName
-            }
-        });
-        const token = mutationResponse.data.addUser.token;
-        Auth.login(token);
+        try {
+            const mutationResponse = await addUser({
+                variables: {
+                    username: form.username,
+                    email: form.email,
+                    password: form.password,
+                    firstName: form.firstName,
+                    lastName: form.lastName
+                }
+            });
+            const token = mutationResponse.data.addUser.token;
+            Auth.login(token);
+        } catch (e) {
+            console.log(e)
+        }
     };
 
     
     return (
         <>
-        <div className='modal-content'>
+        <div className='overlay'></div>
+        <div className='custom-modal-content'>
             {isLogin ? (
                 <>
                 <h2 className='modal-header'>Login</h2>
@@ -69,9 +84,14 @@ function Form() {
                             <input
                                 name='password'
                                 type='password'
-                                id='password'
+                                id='showPassword'
                                 placeholder='Password'
-                                onChange={handleInputChange} />
+                                onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className='modal-form'>
+                                <label htmlFor="showPassword">Show Password</label>
+                                <input className='show-password' type="checkbox" onClick={showPassword} />
                             </div>
                             {error ? (
                                 <div className='error-text-div'>
@@ -130,19 +150,23 @@ function Form() {
                             <input 
                                 name='password'
                                 type='password'
-                                id='password'
+                                id='showPassword'
                                 placeholder='Password'
                                 onChange={handleInputChange} />
                         </div>
-                        {error ? (
+                        <div className='modal-form'>
+                            <label htmlFor="showPassword">Show Password</label>
+                            <input className='show-password' type="checkbox" onClick={showPassword} />
+                        </div>
+                        {signuperror ? (
                                 <div className='error-text-div'>
-                                  <p className="error-text">Please Fill out every field</p>
+                                  <p className="error-text">Please fill out each field</p>
                                 </div>
                             ) : null}
                         <button className='form-submit' type='submit'>Signup</button>
                     </form>
                 </div>
-                <button className='form-change' onClick={() => setIsLogin(true)}>Already have an account? Login here</button>
+                <button className='form-change' onClick={() => setIsLogin(true)}>Already have an account? Login here!</button>
                 </>
             )}
         </div>

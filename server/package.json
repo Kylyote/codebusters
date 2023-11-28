@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "codebusters-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -12,9 +12,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^3.0.1"
-  },
   "dependencies": {
     "@apollo/server": "^4.9.5",
     "bcrypt": "^5.1.1",

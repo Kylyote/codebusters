@@ -18,9 +18,30 @@ const server = new ApolloServer({
 
 /* Socket.io */
 const http = require('http')
-const socketIo = require('socket.io')
+const {Server} = require('socket.io')
 const httpServer = http.createServer(app)
-const io = socketIo(httpServer);
+const io = new Server(httpServer
+, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST']
+  }
+});
+
+io.on('connection', (socket) => {
+  console.log(`a user connected:${socket.id}`) 
+  socket.on("join_room", (data) => {
+    socket.join(data)
+    console.log(`User with ID: ${socket.id} joined room: ${data}`)
+  })
+  socket.on("send_message", (data) => {
+    console.log(data)
+    socket.to(data.room).emit("receive_message", data)
+  })
+ });
+ 
+
+
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {
@@ -32,7 +53,11 @@ const startApolloServer = async () => {
   // Serve up static assets
   app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
-  app.use(cors());
+  app.use(cors({
+    origin: 'http://localhost:3000',
+   methods: ['GET', 'POST'],
+   allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware

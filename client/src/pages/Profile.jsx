@@ -1,5 +1,7 @@
 import profileImage from '../assets/img/Profile.jpeg'
 import { useQuery } from '@apollo/client';
+import { GET_CHAT } from '../utils/queries';
+import {ADD_CHAT_MESSAGE} from '../utils/mutations'
 import {useMutation} from '@apollo/client'
 import {UPDATE_USER} from '../utils/mutations'
 import {QUERY_USER} from '../utils/queries'
@@ -18,6 +20,7 @@ import avatar11 from '../assets/img/avatar_png_files/avatar_11.png';
 import avatar12 from '../assets/img/avatar_png_files/avatar_12.png';
 import avatar13 from '../assets/img/avatar_png_files/avatar_13.png';
 import avatar14 from '../assets/img/avatar_png_files/avatar_14.png';
+import ChatModal from '../components/ChatModal';
 
 const avatars = [
  avatar1,
@@ -46,48 +49,68 @@ import {ConnectionState} from '../components/ConnectionState'
 import {ConnectionManager} from '../components/ConnectionManager'
 import {Events} from '../components/Events'
 import {MyForm} from '../components/MyForm'
+import io from 'socket.io-client'
 /* End Socket.IO */
-
+const onConnect = () => {
+  console.log('connected');
+};
+const onDisconnect = () => {
+  console.log('disconnected');
+};
+const onFooEvent = (data) => {
+  console.log('foo', data);
+}
 
 const Profile = () => {
+  
   const {id} = useParams();
   
     /* Socket.io state variables */
 const [isConnected, setIsConnected] = useState(socket.connected)
 const [fooEvents, setFooEvents] = useState([])
+const [room, setRoom] = useState(id);
+const [showModal, setShowModal] = useState(false);
+{showModal && <ChatModal showModal={showModal} />}
 
 
 /* socket io */
 const [updateUser] = useMutation(UPDATE_USER);
 
-useEffect(() => {
-    function onConnect() {
-      setIsConnected(true);
-    }
-   
-    function onDisconnect() {
-      setIsConnected(false);
-    }
-   
-    function onFooEvent(value) {
-      setFooEvents(previous => [...previous, value]);
-    }
-   
-    socket.on('connect', onConnect);
-    socket.on('disconnect', onDisconnect);
-    socket.on('foo', onFooEvent);
-   
-    return () => {
-      socket.off('connect', onConnect);
-      socket.off('disconnect', onDisconnect);
-      socket.off('foo', onFooEvent);
-    };
-   }, []);
+const joinRoom = () => {
+  if (room !== '') {
+    socket.emit('join_room', room);
+  }
+};
+
+const sendMessage = () => {
+  socket.emit('send_message', message, room);
+};
+
+    useEffect(() => {
+      socket.on('connect', onConnect);
+      socket.on('disconnect', onDisconnect);
+      socket.on('foo', onFooEvent);
+
+      socket.on('receive_message', (data) => {
+        setMessageReceived(data.message);
+      });
+     
+      return () => {
+        socket.off('connect');
+        socket.off('receive_message');
+        socket.off('disconnect');
+        socket.off('foo');
+      };
+     }, [socket]);
+
+     
+  
+
     /* end socket io */
 
     const { loading, error, data } = useQuery(QUERY_USER, {
       variables: {id}});
-    console.log(data, "profile line 90")
+   
 
     if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
@@ -114,17 +137,12 @@ useEffect(() => {
       const handleEdit = () => {
         setIsEditing(true);
       };
-      
-      const { loading, error, data } = useQuery(QUERY_USER);
-
-      // ...
-      
-      function handleSave() {
-       setIsEditing(false);
-       updateUser({ variables: { id: data.user._id, username: username, firstName: firstName, lastName: lastName, email: email} });
-      }
-      
-      
+     
+      const handleSave = () => {
+        setIsEditing(false);
+        updateUser({ variables: { id: data.user._id, username: username, firstName: firstName, lastName: lastName, email: email} });
+      };
+     
       return (
         <span onClick={handleEdit}>
           {isEditing ? (
@@ -136,39 +154,52 @@ useEffect(() => {
       );
      }
      
+     
+
     /* end function for handling page editing */
 
+   
+
     return (
+      
         
         <div>
+          {showModal && <ChatModal showModal={showModal} />}
             <br></br>
             <img src={randomAvatar}alt="Profile Picture" className="profile-pic" style={{marginLeft:'15px'}} />
             <h2 style={{marginLeft:'15px'}}>Name: <Editable text={`${firstName} ${lastName}`} type="text" onChange={(newValue) => { console.log(newValue); }} /> </h2>
 
             <p style={{marginLeft:'15px'}}><strong>Username:</strong><Editable text={`${username}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
-            <p style={{marginLeft:'15px'}}><strong>Email: </strong><Editable text={`${email}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
+            {/* <p style={{marginLeft:'15px'}}><strong>Email: </strong><Editable text={`${email}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p> */}
             {/* <p style={{marginLeft:'15px'}}><strong>Skill: <Editable text={`${languages}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></strong> </p> */}
             {languages && languages.map((language, index) => (
-  <p key={index}><strong>{language.language}</strong> - {language.skill}</p>
+  <p style={{marginLeft:'15px'}} key={index}><strong>{language.language}</strong> - {language.skill}</p>
 ))}
             <div className="projects" style={{marginLeft:'15px'}}>
                 <a href="https://github.com/user/project1">Project 1</a>
                 <a href="https://github.com/user/project2">Project 2</a>
                 <a href="https://github.com/user/project3">Project 3</a>
             </div>
-            <div style={{ position: 'absolute', right: '0', border: '2px solid black', marginRight: '20px', marginBottom: '10px', width: '400px', height: '400px'}}>
- <div style={{ backgroundColor: 'blue', color: 'white', padding: '10px' }}>
-   <h1>Messenger <ConnectionManager /></h1>
- </div>
- <ConnectionState isConnected={ isConnected } />
- <Events events={ fooEvents } />
- <MyForm />
+         
+<div>
+{/* <ChatModal /> */}
+<button style={{marginLeft:'15px'}} onClick={() => {
+ window.location.href = `mailto:${email}?subject=CodeBuster%20Support&body=Hello%20${firstName} ${lastName}%20I%20would%20like%20to%20discuss%20using%20you%20for%20services%20I%20need.`;
+ setShowModal(!showModal);
+ console.log(showModal);
+}}>
+ Contact User
+</button>
+
 </div>
         </div>
         
         
     )
-    console.log(data)
  }
  
  export default Profile
+
+
+
+

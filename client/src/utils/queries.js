@@ -156,3 +156,17 @@ export const QUERY_USER_BY_ID = gql`
    }
  }
 `;
+
+export const GET_CHAT = gql`
+  query GetChat($id: ID!) {
+    chat(_id: $id) {
+      _id
+      messages {
+        _id
+        messageText
+        messageAuthor
+        messageDate
+      }
+    }
+  }
+  `;

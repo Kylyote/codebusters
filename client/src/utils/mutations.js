@@ -60,5 +60,29 @@ mutation updateUser($id: ID!, $firstName: String, $lastName: String, $email: Str
   }
  }
 `;
+
+export const ADD_LANGUAGE = gql`
+mutation addLanguage($id: ID!, $languages: [LanguageInput]){
+  addLanguage(id: $id, languages: $languages){
+    _id
+    languages {
+      language
+      skill
+    }
+  }
+}
+`
  
+export const ADD_CHAT_MESSAGE = gql`
+ mutation AddChatMessage($gameId: ID!, $content: String!) {
+   addChatMessage(gameId: $gameId, content: $content) {
+     id
+     content
+     createdAt
+     sender {
+       id
+     }
+   }
+ }
+`;
 
