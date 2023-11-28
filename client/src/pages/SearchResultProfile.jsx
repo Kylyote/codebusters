@@ -97,9 +97,9 @@ const SearchResultProfile = () => {
             <h2 style={{marginLeft:'15px'}}>{`Name: ${firstName} ${lastName}`}</h2>
 
             <p style={{marginLeft:'15px'}}><strong>Username:</strong> {username} </p>
-            <p style={{marginLeft:'15px'}}><strong>Email: </strong> {email} </p>
+            {/* <p style={{marginLeft:'15px'}}><strong>Email: </strong> {email} </p> */}
             {languages && languages.map((language, index) => (
-  <p key={index}><strong>{language.language}</strong> - {language.skill}</p>
+  <p style={{marginLeft:'15px'}} key={index}><strong>{language.language}</strong> - {language.skill}</p>
 ))}
 
             <div className="projects" style={{marginLeft:'15px'}}>
@@ -117,7 +117,7 @@ const SearchResultProfile = () => {
 </div>
 <div>
 {/* <ChatModal /> */}
-<button onClick={() => {
+<button style={{marginLeft:'15px'}} onClick={() => {
  window.location.href = `mailto:${email}?subject=CodeBuster%20Support&body=Hello%20${firstName} ${lastName}%20I%20would%20like%20to%20discuss%20using%20you%20for%20services%20I%20need.`;
  setShowModal(!showModal);
  console.log(showModal);

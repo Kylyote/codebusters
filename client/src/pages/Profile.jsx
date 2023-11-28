@@ -183,7 +183,7 @@ const sendMessage = () => {
          
 <div>
 {/* <ChatModal /> */}
-<button onClick={() => {
+<button style={{marginLeft:'15px'}} onClick={() => {
  window.location.href = `mailto:${email}?subject=CodeBuster%20Support&body=Hello%20${firstName} ${lastName}%20I%20would%20like%20to%20discuss%20using%20you%20for%20services%20I%20need.`;
  setShowModal(!showModal);
  console.log(showModal);
