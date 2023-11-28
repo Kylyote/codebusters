@@ -5,7 +5,6 @@ import Select from 'react-select';
 import languages from '../Select/languages'
 import skills from '../Select/skills'
 import jwt_decode from 'jwt-decode'
-import Auth from '../../utils/auth'
 
 function Form () {
     const [language, setLanguage] = useState('');
@@ -27,7 +26,6 @@ function Form () {
     }
 
     const handleSubmit = async (e) => {
-        console.log(language, skill)
         e.preventDefault()
         try {
             if (!language || !skill){
@@ -44,7 +42,7 @@ function Form () {
                     ]
                 }
             });
-            console.log(data)
+            window.location.reload()
         } catch (e) {
             console.log(e, 'this no worky');
         }
