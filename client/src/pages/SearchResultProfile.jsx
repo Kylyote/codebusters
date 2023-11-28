@@ -1,7 +1,9 @@
+/* importing necessary libraries and components */
 import { useQuery } from '@apollo/client';
 import { QUERY_USER_BY_ID } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 
+/* importing avatar images */
 import avatar1 from '../assets/img/avatar_png_files/avatar_1.png';
 import avatar2 from '../assets/img/avatar_png_files/avatar_2.png';
 import avatar3 from '../assets/img/avatar_png_files/avatar_3.png';
@@ -17,6 +19,7 @@ import avatar12 from '../assets/img/avatar_png_files/avatar_12.png';
 import avatar13 from '../assets/img/avatar_png_files/avatar_13.png';
 import avatar14 from '../assets/img/avatar_png_files/avatar_14.png';
 
+/* array of avatar images */
 const avatars = [
  avatar1,
   avatar2,
@@ -45,8 +48,7 @@ import {Events} from '../components/Events'
 import {MyForm} from '../components/MyForm'
 /* End Socket.IO */
 
-
-
+/* main component */
 const SearchResultProfile = () => {
     const {id} = useParams();
     console.log(id, "searchResultProfile line 52");
@@ -54,32 +56,16 @@ const SearchResultProfile = () => {
         variables: { id: id },
        });
        
-    //    console.log(data, "searchResultProfile line 57");
-
-        // if (loading) {
-        //     return <p>Loading...</p>;
-        //    }
-        
-        //    if (error) {
-        //     return <p>Error! {error.message}</p>;
-        //    }
-
-        //    if (!data) {
-        //     return <p>No user found</p>;
-        //    }
-             
-
+       /* extracting user data from query */
          const user = data?.user;
          
-
-        console.log(user, "searchResultProfile line 53");
 
        /* Socket.io state variables */
  const [isConnected, setIsConnected] = useState(socket.connected)
  const [fooEvents, setFooEvents] = useState([])
  /* socket io */ 
 
- 
+ /* extracting user data from query */
         const firstName = user?.firstName;
         const lastName = user?.lastName;
         const username = user?.username;
@@ -87,7 +73,7 @@ const SearchResultProfile = () => {
         const email = user?.email;
         const skills = user?.skills;
         
-
+/* rendering the component */
     return(
 
          
