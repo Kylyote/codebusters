@@ -1,3 +1,4 @@
+/* importing necessary modules and assets */
 import React, {useState} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
 import advertise from '/images/advertise1.jpeg'
@@ -5,13 +6,15 @@ import languagePic from '/images/languageAnimated.gif'
 import service from '/images/servicesAnimated.gif'
 import SkillPic from '/images/animatedSkill.gif'
 
+/* define image style */
 const myImageStyle = { width: '100%', height: '100%', minHeight: '200px', maxHeight: '500px', objectFit: 'cover' };
 
+/* search component */
 const Search = () => {
    const location = useLocation()
    const navigate = useNavigate()
 
- /* search component state */
+ /* search component state variable initialization */
  const [services, setService] = useState('');
 const [skill, setSkill] = useState('');
 const [language, setLanguage] = useState('');

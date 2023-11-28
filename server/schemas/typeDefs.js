@@ -57,6 +57,7 @@ const typeDefs = `
     _id: ID
   }
 
+ 
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]

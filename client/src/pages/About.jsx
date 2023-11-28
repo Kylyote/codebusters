@@ -1,6 +1,8 @@
 import binaryGif from '/images/binary.gif';
 
+/* function to generate random hsl color */
 const getRandomHslColor = () => {
+  /* function to generate random number between min and max value */
   const getRandomNumber = (min, max) => Math.round(Math.random() * (max - min) + min);
   const { hue, saturation, lightness } = {
     hue: getRandomNumber(0, 360),
@@ -10,8 +12,10 @@ const getRandomHslColor = () => {
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
  };
 
+ /* array of colors */
 const colors = ['gray', 'orange', 'lightblue', 'lightyellow', 'lightgreen'];
 
+/* card component */
 function Card({ title, content, index }) {
  return (
   <div style={{marginTop:"30px", marginRight: "25px", marginBottom:"25px"}}>
@@ -23,6 +27,7 @@ function Card({ title, content, index }) {
  );
 }
 
+/* about component */
 const About = () => {
   return (
     <div style={{ 
@@ -31,11 +36,12 @@ const About = () => {
       gap: '20px', 
       backgroundImage: `url(${binaryGif})`,
       backgroundSize: '100% 100%',
-      backgroundSize: "cover",
+      // backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       height: "100%",
     }}>
+      {/* cards for each section */}
       <Card 
         title="Who We Are" 
         content="Code Buster is not just a web development platform, it's a comprehensive platform that caters to all your web development needs, providing a one-stop solution for everything you need in the digital realm.
@@ -86,6 +92,6 @@ const About = () => {
  }
  
  
- 
+ /* exporting the About component */
  export default About;
  
