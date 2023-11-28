@@ -31,10 +31,9 @@ function Form () {
         e.preventDefault()
         try {
             if (!language || !skill){
-                alert('Please respond to both input prompts before submitting')
-                return
+                alert('Please respond to both prompts before submitting')
             }
-            const {data} = await addLanguage({
+            const data = await addLanguage({
                 variables: {
                     id: userId,
                     languages: [

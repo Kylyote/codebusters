@@ -136,17 +136,15 @@ const resolvers = {
 
     addLanguage: async (parent, args, context) => {
       console.log('here')
+      console.log(context.user)
       if(context.user) {
-        const newLanguage = args.languages[0]; 
-        const language = newLanguage.language; 
-        const skill = newLanguage.skill;
-
+        console.log(args)
         return await User.findByIdAndUpdate(args.id, {
           $push: {
-            languages: {
-              language: language,
-              skill: skill
-            }
+            languages: [{
+              language: args.languages[0].language,
+              skill: args.languages[0].skill
+            }]
           }
         }, {
           new: true,

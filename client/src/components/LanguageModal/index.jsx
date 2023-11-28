@@ -8,7 +8,7 @@ function LanguageMain() {
     return (
             <>
                 <div>
-                    <button onClick={() => setShowModal(true)}>Add Languages</button>
+                    <button onClick={() => setShowModal(true)}>Add Language</button>
                     {showModal && (
                         <Modal>
                             <button className='modal-cancel non-btn' onClick={() => setShowModal(false)}>X</button>
