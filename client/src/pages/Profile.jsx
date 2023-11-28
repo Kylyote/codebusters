@@ -149,161 +149,138 @@ const Profile = () => {
 
   return (
     <div className="container row">
-      <div className="main-section col-8 row">
-        <div className="col-4">
-          <br></br>
-          <img
-            src={randomAvatar}
-            alt="Profile Picture"
-            className="profile-pic"
-            style={{ marginLeft: "1px " }}
+      <div className="col-6">
+        <br></br>
+        <img
+          src={randomAvatar}
+          alt="Profile Picture"
+          className="profile-pic"
+          style={{ marginLeft: "1px " }}
+        />
+      </div>
+      <div className="col-6">
+        <br></br>
+        <h2 style={{ marginLeft: "15px" }}>
+          Name:{" "}
+          <Editable
+            text={`${firstName} ${lastName}`}
+            type="text"
+            onChange={(newValue) => {
+              console.log(newValue);
+            }}
+          />{" "}
+        </h2>
+
+        <p style={{ marginLeft: "15px" }}>
+          <strong>Username:</strong>
+          <Editable
+            text={`${username}`}
+            type="text"
+            onChange={(newValue) => {
+              console.log(newValue);
+            }}
           />
-        </div>
-        <div className="col-8">
-          <br></br>
-          <h2 style={{ marginLeft: "15px" }}>
-            Name:{" "}
-            <Editable
-              text={`${firstName} ${lastName}`}
-              type="text"
-              onChange={(newValue) => {
-                console.log(newValue);
-              }}
-            />{" "}
-          </h2>
+        </p>
+        <p style={{ marginLeft: "15px" }}>
+          <strong>Email: </strong>
+          <Editable
+            text={`${email}`}
+            type="text"
+            onChange={(newValue) => {
+              console.log(newValue);
+            }}
+          />
+        </p>
 
-          <p style={{ marginLeft: "15px" }}>
-            <strong>Username:</strong>
-            <Editable
-              text={`${username}`}
-              type="text"
-              onChange={(newValue) => {
-                console.log(newValue);
-              }}
-            />
-          </p>
-          <p style={{ marginLeft: "15px" }}>
-            <strong>Email: </strong>
-            <Editable
-              text={`${email}`}
-              type="text"
-              onChange={(newValue) => {
-                console.log(newValue);
-              }}
-            />
-          </p>
-          <p style={{ marginLeft: "15px" }}>
-            <strong>
-              Skill:{" "}
-              <Editable
-                text={`${languages}`}
-                type="text"
-                onChange={(newValue) => {
-                  console.log(newValue);
-                }}
-              />
-            </strong>{" "}
-          </p>
-
-          {languages &&
-            languages.map((language, index) => (
-              <p key={index}>
-                <strong>{language.language}</strong> - {language.skill}
-              </p>
-            ))}
-        </div>
+        {languages &&
+          languages.map((language, index) => (
+            <p key={index}>
+              <strong>{language.language}</strong> - {language.skill}
+            </p>
+          ))}
         <div className="container row">
           <div
             className="col-3"
             style={{
               minHeight: "200px",
-              minWidth: "100px",
+              minWidth: "200px",
               margin: "55px 5px 5px 5px",
               border: "35px 35px 35px 35px",
               padding: "1px 1px 1px 1px",
-              boxShadow: "1px 1px 1px 1px",
             }}
           >
-            <br></br>
-            <a href="https://github.com/user/project1">Project 1</a>
-            {/* <iframe
-            src="https://tailwindcss.com/"
-            height="200"
-            width="250"
-            title=""
-          ></iframe> */}
+            <a href="https://getbootstrap.com/" target="_blank">
+              Project 1
+            </a>
+            <iframe
+              src="https://getbootstrap.com/"
+              height="100%"
+              width="100%"
+              title="Project "
+            ></iframe>
+          </div>
+          <div
+            className="col-3"
+            style={{
+              minHeight: "200px",
+              minWidth: "200px",
+              margin: "55px 5px 5px 5px",
+              border: "35px 35px 35px 35px",
+              padding: "1px 1px 1px 1px",
+            }}
+          >
+            <a href="https://getbootstrap.com/" target="_blank">
+              Project
+            </a>
+            <iframe
+              src="https://getbootstrap.com/"
+              height="100%"
+              width="100%"
+              title="Project "
+            ></iframe>
+          </div>
+          <div
+            className="col-3"
+            style={{
+              minHeight: "200px",
+              minWidth: "200px",
+              margin: "55px 5px 5px 5px",
+              border: "35px 35px 35px 35px",
+              padding: "1px 1px 1px 1px",
+            }}
+          >
+            <a href="https://getbootstrap.com/" target="_blank">
+              Project
+            </a>
+            <iframe
+              src="https://getbootstrap.com/"
+              height="100%"
+              width="100%"
+              title="Project "
+            ></iframe>
           </div>
 
           <div
             className="col-3"
             style={{
               minHeight: "200px",
-              minWidth: "100px",
+              minWidth: "200px",
               margin: "55px 5px 5px 5px",
               border: "35px 35px 35px 35px",
               padding: "1px 1px 1px 1px",
-              boxShadow: "1px 1px 1px 1px",
             }}
           >
-            <br></br>
-
-            <a href="https://github.com/user/project2">Project 2</a>
-          </div>
-          <div
-            className="col-3"
-            style={{
-              minHeight: "200px",
-              minWidth: "100px",
-              margin: "55px 5px 5px 5px",
-              border: "35px 35px 35px 35px",
-              padding: "1px 1px 1px 1px",
-              boxShadow: "1px 1px 1px 1px",
-              clear: "both",
-            }}
-          >
-            <br></br>
-            <a href="https://github.com/user/project3">Project 3</a>
+            <a href="https://getbootstrap.com/" target="_blank">
+              Project 1
+            </a>
+            <iframe
+              src="https://getbootstrap.com/"
+              height="100%"
+              width="100%"
+              title="Project "
+            ></iframe>
           </div>
         </div>
-      </div>
-
-      {/* <section class="bg-light">
-        <div class="container">
-          <div class="text-center">
-            <h1>
-              Messenger <ConnectionManager />
-            </h1>
-          </div>
-        </div>
-      </section> */}
-      <div
-        className="col-4"
-        style={{
-          // float: "auto",
-          // position: "fixed",
-          clear: "both",
-          bottom: "0",
-          border: "2px solid black",
-          // marginRight: "20px",
-          // marginBottom: "10px",
-          // width: "400px",
-          // height: "400px",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "lightblue",
-            color: "white",
-            padding: "2px",
-          }}
-        >
-          <h1>
-            Messenger <ConnectionManager />
-          </h1>
-        </div>
-        <ConnectionState isConnected={isConnected} />
-        <Events events={fooEvents} />
-        <MyForm />
       </div>
     </div>
   );
