@@ -16,5 +16,10 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "react-select": "^5.8.0",
+    "socket.io": "^4.7.2"
   }
 }
