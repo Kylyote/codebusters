@@ -31,7 +31,7 @@ const About = () => {
       gap: '20px', 
       backgroundImage: `url(${binaryGif})`,
       backgroundSize: '100% 100%',
-      backgroundSize: "cover",
+      // backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       height: "100%",

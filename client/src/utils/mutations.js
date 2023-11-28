@@ -61,4 +61,16 @@ mutation updateUser($id: ID!, $firstName: String, $lastName: String, $email: Str
  }
 `;
  
+export const ADD_CHAT_MESSAGE = gql`
+ mutation AddChatMessage($gameId: ID!, $content: String!) {
+   addChatMessage(gameId: $gameId, content: $content) {
+     id
+     content
+     createdAt
+     sender {
+       id
+     }
+   }
+ }
+`;
 
