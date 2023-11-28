@@ -115,6 +115,17 @@ const SearchResultProfile = () => {
  <Events events={ fooEvents } />
  <MyForm />
 </div>
+<div>
+{/* <ChatModal /> */}
+<button onClick={() => {
+ window.location.href = `mailto:${email}?subject=CodeBuster%20Support&body=Hello%20${firstName} ${lastName}%20I%20would%20like%20to%20discuss%20using%20you%20for%20services%20I%20need.`;
+ setShowModal(!showModal);
+ console.log(showModal);
+}}>
+ Contact User
+</button>
+
+</div>
         </div>
         
         
