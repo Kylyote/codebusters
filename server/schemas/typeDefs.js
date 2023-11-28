@@ -65,6 +65,7 @@ const typeDefs = `
     product(_id: ID!): Product
     user(_id: ID): User
     users: [User]
+    reviews: [Review]
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
   }
@@ -76,6 +77,7 @@ const typeDefs = `
     updateUser(_id:ID firstName: String, lastName: String, email: String,skills: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
+    addReview(_id: ID!, reviewText: String!, reviewAuthor: String!, reviewRating: Int!): User
   }
 
   input LanguageInput {

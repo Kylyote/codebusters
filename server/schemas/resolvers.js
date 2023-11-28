@@ -72,6 +72,14 @@ const resolvers = {
 
       throw AuthenticationError;
     },
+    reviews: async (parent, args, content) => {
+      if (args._id) {
+        const review = await User.findById(args._id).populate("reviews");
+        return review;
+      } else {
+        return "No reviews found.";
+      }
+    },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
@@ -141,23 +149,28 @@ const resolvers = {
     },
 
     addLanguage: async (parent, args, context) => {
-      console.log('here')
-      console.log(context.user)
-      if(context.user) {
-        console.log(args)
-        return await User.findByIdAndUpdate(args.id, {
-          $push: {
-            languages: [{
-              language: args.languages[0].language,
-              skill: args.languages[0].skill
-            }]
+      console.log("here");
+      console.log(context.user);
+      if (context.user) {
+        console.log(args);
+        return await User.findByIdAndUpdate(
+          args.id,
+          {
+            $push: {
+              languages: [
+                {
+                  language: args.languages[0].language,
+                  skill: args.languages[0].skill,
+                },
+              ],
+            },
+          },
+          {
+            new: true,
           }
-        }, {
-          new: true,
-        });
+        );
       }
     },
-
 
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
@@ -185,6 +198,30 @@ const resolvers = {
 
       return { token, user };
     },
+  },
+  // Adds a review to the users document in the database from the Review model
+  addReview: async (parent, args, context) => {
+    if (context.user) {
+      console.log(args);
+      return await User.findByIdAndUpdate(
+        args._id,
+        {
+          $push: {
+            reviews: [
+              {
+                reviewText: args.reviewText,
+                reviewAuthor: args.reviewAuthor,
+                reviewDate: args.reviewDate,
+                reviewScore: args.reviewScore,
+              },
+            ],
+          },
+        },
+        {
+          new: true,
+        }
+      );
+    }
   },
 };
 
