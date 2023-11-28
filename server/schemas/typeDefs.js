@@ -69,11 +69,16 @@ const typeDefs = `
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addLanguage(_id: ID!, languages: [{language: String, skill: String}]): User
+    addLanguage(_id: ID!, languages: [LanguageInput]): User
     addOrder(products: [ID]!): Order
     updateUser(_id:ID firstName: String, lastName: String, email: String,skills: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
+  }
+
+  input LanguageInput {
+    language: String!
+    skill: String!
   }
 `;
 

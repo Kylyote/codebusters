@@ -1,7 +1,7 @@
 const languages = [
+    {value: "HTML", label: "HTML"},
     {value: "CSS", label: "CSS"},
     {value: "JavaScript", label: "JavaScript"},
-    {value: "HTML", label: "HTML"},
     {value: "SQL", label: "SQL"},
     {value: "NoSQL", label: "NoSQL"},
     {value: "Python", label: "Python"},

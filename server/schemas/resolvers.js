@@ -135,21 +135,25 @@ const resolvers = {
     },
 
     addLanguage: async (parent, args, context) => {
+      console.log('here')
       if(context.user) {
-        console.log(context.user._id)
-        return await User.findByIdAndUpdate(context.user._id, {
+        const newLanguage = args.languages[0]; 
+        const language = newLanguage.language; 
+        const skill = newLanguage.skill;
+
+        return await User.findByIdAndUpdate(args.id, {
           $push: {
             languages: {
-              language: args.language,
-              skill: args.skill
+              language: language,
+              skill: skill
             }
           }
         }, {
           new: true,
         });
       }
-      throw AuthenticationError('You must be logged in to add a language');
     },
+
 
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;

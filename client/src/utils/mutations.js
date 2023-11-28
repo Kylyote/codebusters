@@ -62,7 +62,7 @@ mutation updateUser($id: ID!, $firstName: String, $lastName: String, $email: Str
 `;
 
 export const ADD_LANGUAGE = gql`
-mutation addLanguage($id: ID, $languages: {language: String, skill: String}){
+mutation addLanguage($id: ID, $languages: [String]){
   addLanguage(id: $id, languages: $languages){
     id
     languages {

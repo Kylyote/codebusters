@@ -5,6 +5,7 @@ import Select from 'react-select';
 import languages from '../Select/languages'
 import skills from '../Select/skills'
 import jwt_decode from 'jwt-decode'
+import Auth from '../../utils/auth'
 
 function Form () {
     const [language, setLanguage] = useState('');
@@ -12,7 +13,8 @@ function Form () {
     const [addLanguage, { error }] = useMutation(ADD_LANGUAGE);
     const token = localStorage.getItem('id_token');
     const decodedToken = jwt_decode(token);
-    const userId = decodedToken.id;
+    const userId = decodedToken.data._id;
+    console.log(userId);
 
     const handleLanguageChange = (selected) => {
         const language = selected.value;
@@ -32,18 +34,20 @@ function Form () {
                 alert('Please respond to both input prompts before submitting')
                 return
             }
-            const mutationResponse = await addLanguage({
+            const {data} = await addLanguage({
                 variables: {
-                    languages: {
-                        language: language,
-                        skill: skill
-                    }
+                    id: userId,
+                    languages: [
+                        {
+                            language: language,
+                            skill: skill
+                        }
+                    ]
                 }
             });
-            const token = mutationResponse.data.updateUser.token;
-            Auth.login(token)
+            console.log(data)
         } catch (e) {
-            console.log(e);
+            console.log(e, 'this no worky');
         }
     }
 
@@ -73,6 +77,11 @@ function Form () {
                             options={skills}
                             />
                         </div>
+                        {error ? (
+                                <div className='error-text-div'>
+                                  <p className="error-text">Error: Response not successful</p>
+                                </div>
+                            ) : null}
                         <button className='my-3' type='submit'>Submit</button>
                     </form>
                 </div>
