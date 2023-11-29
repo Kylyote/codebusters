@@ -18,6 +18,7 @@ import avatar11 from "../assets/img/avatar_png_files/avatar_11.png";
 import avatar12 from "../assets/img/avatar_png_files/avatar_12.png";
 import avatar13 from "../assets/img/avatar_png_files/avatar_13.png";
 import avatar14 from "../assets/img/avatar_png_files/avatar_14.png";
+import AddLanguage from "../components/LanguageModal";
 
 const avatars = [
   avatar1,
@@ -180,7 +181,9 @@ console.log(data);
               <strong>{language.language}</strong> - {language.skill}
             </p>
           ))}
-
+          <button style={{border:"solid"}}>
+          <AddLanguage/>
+         </button>
       </div>
       <div className="col-10">
         <br></br>

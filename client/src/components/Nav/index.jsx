@@ -26,11 +26,11 @@ function Nav() {
               Products
             </Link>
           </li>
-          <li className="mx-1">
+          {/* <li className="mx-1">
             <Link to="/settings">
               Settings
             </Link>
-          </li>
+          </li> */}
           <li className="mx-2">
             <Link to="/profile">
               Dashboard
