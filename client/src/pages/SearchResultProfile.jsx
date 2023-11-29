@@ -4,6 +4,7 @@ import { QUERY_USER_BY_ID } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import ReviewMain from '../components/ReviewModal';
+import Card from 'react-bootstrap/Card';
 
 /* importing avatar images */
 import avatar1 from '../assets/img/avatar_png_files/avatar_1.png';
@@ -74,11 +75,17 @@ const SearchResultProfile = () => {
         const email = user?.email;
         const skills = user?.skills;
         const avgScore = user?.avgScore;
+        const subscription = user?.subscription;
+        console.log(subscription)
+      
         
 /* rendering the component */
     return(
       <div className="container row">
-      <div className="col-2">
+     <div className="col-2 " style={{
+   backgroundColor: subscription === "Gold" ? "goldenrod" : "lightgreen",
+ }}>
+
         <br></br>
         <img
           src={randomAvatar}
@@ -103,7 +110,6 @@ const SearchResultProfile = () => {
             </p>
           ))}
           
-
     <div>
     {/* <ChatModal /> */}
       <button style={{marginLeft:'15px'}} onClick={() => {
@@ -132,12 +138,12 @@ const SearchResultProfile = () => {
             style={{
               minHeight: "450px",
               minWidth: "350px",
-              margin: "1px 25px 35px 5px",
+              margin: "1px 25px 45px 5px",
               border: "35px 35px 35px 35px",
               padding: "1px 1px 1px 1px",
             }}
           >
-          <a href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}> CodeMantic</a>
+          <a className="glow-on-hover" href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}> CodeMantic</a>
          
  <a href="https://www.google.com" target="_blank">
    <iframe
@@ -148,19 +154,18 @@ const SearchResultProfile = () => {
    ></iframe>
  </a>
 
-
           </div>
           <div
              className="col-3"
              style={{
                minHeight: "450px",
                minWidth: "350px",
-               margin: "1px 25px 35px 5px",
+               margin: "1px 25px 45px 5px",
                border: "35px 35px 35px 35px",
                padding: "1px 1px 1px 1px",
              }}
           >
-            <a href="https://luis00809.github.io/Group-3-project/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+            <a className="glow-on-hover" href="https://luis00809.github.io/Group-3-project/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Vidya
             </a>
             
@@ -183,7 +188,7 @@ const SearchResultProfile = () => {
                 padding: "1px 1px 1px 1px",
               }}
           >
-            <a href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+            <a className="glow-on-hover" href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Fitfolio
             </a>
            
@@ -206,7 +211,7 @@ const SearchResultProfile = () => {
                padding: "1px 1px 1px 1px",
              }}
           >
-            <a href="https://briimcfly.github.io/socialite/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+            <a className="glow-on-hover" href="https://briimcfly.github.io/socialite/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Socialit
             </a>
            

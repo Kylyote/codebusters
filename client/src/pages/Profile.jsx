@@ -97,6 +97,8 @@ console.log(data);
     const email = data.user.email;
     const skills = data.user.skills;
     const avgScore = data.user.avgScore;
+    const subscription = data.user.subscription;
+    console.log(subscription)
 
 
   /* function for handling page editing */
@@ -151,7 +153,9 @@ console.log(data);
 
   return (
     <div className="container row">
-      <div className="col-2">
+      <div className="col-2 " style={{
+   backgroundColor: subscription === "Gold" ? "goldenrod" : "lightgreen",
+ }}>
         <br></br>
         <img
           src={randomAvatar}
@@ -187,12 +191,12 @@ console.log(data);
             style={{
               minHeight: "450px",
               minWidth: "350px",
-              margin: "1px 25px 35px 5px",
+              margin: "1px 25px 45px 5px",
               border: "35px 35px 35px 35px",
               padding: "1px 1px 1px 1px",
             }}
           >
-          <a href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}> CodeMantic</a>
+          <a className="glow-on-hover" href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}> CodeMantic</a>
          
  <a href="https://www.google.com" target="_blank">
    <iframe
@@ -210,12 +214,12 @@ console.log(data);
              style={{
                minHeight: "450px",
                minWidth: "350px",
-               margin: "1px 25px 35px 5px",
+               margin: "1px 25px 45px 5px",
                border: "35px 35px 35px 35px",
                padding: "1px 1px 1px 1px",
              }}
           >
-            <a href="https://luis00809.github.io/Group-3-project/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+            <a className="glow-on-hover" href="https://luis00809.github.io/Group-3-project/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Vidya
             </a>
             
@@ -238,7 +242,7 @@ console.log(data);
                 padding: "1px 1px 1px 1px",
               }}
           >
-            <a href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+            <a className="glow-on-hover" href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Fitfolio
             </a>
            
@@ -261,7 +265,7 @@ console.log(data);
                padding: "1px 1px 1px 1px",
              }}
           >
-            <a href="https://briimcfly.github.io/socialite/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+            <a className="glow-on-hover" href="https://briimcfly.github.io/socialite/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Socialit
             </a>
            

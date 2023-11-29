@@ -150,6 +150,14 @@ input:focus {
   background-color: lightgreen !important;
 }
 
+.goldbg {
+  background-color: goldenrod!important;
+}
+
+.lightgreenbg {
+  background-color: lightgreen !important;
+}
+
 
 .flex-row {
   display: flex;
