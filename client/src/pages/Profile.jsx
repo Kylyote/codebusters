@@ -192,7 +192,7 @@ console.log(data);
               padding: "1px 1px 1px 1px",
             }}
           >
-          <a href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center" }}> Natural Spaces</a>
+          <a href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}> CodeMantic</a>
          
  <a href="https://www.google.com" target="_blank">
    <iframe
@@ -215,7 +215,7 @@ console.log(data);
                padding: "1px 1px 1px 1px",
              }}
           >
-            <a href="https://luis00809.github.io/Group-3-project/" target="_blank">
+            <a href="https://luis00809.github.io/Group-3-project/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Vidya
             </a>
             
@@ -238,7 +238,7 @@ console.log(data);
                 padding: "1px 1px 1px 1px",
               }}
           >
-            <a href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank">
+            <a href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Fitfolio
             </a>
            
@@ -261,7 +261,7 @@ console.log(data);
                padding: "1px 1px 1px 1px",
              }}
           >
-            <a href="https://briimcfly.github.io/socialite/" target="_blank">
+            <a href="https://briimcfly.github.io/socialite/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
               Socialit
             </a>
            

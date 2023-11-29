@@ -77,33 +77,33 @@ const SearchResultProfile = () => {
         
 /* rendering the component */
     return(
+      <div className="container row">
+      <div className="col-2">
+        <br></br>
+        <img
+          src={randomAvatar}
+          alt="Profile Picture"
+          className="profile-pic"
+          style={{ marginLeft: "1px " }}
+        />
+        <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p>
+        <h2 style={{ marginLeft: "15px", fontSize:"2rem" }}>
+          Name:{" "}
+          {firstName} {lastName}
+        </h2>
+        <br></br>
+        <p style={{ marginLeft: "15px",fontSize:"1.5rem" }}>
+          <strong>USERNAME: </strong>
+          {`${username}`}
+        </p>
+        {languages &&
+          languages.map((language, index) => (
+            <p style={{ marginLeft: "15px" }} key={index}>
+              <strong>{language.language}</strong> - {language.skill}
+            </p>
+          ))}
+          
 
-         
-        <div>
-            <br></br>
-            <img src={randomAvatar}alt="Profile Picture" className="profile-pic" style={{marginLeft:'15px'}} />
-            <p style={{marginLeft:'15px'}}>User Knowledge Rating: {avgScore}/5</p>
-            <h2 style={{marginLeft:'15px'}}>{`Name: ${firstName} ${lastName}`}</h2>
-
-            <p style={{marginLeft:'15px'}}><strong>Username:</strong> {username} </p>
-            {/* <p style={{marginLeft:'15px'}}><strong>Email: </strong> {email} </p> */}
-            {languages && languages.map((language, index) => (
-  <p style={{marginLeft:'15px'}} key={index}><strong>{language.language}</strong> - {language.skill}</p>
-))}
-
-            <div className="projects" style={{marginLeft:'15px'}}>
-                <a href="https://github.com/user/project1">Project 1</a>
-                <a href="https://github.com/user/project2">Project 2</a>
-                <a href="https://github.com/user/project3">Project 3</a>
-            </div>
-            <div style={{ position: 'absolute', right: '0', border: '2px solid black', marginRight: '20px', marginBottom: '10px', width: '400px', height: '400px'}}>
- <div style={{ backgroundColor: 'blue', color: 'white', padding: '10px' }}>
-   <h1>Messenger <ConnectionManager /></h1>
- </div>
- <ConnectionState isConnected={ isConnected } />
- <Events events={ fooEvents } />
- <MyForm />
-  </div>
     <div>
     {/* <ChatModal /> */}
       <button style={{marginLeft:'15px'}} onClick={() => {
@@ -112,21 +112,125 @@ const SearchResultProfile = () => {
         console.log(showModal);
         }}>
       Contact User
+       
       </button>
+     
     {/*button to add a review*/}
     <div style={{marginLeft:'15px'}}>
+      <br></br>
       <ReviewMain />
     </div>
-
-  </div>
+    </div>
+    
 </div>
+    <div className="col-10">
+        <br></br>
+
+        <div className="container row">
+          <div
+            className="col-3"
+            style={{
+              minHeight: "450px",
+              minWidth: "350px",
+              margin: "1px 25px 35px 5px",
+              border: "35px 35px 35px 35px",
+              padding: "1px 1px 1px 1px",
+            }}
+          >
+          <a href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}> CodeMantic</a>
+         
+ <a href="https://www.google.com" target="_blank">
+   <iframe
+     src="https://codemantic-e7e316dea174.herokuapp.com/"
+     height="100%"
+     width="100%"
+     title="Project "
+   ></iframe>
+ </a>
+
+
+          </div>
+          <div
+             className="col-3"
+             style={{
+               minHeight: "450px",
+               minWidth: "350px",
+               margin: "1px 25px 35px 5px",
+               border: "35px 35px 35px 35px",
+               padding: "1px 1px 1px 1px",
+             }}
+          >
+            <a href="https://luis00809.github.io/Group-3-project/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+              Vidya
+            </a>
+            
+            <iframe
+              src="https://luis00809.github.io/Group-3-project/"
+              height="100%"
+              width="100%"
+              title="Project "
+            ></iframe>
+        
+          </div>
+        
+          <div
+              className="col-3"
+              style={{
+                minHeight: "450px",
+                minWidth: "350px",
+                margin: "1px 25px 35px 5px",
+                border: "35px 35px 35px 35px",
+                padding: "1px 1px 1px 1px",
+              }}
+          >
+            <a href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+              Fitfolio
+            </a>
+           
+            <iframe
+              src="https://fitfolio-acfec075c4c6.herokuapp.com/login"
+              height="100%"
+              width="100%"
+              title="Project "
+            ></iframe>
+            
+          </div>
+
+          <div
+             className="col-3"
+             style={{
+               minHeight: "450px",
+               minWidth: "350px",
+               margin: "1px 25px 35px 5px",
+               border: "35px 35px 35px 35px",
+               padding: "1px 1px 1px 1px",
+             }}
+          >
+            <a href="https://briimcfly.github.io/socialite/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+              Socialit
+            </a>
+           
+            <iframe
+              src="https://briimcfly.github.io/socialite/"
+              height="100%"
+              width="100%"
+              title="Project "
+            ></iframe>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    
+
+  
+  
+
         
         
     )
-
-
-
-    
+ 
 }
 
 export default SearchResultProfile;
