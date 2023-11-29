@@ -273,8 +273,7 @@ input:focus {
  
  .nav-content {
   display: flex;
-  margin-top: .75rem;
-  align-items: flex-end;
+  margin-top: 1rem;
  }
  
  .resumeForm {

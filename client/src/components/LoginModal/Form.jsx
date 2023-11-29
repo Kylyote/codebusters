@@ -15,7 +15,7 @@ function showPassword() {
 
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
-    const [form, setForm] = useState({email: '', password: ''});
+    const [form, setForm] = useState({email: '', password: '', username: '', firstName: '', lastName: ''});
     const [addUser, {signuperror}] = useMutation(ADD_USER);
     const [login, { error }] = useMutation(LOGIN)
 
