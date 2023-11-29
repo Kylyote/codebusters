@@ -65,7 +65,7 @@ const SearchResultProfile = () => {
  const [isConnected, setIsConnected] = useState(socket.connected)
  const [fooEvents, setFooEvents] = useState([])
  /* socket io */ 
- console.log(user);
+
  /* extracting user data from query */
         const firstName = user?.firstName;
         const lastName = user?.lastName;

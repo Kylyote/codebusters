@@ -32,7 +32,8 @@ function ReviewForm() {
       variables: { id: id },
     });
     const user = data?.user;
-
+    console.log("mutationResponse");
+    console.log(user);
     event.preventDefault();
     //handle form submission here. will transfer from signup/login page
     try {
@@ -45,6 +46,7 @@ function ReviewForm() {
           }]
         }
       });
+      console.log(mutationResponse);
     } catch (err) {
       console.log(err);
     }
