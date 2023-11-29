@@ -4,16 +4,23 @@
 This project is a comprehensive web application built using React. It includes several components such as an About Us section, a Hardware Shopping section, Resume Building section, Services section, Free Software section, and so much more!
 
 # Table of Contents
--[Installation](#installation)
--[Usage](#usage)
--[License](#license)
--[Credits](credits)
+-[Installation](#installation)  
+-[Usage](#usage)  
+-[License](#license)  
+-[Credits](credits)  
 
 # Installation
 To install this project, clone the repository and run the command npm i to install the dependencies. After the dependencies are installed, run npm start to initiate the server.
 
 # Usage
 The website is a single-page application that showcases the capabilities of the developers in web development.
+
+![About](<Screenshot 2023-11-29 at 2.43.09 AM.png>)
+
+![Product](<Screenshot 2023-11-29 at 2.45.01 AM.png>)
+
+![Services](<Screenshot 2023-11-29 at 2.45.44 AM.png>)
+
 
 # Deployment
 

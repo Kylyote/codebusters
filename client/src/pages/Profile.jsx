@@ -18,6 +18,8 @@ import avatar11 from "../assets/img/avatar_png_files/avatar_11.png";
 import avatar12 from "../assets/img/avatar_png_files/avatar_12.png";
 import avatar13 from "../assets/img/avatar_png_files/avatar_13.png";
 import avatar14 from "../assets/img/avatar_png_files/avatar_14.png";
+import AddLanguage from "../components/LanguageModal";
+import {FaStar} from "react-icons/fa";
 
 const avatars = [
   avatar1,
@@ -40,46 +42,46 @@ const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
 
 /* Socket.io */
 import { useState, useEffect } from "react";
-import { socket } from "../socket";
-import { ConnectionState } from "../components/ConnectionState";
-import { ConnectionManager } from "../components/ConnectionManager";
-import { Events } from "../components/Events";
-import { MyForm } from "../components/MyForm";
+// import { socket } from "../socket";
+// import { ConnectionState } from "../components/ConnectionState";
+// import { ConnectionManager } from "../components/ConnectionManager";
+// import { Events } from "../components/Events";
+// import { MyForm } from "../components/MyForm";
 /* End Socket.IO */
 
 const Profile = () => {
   const { id } = useParams();
 
   /* Socket.io state variables */
-  const [isConnected, setIsConnected] = useState(socket.connected);
-  const [fooEvents, setFooEvents] = useState([]);
+  // const [isConnected, setIsConnected] = useState(socket.connected);
+  // const [fooEvents, setFooEvents] = useState([]);
 
   const [updateUser] = useMutation(UPDATE_USER);
   
-  useEffect(() => {
-    function onConnect() {
-      setIsConnected(true);
-    }
+  // useEffect(() => {
+  //   function onConnect() {
+  //     setIsConnected(true);
+  //   }
     
-    function onDisconnect() {
-      setIsConnected(false);
-    }
+  //   function onDisconnect() {
+  //     setIsConnected(false);
+  //   }
     
-    function onFooEvent(value) {
-      setFooEvents((previous) => [...previous, value]);
-    }
+  //   function onFooEvent(value) {
+  //     setFooEvents((previous) => [...previous, value]);
+  //   }
     
-    /* socket io */
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
-    socket.on("foo", onFooEvent);
+  //   /* socket io */
+  //   socket.on("connect", onConnect);
+  //   socket.on("disconnect", onDisconnect);
+  //   socket.on("foo", onFooEvent);
 
-    return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
-      socket.off("foo", onFooEvent);
-    };
-  }, []);
+  //   return () => {
+  //     socket.off("connect", onConnect);
+  //     socket.off("disconnect", onDisconnect);
+  //     socket.off("foo", onFooEvent);
+  //   };
+  // }, []);
   /* end socket io */
 
     const { loading, error, data } = useQuery(QUERY_USER, {
@@ -97,6 +99,22 @@ console.log(data);
     const email = data.user.email;
     const skills = data.user.skills;
     const avgScore = data.user.avgScore;
+    const subscription = data.user.subscription;
+    console.log(subscription)
+
+
+    const StarRating = ({ avgScore }) => {
+      return (
+        <div>
+          {[...Array(5)].map((_, index) => {
+            return (
+              <FaStar key={index} color={index < avgScore ? "gold" : "gray" } />
+            );
+          })}
+        </div>
+      );
+    };
+    
 
 
   /* function for handling page editing */
@@ -151,7 +169,9 @@ console.log(data);
 
   return (
     <div className="container row">
-      <div className="col-6">
+      <div className="col-2 " style={{
+   backgroundColor: subscription === "Gold" ? "goldenrod" : "lightgreen",
+ }}>
         <br></br>
         <img
           src={randomAvatar}
@@ -159,129 +179,123 @@ console.log(data);
           className="profile-pic"
           style={{ marginLeft: "1px " }}
         />
-            <p style={{marginLeft:'15px'}}>User Knowledge Rating: {avgScore}/5</p>
-      </div>
-      <div className="col-6">
-        <br></br>
-        <h2 style={{ marginLeft: "15px" }}>
-          Name:{" "}
-          <Editable
-            text={`${firstName} ${lastName}`}
-            type="text"
-            onChange={(newValue) => {
-              console.log(newValue);
-            }}
-          />{" "}
-        </h2>
+            <StarRating avgScore={avgScore} />
+            {/* <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p> */}
+           
+        {/* <h2 style={{ marginLeft: "15px", fontSize:"2rem" }}>
+            Name:{" "}
+            {firstName} {lastName}
+            </h2> */}
+          <br></br>
+        <p style={{ marginLeft: "15px",fontSize:"1.5rem" }}>
+          <strong>USERNAME: </strong>
+          {`${username}`}</p>
 
-        <p style={{ marginLeft: "15px" }}>
-          <strong>Username:</strong>
-          <Editable
-            text={`${username}`}
-            type="text"
-            onChange={(newValue) => {
-              console.log(newValue);
-            }}
-          />
-        </p>
-        <p style={{ marginLeft: "15px" }}>
-          <strong>Email: </strong>
-          <Editable
-            text={`${email}`}
-            type="text"
-            onChange={(newValue) => {
-              console.log(newValue);
-            }}
-          />
-        </p>
-
-        {languages &&
+<h3 style={{textDecoration: 'underline'}}>Languages</h3>
+          {languages &&
           languages.map((language, index) => (
-            <p key={index}>
+            <p style={{ marginLeft: "15px" }} key={index}>
               <strong>{language.language}</strong> - {language.skill}
             </p>
           ))}
+          <button style={{border:"solid"}}>
+          <AddLanguage/>
+         </button>
+      </div>
+      <div className="col-10">
+        <br></br>
+
         <div className="container row">
           <div
             className="col-3"
             style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
+              minHeight: "450px",
+              minWidth: "350px",
+              margin: "1px 25px 45px 5px",
               border: "35px 35px 35px 35px",
               padding: "1px 1px 1px 1px",
             }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 1
-            </a>
-            <iframe
-              src="https://getbootstrap.com/"
-              height="100%"
-              width="100%"
-              title="Project "
-            ></iframe>
+          <a className="glow-on-hover" href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}> CodeMantic</a>
+         
+ <a href="https://www.google.com" target="_blank">
+   <iframe
+     src="https://codemantic-e7e316dea174.herokuapp.com/"
+     height="100%"
+     width="100%"
+     title="Project "
+   ></iframe>
+ </a>
+
+
           </div>
           <div
-            className="col-3"
-            style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
-              border: "35px 35px 35px 35px",
-              padding: "1px 1px 1px 1px",
-            }}
+             className="col-3"
+             style={{
+               minHeight: "450px",
+               minWidth: "350px",
+               margin: "1px 25px 45px 5px",
+               border: "35px 35px 35px 35px",
+               padding: "1px 1px 1px 1px",
+             }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 2
+            <a className="glow-on-hover" href="https://luis00809.github.io/Group-3-project/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+              Vidya
             </a>
+            
             <iframe
-              src="https://getbootstrap.com/"
+              src="https://luis00809.github.io/Group-3-project/"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
+        
           </div>
+        
           <div
-            className="col-3"
-            style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
-              border: "35px 35px 35px 35px",
-              padding: "1px 1px 1px 1px",
-            }}
+              className="col-3"
+              style={{
+                minHeight: "450px",
+                minWidth: "350px",
+                margin: "1px 25px 35px 5px",
+                border: "35px 35px 35px 35px",
+                padding: "1px 1px 1px 1px",
+              }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 3
+            <a className="glow-on-hover" href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+              Fitfolio
             </a>
+           
             <iframe
-              src="https://getbootstrap.com/"
+              src="https://fitfolio-acfec075c4c6.herokuapp.com/login"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
+            
           </div>
 
           <div
-            className="col-3"
-            style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
-              border: "35px 35px 35px 35px",
-              padding: "1px 1px 1px 1px",
-            }}
+             className="col-3"
+             style={{
+               minHeight: "450px",
+               minWidth: "350px",
+               margin: "1px 25px 35px 5px",
+               border: "35px 35px 35px 35px",
+               padding: "1px 1px 1px 1px",
+             }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 4
+            <a className="glow-on-hover" href="https://briimcfly.github.io/socialite/" target="_blank" style={{textAlign: "center", fontSize:"2rem" }}>
+              Socialit
             </a>
+           
             <iframe
-              src="https://getbootstrap.com/"
+              src="https://briimcfly.github.io/socialite/"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
+            
           </div>
         </div>
       </div>

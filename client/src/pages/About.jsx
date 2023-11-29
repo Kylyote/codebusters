@@ -17,15 +17,17 @@ const colors = ['gray', 'orange', 'lightblue', 'lightyellow', 'lightgreen'];
 
 /* card component */
 function Card({ title, content, index }) {
- return (
-  <div style={{marginTop:"30px", marginRight: "25px", marginBottom:"25px"}}>
-   <div style={{ backgroundColor: getRandomHslColor(), border:"solid", height: "100%", marginTop:"", marginRight:"25px", marginLeft:"25px" }}>
-     <h2 style={{textAlign: 'center'}}><strong>{title}</strong></h2>
-     <p style={{ marginLeft: '30px',fontStyle: "italic", fontSize:"1.5rem" }}>{content}</p>
-   </div>
-   </div>
- );
-}
+  return (
+    <div style={{marginTop:"30px", marginRight: "25px", marginBottom:"25px", width: "40vw", height: "300px"}}>
+
+      <div style={{ backgroundColor: getRandomHslColor(), border:"solid", height: "100%", marginTop:"", marginRight:"25px", marginLeft:"25px", overflow: "auto" }}>
+        <h2 style={{textAlign: 'center', fontSize:"50px"}}><strong>{title}</strong></h2>
+        <p style={{ marginLeft: '30px',fontStyle: "italic", fontSize:"1.5rem" }}>{content}</p>
+      </div>
+    </div>
+  );
+ }
+ 
 
 /* about component */
 const About = () => {
