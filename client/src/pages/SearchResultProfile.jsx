@@ -94,15 +94,16 @@ const SearchResultProfile = () => {
           style={{ marginLeft: "1px " }}
         />
         <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p>
-        <h2 style={{ marginLeft: "15px", fontSize:"2rem" }}>
+        {/* <h2 style={{ marginLeft: "15px", fontSize:"2rem" }}>
           Name:{" "}
           {firstName} {lastName}
-        </h2>
+        </h2> */}
         <br></br>
         <p style={{ marginLeft: "15px",fontSize:"1.5rem" }}>
           <strong>USERNAME: </strong>
           {`${username}`}
         </p>
+        <h3 style={{textDecoration: 'underline'}}>Languages</h3>
         {languages &&
           languages.map((language, index) => (
             <p style={{ marginLeft: "15px" }} key={index}>
