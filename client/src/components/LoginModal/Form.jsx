@@ -15,7 +15,7 @@ function showPassword() {
 
 function Form() {
     const [isLogin, setIsLogin] = useState(true);
-    const [form, setForm] = useState({email: '', password: '', username: '', firstName: '', lastName: ''});
+    const [form, setForm] = useState({firstName: '', lastName: '', username: '', email: '', password: ''});
     const [addUser, {signuperror}] = useMutation(ADD_USER);
     const [login, { error }] = useMutation(LOGIN)
 
@@ -45,11 +45,11 @@ function Form() {
         try {
             const mutationResponse = await addUser({
                 variables: {
+                    firstName: form.firstName,
+                    lastName: form.lastName,
                     username: form.username,
                     email: form.email,
                     password: form.password,
-                    firstName: form.firstName,
-                    lastName: form.lastName
                 }
             });
             const token = mutationResponse.data.addUser.token;
