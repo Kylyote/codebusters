@@ -151,7 +151,7 @@ console.log(data);
 
   return (
     <div className="container row">
-      <div className="col-6">
+      <div className="col-2">
         <br></br>
         <img
           src={randomAvatar}
@@ -159,129 +159,119 @@ console.log(data);
           className="profile-pic"
           style={{ marginLeft: "1px " }}
         />
-            <p style={{marginLeft:'15px'}}>User Knowledge Rating: {avgScore}/5</p>
-      </div>
-      <div className="col-6">
-        <br></br>
-        <h2 style={{ marginLeft: "15px" }}>
-          Name:{" "}
-          <Editable
-            text={`${firstName} ${lastName}`}
-            type="text"
-            onChange={(newValue) => {
-              console.log(newValue);
-            }}
-          />{" "}
-        </h2>
+            <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p>
 
-        <p style={{ marginLeft: "15px" }}>
-          <strong>Username:</strong>
-          <Editable
-            text={`${username}`}
-            type="text"
-            onChange={(newValue) => {
-              console.log(newValue);
-            }}
-          />
-        </p>
-        <p style={{ marginLeft: "15px" }}>
-          <strong>Email: </strong>
-          <Editable
-            text={`${email}`}
-            type="text"
-            onChange={(newValue) => {
-              console.log(newValue);
-            }}
-          />
-        </p>
+        <h2 style={{ marginLeft: "15px", fontSize:"2rem" }}>
+            Name:{" "}
+            {firstName} {lastName}
+            </h2>
+          <br></br>
+        <p style={{ marginLeft: "15px",fontSize:"1.5rem" }}>
+          <strong>USERNAME: </strong>
+          {`${username}`}</p>
 
-        {languages &&
+          {languages &&
           languages.map((language, index) => (
-            <p key={index}>
+            <p style={{ marginLeft: "15px" }} key={index}>
               <strong>{language.language}</strong> - {language.skill}
             </p>
           ))}
+
+      </div>
+      <div className="col-10">
+        <br></br>
+
         <div className="container row">
           <div
             className="col-3"
             style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
+              minHeight: "450px",
+              minWidth: "350px",
+              margin: "1px 25px 35px 5px",
               border: "35px 35px 35px 35px",
               padding: "1px 1px 1px 1px",
             }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 1
-            </a>
-            <iframe
-              src="https://getbootstrap.com/"
-              height="100%"
-              width="100%"
-              title="Project "
-            ></iframe>
+          <a href="https://kylyote.github.io/natural-spaces/maps.html" target="_blank" style={{textAlign: "center" }}> Natural Spaces</a>
+          <div>
+ <a href="https://www.google.com" target="_blank">
+   <iframe
+     src="https://kylyote.github.io/natural-spaces/maps.html"
+     height="100%"
+     width="100%"
+     title="Project "
+   ></iframe>
+ </a>
+</div>
+
           </div>
           <div
-            className="col-3"
-            style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
-              border: "35px 35px 35px 35px",
-              padding: "1px 1px 1px 1px",
-            }}
+             className="col-3"
+             style={{
+               minHeight: "450px",
+               minWidth: "350px",
+               margin: "1px 25px 35px 5px",
+               border: "35px 35px 35px 35px",
+               padding: "1px 1px 1px 1px",
+             }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 2
+            <a href="https://luis00809.github.io/Group-3-project/" target="_blank">
+              Vidya
             </a>
+            <div>
             <iframe
-              src="https://getbootstrap.com/"
+              src="https://luis00809.github.io/Group-3-project/"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
+        </div>
           </div>
+        
           <div
-            className="col-3"
-            style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
-              border: "35px 35px 35px 35px",
-              padding: "1px 1px 1px 1px",
-            }}
+              className="col-3"
+              style={{
+                minHeight: "450px",
+                minWidth: "350px",
+                margin: "1px 25px 35px 5px",
+                border: "35px 35px 35px 35px",
+                padding: "1px 1px 1px 1px",
+              }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 3
+            <a href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank">
+              Fitfolio
             </a>
+            <div>
             <iframe
-              src="https://getbootstrap.com/"
+              src="https://fitfolio-acfec075c4c6.herokuapp.com/login"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
+            </div>
           </div>
 
           <div
-            className="col-3"
-            style={{
-              minHeight: "200px",
-              minWidth: "200px",
-              margin: "55px 5px 5px 5px",
-              border: "35px 35px 35px 35px",
-              padding: "1px 1px 1px 1px",
-            }}
+             className="col-3"
+             style={{
+               minHeight: "450px",
+               minWidth: "350px",
+               margin: "1px 25px 35px 5px",
+               border: "35px 35px 35px 35px",
+               padding: "1px 1px 1px 1px",
+             }}
           >
-            <a href="https://getbootstrap.com/" target="_blank">
-              Project 4
+            <a href="https://briimcfly.github.io/socialite/" target="_blank">
+              Socialit
             </a>
+            <div>
             <iframe
-              src="https://getbootstrap.com/"
+              src="https://briimcfly.github.io/socialite/"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
+            </div>
           </div>
         </div>
       </div>
