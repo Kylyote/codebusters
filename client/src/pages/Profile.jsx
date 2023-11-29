@@ -19,6 +19,7 @@ import avatar12 from "../assets/img/avatar_png_files/avatar_12.png";
 import avatar13 from "../assets/img/avatar_png_files/avatar_13.png";
 import avatar14 from "../assets/img/avatar_png_files/avatar_14.png";
 import AddLanguage from "../components/LanguageModal";
+import {FaStar} from "react-icons/fa";
 
 const avatars = [
   avatar1,
@@ -102,6 +103,20 @@ console.log(data);
     console.log(subscription)
 
 
+    const StarRating = ({ avgScore }) => {
+      return (
+        <div>
+          {[...Array(5)].map((_, index) => {
+            return (
+              <FaStar key={index} color={index < avgScore ? "gold" : "gray" } />
+            );
+          })}
+        </div>
+      );
+    };
+    
+
+
   /* function for handling page editing */
 
   function Editable({ text, type, onChange }) {
@@ -164,8 +179,9 @@ console.log(data);
           className="profile-pic"
           style={{ marginLeft: "1px " }}
         />
-            <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p>
-
+            <StarRating avgScore={avgScore} />
+            {/* <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p> */}
+           
         {/* <h2 style={{ marginLeft: "15px", fontSize:"2rem" }}>
             Name:{" "}
             {firstName} {lastName}

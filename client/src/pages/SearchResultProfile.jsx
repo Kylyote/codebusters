@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import ReviewMain from '../components/ReviewModal';
 import Card from 'react-bootstrap/Card';
+import { FaStar } from 'react-icons/fa';
 
 /* importing avatar images */
 import avatar1 from '../assets/img/avatar_png_files/avatar_1.png';
@@ -50,6 +51,22 @@ import {Events} from '../components/Events'
 import {MyForm} from '../components/MyForm'
 /* End Socket.IO */
 
+const StarRating = ({ avgScore }) => {
+  return (
+    <div>
+      {[...Array(5)].map((_, index) => {
+        return (
+          <FaStar key={index} color={index < avgScore ? "gold" : "gray" } />
+        );
+      })}
+    </div>
+  );
+};
+
+
+
+
+
 /* main component */
 const SearchResultProfile = () => {
     const {id} = useParams();
@@ -93,7 +110,8 @@ const SearchResultProfile = () => {
           className="profile-pic"
           style={{ marginLeft: "1px " }}
         />
-        <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p>
+        <StarRating avgScore={avgScore} />
+        {/* <p style={{marginLeft:'15px', fontSize:"2rem"}}>Rating: {avgScore}/5</p> */}
         {/* <h2 style={{ marginLeft: "15px", fontSize:"2rem" }}>
           Name:{" "}
           {firstName} {lastName}

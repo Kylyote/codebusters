@@ -19,6 +19,7 @@ import avatar11 from '../assets/img/avatar_png_files/avatar_11.png';
 import avatar12 from '../assets/img/avatar_png_files/avatar_12.png';
 import avatar13 from '../assets/img/avatar_png_files/avatar_13.png';
 import avatar14 from '../assets/img/avatar_png_files/avatar_14.png';
+import {FaStar} from 'react-icons/fa';
 
 const avatars = [
  avatar1,
@@ -55,6 +56,24 @@ const SearchResults = () => {
  })
 
 console.log(data, "data SearchResults.jsx line 57");
+
+const StarRating = ({ avgScore }) => {
+ if (isNaN(avgScore)) {
+   return null;
+ }
+ const roundedScore = Math.round(avgScore);
+ return (
+   <div>
+     {[...Array(5)].map((_, index) => {
+       return (
+         <FaStar key={index} color={index < roundedScore ? "gold" : "gray" } />
+       );
+     })}
+   </div>
+ );
+};
+
+ 
 
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
@@ -95,12 +114,14 @@ return (
            <Link to={`/profile/${user._id}`}>
              <Card.Img variant="top" src={randomAvatar} />
            </Link>
+           {/* <StarRating avgScore={user.avgScore} /> */}
            <Card.Body>
+           <Card.Text><StarRating avgScore={user.avgScore} /></Card.Text>
+           {/* <Card.Text>Rating:{user.avgScore}</Card.Text> */}
              <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
              <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
              <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
              <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-             <Card.Text><strong>User Rating: </strong>{user.avgScore}/5</Card.Text>
              <Card.Text>
                <strong>Languages: </strong>
                <br></br>
@@ -132,11 +153,12 @@ return (
                <Card.Img variant="top" src={randomAvatar} />
              </Link>
              <Card.Body>
+             <Card.Text><StarRating avgScore={user.avgScore} /></Card.Text>
+             {/* <Card.Text>Rating:{user.avgScore}</Card.Text> */}
                <Card.Title><strong>Name: </strong>{user.firstName} {user.lastName}</Card.Title>
                <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
                <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
                <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
-               <Card.Text><strong>User Rating: </strong>{user.avgScore}/5</Card.Text>
                <Card.Text>
                  <strong>Languages: </strong>
                  <br></br>
