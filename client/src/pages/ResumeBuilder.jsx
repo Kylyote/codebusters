@@ -4,7 +4,30 @@ import qrcodeSVG from '@qrcode/svg';
 
 
 const resumeBuilder = () => {
-  const [form, setForm] = useState({firstName: '', lastName: '', email: '', phone: '', university: '', experience: '', skills: '', portfolio: '', objective: ''})
+  const [form, setForm] = useState(
+    {
+      firstName: '', 
+      lastName: '', 
+      email: '', 
+      phone: '', 
+      university: '',
+      degree: '', 
+      company1: '', 
+      company2: '', 
+      company3: '', 
+      title1: '', 
+      title2: '', 
+      title3: '', 
+      jobDescription1: '', 
+      jobDescription2: '', 
+      jobDescription3: '', 
+      skill1: '', 
+      skill2: '', 
+      skill3: '', 
+      portfolio: '', 
+      objective: '',
+    }
+  );
 
   const handleFormChange = (event) => {
     setForm({...form, [event.target.name]: event.target.value});
@@ -37,14 +60,26 @@ const resumeBuilder = () => {
     doc.setFontSize(18)
     doc.text('Work Experience', 12, 112)
     doc.text('Education', 132, 112);
+    doc.text('Skills', 132, 182);
+    doc.setFontSize(12);
+    doc.text(`${form.title1} - ${form.company1}`, 12, 125)
+    doc.text(`${form.title2} - ${form.company2}`, 12, 155)
+    doc.text(`${form.title3} - ${form.company3}`, 12, 185)
+    doc.text(form.university, 132, 125)
+    doc.text(`- ${form.skill1}`, 132, 190)
+    doc.text(`- ${form.skill2}`, 132, 200)
+    doc.text(`- ${form.skill3}`, 132, 210)
     doc.setFontSize(10);
-
+    doc.text(form.jobDescription1, 12, 130, {maxWidth: 108})
+    doc.text(form.jobDescription2, 12, 160, {maxWidth: 108})
+    doc.text(form.jobDescription3, 12, 190, {maxWidth: 108})
+    doc.text(form.degree, 132, 130)
 
 
     
     setTimeout(function() {
       doc.save('resume.pdf');
-   }, 2000);
+   }, 1000);
   }
 
   
@@ -61,12 +96,24 @@ const resumeBuilder = () => {
       <input type="email" name="email" id="email" onChange={handleFormChange} /><br />
       <label htmlFor="phone">Phone:</label>
       <input type="tel" name="phone" id="phone" onChange={handleFormChange} placeholder="Format: (555) 555-555"/><br />
-      <label htmlFor="university">University:</label>
-      <input type="text" name="university" id="university" onChange={handleFormChange} /><br />
+      <label htmlFor="university">Education:</label>
+      <input type="text" name="university" id="university" onChange={handleFormChange} placeholder="University"/><br />
+      <input type="text" name="degree" id="degree" onChange={handleFormChange} placeholder="Degree"/><br />
       <label htmlFor="experience">Work Experience:</label>
-      <input type="text" name="experience" id="experience" onChange={handleFormChange} /><br />
+      <input type="text" name="title1" id="title1" onChange={handleFormChange} placeholder="Current Job Title"/><br />
+      <input type="text" name="company1" id="company1" onChange={handleFormChange} placeholder="Current Company"/><br />
+      <input type="text" name="jobDescription1" id="jobDescription1" onChange={handleFormChange} placeholder="Current Job Description"/><br />
+      <label htmlFor="experience">Previous:</label>
+      <input type="text" name="title2" id="title2" onChange={handleFormChange} placeholder="Previous Job Title"/><br />
+      <input type="text" name="company2" id="company2" onChange={handleFormChange} placeholder="Previous Company"/><br />
+      <input type="text" name="jobDescription2" id="jobDescription2" onChange={handleFormChange} placeholder="Previous Job Description"/><br />
+      <input type="text" name="title3" id="title3" onChange={handleFormChange} placeholder="Previous Job Title"/><br />
+      <input type="text" name="company3" id="company3" onChange={handleFormChange} placeholder="Previous Company"/><br />
+      <input type="text" name="jobDescription3" id="jobDescription3" onChange={handleFormChange} placeholder="Previous Job Description"/><br />
       <label htmlFor="skills">Skills:</label>
-      <input type="text" name="skills" id="skills" onChange={handleFormChange} /><br />
+      <input type="text" name="skill1" id="skill1" onChange={handleFormChange} placeholder="Skill"/><br />
+      <input type="text" name="skill2" id="skill2" onChange={handleFormChange} placeholder="Skill"/><br />
+      <input type="text" name="skill3" id="skill3" onChange={handleFormChange} placeholder="Skill"/><br />
       <label htmlFor="portfolio">Portfolio:</label>
       <input type="text" name="portfolio" id="portfolio" onChange={handleFormChange} placeholder="Format: https://www.exampleportfolio.com"/><br />
       <label htmlFor="objective">Career Objective:</label>
