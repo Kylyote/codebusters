@@ -63,13 +63,6 @@ export const QUERY_USER = gql`
         language
         skill
       }
-      reviews {
-        _id
-        reviewText
-        reviewAuthor
-        reviewDate
-        reviewScore
-      }
       services {
         _id
         service
