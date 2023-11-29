@@ -82,20 +82,22 @@ const Profile = () => {
   }, []);
   /* end socket io */
 
-  const { loading, error, data } = useQuery(QUERY_USER, {
-    variables: { id },
-  });
-  console.log(data, "profile line 90");
+    const { loading, error, data } = useQuery(QUERY_USER, {
+      variables: {id}});
+   
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+    if (loading) return 'Loading...';
+ if (error) return `Error! ${error.message}`;
+console.log(data);
 
-  const firstName = data.user.firstName;
-  const lastName = data.user.lastName;
-  const username = data.user.username;
-  const languages = data.user.languages;
-  const email = data.user.email;
-  const skills = data.user.skills;
+ const firstName = data.user.firstName;
+    const lastName = data.user.lastName;
+    const username = data.user.username;
+    const languages = data.user.languages;
+    const email = data.user.email;
+    const skills = data.user.skills;
+    const avgScore = data.user.avgScore;
+
 
   /* function for handling page editing */
 
@@ -157,6 +159,7 @@ const Profile = () => {
           className="profile-pic"
           style={{ marginLeft: "1px " }}
         />
+            <p style={{marginLeft:'15px'}}>User Knowledge Rating: {avgScore}/5</p>
       </div>
       <div className="col-6">
         <br></br>

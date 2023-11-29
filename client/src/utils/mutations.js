@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
@@ -51,38 +51,60 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-mutation updateUser($id: ID!, $firstName: String, $lastName: String, $email: String, $skills: String) {
-  updateUser(id: $id, firstName: $firstName, lastName: $lastName, email: $email) {
-    _id
-    firstName
-    lastName
-    email
+  mutation updateUser(
+    $id: ID!
+    $firstName: String
+    $lastName: String
+    $email: String
+    $skills: String
+  ) {
+    updateUser(
+      id: $id
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+    ) {
+      _id
+      firstName
+      lastName
+      email
+    }
   }
- }
 `;
 
 export const ADD_LANGUAGE = gql`
-mutation addLanguage($id: ID!, $languages: [LanguageInput]){
-  addLanguage(id: $id, languages: $languages){
-    _id
-    languages {
-      language
-      skill
+  mutation addLanguage($id: ID!, $languages: [LanguageInput]) {
+    addLanguage(id: $id, languages: $languages) {
+      _id
+      languages {
+        language
+        skill
+      }
     }
   }
-}
-`
- 
-export const ADD_CHAT_MESSAGE = gql`
- mutation AddChatMessage($gameId: ID!, $content: String!) {
-   addChatMessage(gameId: $gameId, content: $content) {
-     id
-     content
-     createdAt
-     sender {
-       id
-     }
-   }
- }
 `;
 
+export const ADD_CHAT_MESSAGE = gql`
+  mutation AddChatMessage($gameId: ID!, $content: String!) {
+    addChatMessage(gameId: $gameId, content: $content) {
+      id
+      content
+      createdAt
+      sender {
+        id
+      }
+    }
+  }
+`;
+
+export const ADD_REVIEW = gql`
+  mutation addReview($id: ID!, $reviews: [ReviewInput]) {
+    addReview(id: $id, reviews: $reviews) {
+      _id
+      reviews {
+        reviewText
+        reviewRating
+      }
+    }
+  }
+`;

@@ -7,6 +7,7 @@ const Message = require("./Message");
 const MessageChannel = require("./MessageChannel");
 const Email = require("./Email");
 const EmailChannel = require("./EmailChannel");
+const Review = require("./Review");
 
 module.exports = {
   User,
@@ -18,4 +19,5 @@ module.exports = {
   MessageChannel,
   Email,
   EmailChannel,
+  Review,
 };

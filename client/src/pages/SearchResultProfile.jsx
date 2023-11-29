@@ -1,7 +1,9 @@
 /* importing necessary libraries and components */
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation} from '@apollo/client';
 import { QUERY_USER_BY_ID } from '../utils/queries';
 import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import ReviewMain from '../components/ReviewModal';
 
 /* importing avatar images */
 import avatar1 from '../assets/img/avatar_png_files/avatar_1.png';
@@ -40,7 +42,6 @@ const avatars = [
  const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
 
 /* Socket.io */
-import {useState, useEffect} from 'react'
 import {socket} from '../socket'
 import {ConnectionState} from '../components/ConnectionState'
 import {ConnectionManager} from '../components/ConnectionManager'
@@ -72,6 +73,7 @@ const SearchResultProfile = () => {
         const languages = user?.languages;
         const email = user?.email;
         const skills = user?.skills;
+        const avgScore = user?.avgScore;
         
 /* rendering the component */
     return(
@@ -80,6 +82,7 @@ const SearchResultProfile = () => {
         <div>
             <br></br>
             <img src={randomAvatar}alt="Profile Picture" className="profile-pic" style={{marginLeft:'15px'}} />
+            <p style={{marginLeft:'15px'}}>User Knowledge Rating: {avgScore}/5</p>
             <h2 style={{marginLeft:'15px'}}>{`Name: ${firstName} ${lastName}`}</h2>
 
             <p style={{marginLeft:'15px'}}><strong>Username:</strong> {username} </p>
@@ -100,19 +103,23 @@ const SearchResultProfile = () => {
  <ConnectionState isConnected={ isConnected } />
  <Events events={ fooEvents } />
  <MyForm />
-</div>
-<div>
-{/* <ChatModal /> */}
-<button style={{marginLeft:'15px'}} onClick={() => {
- window.location.href = `mailto:${email}?subject=CodeBuster%20Support&body=Hello%20${firstName} ${lastName}%20I%20would%20like%20to%20discuss%20using%20you%20for%20services%20I%20need.`;
- setShowModal(!showModal);
- console.log(showModal);
-}}>
- Contact User
-</button>
+  </div>
+    <div>
+    {/* <ChatModal /> */}
+      <button style={{marginLeft:'15px'}} onClick={() => {
+        window.location.href = `mailto:${email}?subject=CodeBuster%20Support&body=Hello%20${firstName} ${lastName}%20I%20would%20like%20to%20discuss%20using%20you%20for%20services%20I%20need.`;
+        setShowModal(!showModal);
+        console.log(showModal);
+        }}>
+      Contact User
+      </button>
+    {/*button to add a review*/}
+    <div style={{marginLeft:'15px'}}>
+      <ReviewMain />
+    </div>
 
+  </div>
 </div>
-        </div>
         
         
     )

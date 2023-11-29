@@ -42,7 +42,6 @@ const avatars = [
 // import profileImage from '../assets/img/avatar_png_files/avatar_1.png'
 import {Container, Row, Col} from 'react-bootstrap';
 
-
 const SearchResults = () => {
   
   /* retrieve search state from Search.jsx */
@@ -63,10 +62,11 @@ console.log(data, "data SearchResults.jsx line 57");
  /* 
   * Sort users by subscription level
   * Gold -> Free -> null
+  * When each they are sorted by user rating. Higher is better.
   */
- const goldUsers = data.users.filter(user => user.subscription === 'Gold');
- const freeUsers = data.users.filter(user => user.subscription === 'Free');
- const nullUsers = data.users.filter(user => user.subscription === null);
+ const goldUsers = data.users.filter(user => user.subscription === 'Gold').sort((a, b) => b.avgScore - a.avgScore);
+ const freeUsers = data.users.filter(user => user.subscription === 'Free').sort((a, b) => b.avgScore - a.avgScore);
+ const nullUsers = data.users.filter(user => user.subscription === null).sort((a, b) => b.avgScore - a.avgScore);
 
  const sortedUsers = [...goldUsers, ...freeUsers, ...nullUsers];
 console.log(sortedUsers, " Sorted Users SearchResults.jsx line 72")
@@ -100,6 +100,7 @@ return (
              <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
              <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
              <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
+             <Card.Text><strong>User Rating: </strong>{user.avgScore}/5</Card.Text>
              <Card.Text>
                <strong>Languages: </strong>
                <br></br>
@@ -135,6 +136,7 @@ return (
                <Card.Text><strong>Email: </strong><i>{user.email}</i></Card.Text>
                <Card.Text><strong>Username: </strong><i>{user.username}</i></Card.Text>
                <Card.Text><strong>Subscription Level: </strong>{user.subscription}</Card.Text>
+               <Card.Text><strong>User Rating: </strong>{user.avgScore}/5</Card.Text>
                <Card.Text>
                  <strong>Languages: </strong>
                  <br></br>
@@ -164,6 +166,3 @@ return (
 }
  
 export default SearchResults;
-
- 
-
