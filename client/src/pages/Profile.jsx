@@ -54,22 +54,22 @@ const Profile = () => {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [fooEvents, setFooEvents] = useState([]);
 
-  /* socket io */
   const [updateUser] = useMutation(UPDATE_USER);
-
+  
   useEffect(() => {
     function onConnect() {
       setIsConnected(true);
     }
-
+    
     function onDisconnect() {
       setIsConnected(false);
     }
-
+    
     function onFooEvent(value) {
       setFooEvents((previous) => [...previous, value]);
     }
-
+    
+    /* socket io */
     socket.on("connect", onConnect);
     socket.on("disconnect", onDisconnect);
     socket.on("foo", onFooEvent);
