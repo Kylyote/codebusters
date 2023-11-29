@@ -76,6 +76,7 @@ const [showModal, setShowModal] = useState(false);
 /* socket io */
 const [updateUser] = useMutation(UPDATE_USER);
 
+
 const joinRoom = () => {
   if (room !== '') {
     socket.emit('join_room', room);
@@ -114,6 +115,7 @@ const sendMessage = () => {
 
     if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
+console.log(data);
 
  const firstName = data.user.firstName;
     const lastName = data.user.lastName;
@@ -121,6 +123,7 @@ const sendMessage = () => {
     const languages = data.user.languages;
     const email = data.user.email;
     const skills = data.user.skills;
+    const avgScore = data.user.avgScore;
 
 
     /* function for handling page editing */
@@ -167,6 +170,7 @@ const sendMessage = () => {
           {showModal && <ChatModal showModal={showModal} />}
             <br></br>
             <img src={randomAvatar}alt="Profile Picture" className="profile-pic" style={{marginLeft:'15px'}} />
+            <p style={{marginLeft:'15px'}}>User Knowledge Rating: {avgScore}/5</p>
             <h2 style={{marginLeft:'15px'}}>Name: <Editable text={`${firstName} ${lastName}`} type="text" onChange={(newValue) => { console.log(newValue); }} /> </h2>
 
             <p style={{marginLeft:'15px'}}><strong>Username:</strong><Editable text={`${username}`} type="text" onChange={(newValue) => { console.log(newValue); }} /></p>
@@ -190,6 +194,7 @@ const sendMessage = () => {
 }}>
  Contact User
 </button>
+
 
 </div>
         </div>

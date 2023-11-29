@@ -1,4 +1,4 @@
-const { User, Product, Category, Order } = require("../models");
+const { User, Product, Category, Order, Review } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 // const stripe = require("stripe")(
 //   "sk_test_51MmUhiJWBUm8M1eN7zGH87OtGnQPi1BiZMFgpcHzpEQa86sUDL0pGs6mV9fuddjdJrEImyvK5tJCqexf4DBJOo5000BOOUZLm7"
@@ -72,9 +72,10 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    reviews: async (parent, args, content) => {
+    // Find all reviews associated with a certain User
+    reviews: async (parent, args, context) => {
       if (args._id) {
-        const review = await User.findById(args._id).populate("reviews");
+        const review = await Review.findById(args._id).populate("reviews");
         return review;
       } else {
         return "No reviews found.";
@@ -116,7 +117,6 @@ const resolvers = {
 
       return { session: session.id };
     },
-    ratingScore: async (parent, { _id }) => {},
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -198,30 +198,57 @@ const resolvers = {
 
       return { token, user };
     },
-  },
-  // Adds a review to the users document in the database from the Review model
-  addReview: async (parent, args, context) => {
-    if (context.user) {
-      console.log(args);
-      return await User.findByIdAndUpdate(
-        args._id,
-        {
-          $push: {
-            reviews: [
-              {
-                reviewText: args.reviewText,
-                reviewAuthor: args.reviewAuthor,
-                reviewDate: args.reviewDate,
-                reviewScore: args.reviewScore,
-              },
-            ],
+    // Adds a review to the users document in the database from the Review model
+    addReview: async (parent, args, context) => {
+      if (args._id) {
+        console.log(args);
+        return await User.findByIdAndUpdate(
+          args._id,
+          {
+            $push: {
+              reviews: [
+                {
+                  reviewText: args.reviews[0].reviewText,
+                  reviewAuthor: context.user.username,
+                  reviewDate: args.reviews[0].reviewDate,
+                  reviewScore: args.reviews[0].reviewScore,
+                },
+              ],
+            },
           },
-        },
-        {
-          new: true,
-        }
-      );
-    }
+          {
+            new: true,
+          }
+        );
+      }
+    },
+    updateScore: async (parent, args, context) => {
+      if (context.user) {
+        console.log(`This is from updateScore: ${args}`);
+        const numbers = await User.findById(args._id).populate(
+          "reviews.reviewScore"
+        );
+        console.log(collection);
+        const sum = numbers.reduce((a, b) => a + b, 0);
+        const average = sum / numbers.length;
+        console.log(average);
+        return await User.findByIdAndUpdate(
+          args._id,
+          {
+            $push: {
+              reviews: [
+                {
+                  reviewScore: average,
+                },
+              ],
+            },
+          },
+          {
+            new: true,
+          }
+        );
+      }
+    },
   },
 };
 

@@ -1,5 +1,4 @@
-
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_PRODUCTS = gql`
   query getProducts($category: ID) {
@@ -56,14 +55,22 @@ export const QUERY_USER = gql`
       firstName
       lastName
       email
-     username
-     subscription
-     languages {
-       _id
-       language
-       skill
-     }
-     services {
+      username
+      subscription
+      avgScore
+      languages {
+        _id
+        language
+        skill
+      }
+      reviews {
+        _id
+        reviewText
+        reviewAuthor
+        reviewDate
+        reviewScore
+      }
+      services {
         _id
         service
         skill
@@ -85,76 +92,78 @@ export const QUERY_USER = gql`
 `;
 
 export const GET_ALL_USERS = gql`
- query GetAllUsers {
-   users {
-     _id
-     firstName
-     lastName
-     email
-     username
-     subscription
-     languages {
-       _id
-       language
-       skill
-     }
-     services {
+  query GetAllUsers {
+    users {
+      _id
+      firstName
+      lastName
+      email
+      username
+      subscription
+      avgScore
+      languages {
+        _id
+        language
+        skill
+      }
+      services {
         _id
         service
         skill
       }
-     orders {
-       _id
-       purchaseDate
-       products {
-         _id
-         name
-         description
-         price
-         quantity
-         image
-         category {
-           _id
-         }
-       }
-     }
-   }
- }
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+          category {
+            _id
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const QUERY_USER_BY_ID = gql`
- query getUserById($id: ID!) {
-   user(_id: $id) {
-     _id
-     firstName
-     lastName
-     email
-     username
-     subscription
-     languages {
-       _id
-       language
-       skill
-     }
-     services {
-       _id
-       service
-       skill
-     }
-     orders {
-       _id
-       purchaseDate
-       products {
-         _id
-         name
-         description
-         price
-         quantity
-         image
-       }
-     }
-   }
- }
+  query getUserById($id: ID!) {
+    user(_id: $id) {
+      _id
+      firstName
+      lastName
+      email
+      username
+      subscription
+      avgScore
+      languages {
+        _id
+        language
+        skill
+      }
+      services {
+        _id
+        service
+        skill
+      }
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
+      }
+    }
+  }
 `;
 
 export const GET_CHAT = gql`
@@ -169,4 +178,15 @@ export const GET_CHAT = gql`
       }
     }
   }
-  `;
+`;
+
+export const GET_REVIEWS = gql`
+  query reviews($id: ID!) {
+    reviews(_id: $id) {
+      _id
+      reviewText
+      reviewAuthor
+      reviewDate
+    }
+  }
+`;

@@ -1,3 +1,4 @@
+// Order matters for query and mutation. Must match in resolvers.js.
 const typeDefs = `
   type Category {
     _id: ID
@@ -20,6 +21,13 @@ const typeDefs = `
     products: [Product]
   }
 
+  type Review {
+    _id: ID
+    reviewText: String
+    reviewAuthor: String
+    reviewRating: Int
+  }
+
   type Language {
     _id: ID
     language: String
@@ -39,6 +47,7 @@ const typeDefs = `
     email: String
     username: String
     subscription: String
+    avgScore: Float
     reviews: [Review]
     languages: [Language]
     orders: [Order]
@@ -58,6 +67,12 @@ const typeDefs = `
     _id: ID
   }
 
+  type Review {
+    _id: ID
+    reviewText: String
+    reviewAuthor: String
+    reviewRating: Int
+  }
  
   type Query {
     categories: [Category]
@@ -65,7 +80,7 @@ const typeDefs = `
     product(_id: ID!): Product
     user(_id: ID): User
     users: [User]
-    reviews: [Review]
+    reviews(_id: ID): [Review]
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
   }
@@ -77,12 +92,18 @@ const typeDefs = `
     updateUser(_id:ID firstName: String, lastName: String, email: String,skills: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
-    addReview(_id: ID!, reviewText: String!, reviewAuthor: String!, reviewRating: Int!): User
+    addReview(_id: ID!, reviews: [ReviewInput]): User
+    updateScore(_id: ID!, avgScore: Float!): User
   }
 
   input LanguageInput {
     language: String!
     skill: String!
+  }
+
+  input ReviewInput {
+    reviewText: String!
+    reviewRating: Int!
   }
 `;
 
