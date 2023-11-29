@@ -277,7 +277,11 @@ input:focus {
   align-items: flex-end;
  }
  
- 
+ .resumeForm {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+ }
  
  
 @media screen and (max-width: 768px) {
