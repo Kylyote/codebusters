@@ -40,46 +40,46 @@ const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
 
 /* Socket.io */
 import { useState, useEffect } from "react";
-import { socket } from "../socket";
-import { ConnectionState } from "../components/ConnectionState";
-import { ConnectionManager } from "../components/ConnectionManager";
-import { Events } from "../components/Events";
-import { MyForm } from "../components/MyForm";
+// import { socket } from "../socket";
+// import { ConnectionState } from "../components/ConnectionState";
+// import { ConnectionManager } from "../components/ConnectionManager";
+// import { Events } from "../components/Events";
+// import { MyForm } from "../components/MyForm";
 /* End Socket.IO */
 
 const Profile = () => {
   const { id } = useParams();
 
   /* Socket.io state variables */
-  const [isConnected, setIsConnected] = useState(socket.connected);
-  const [fooEvents, setFooEvents] = useState([]);
+  // const [isConnected, setIsConnected] = useState(socket.connected);
+  // const [fooEvents, setFooEvents] = useState([]);
 
   const [updateUser] = useMutation(UPDATE_USER);
   
-  useEffect(() => {
-    function onConnect() {
-      setIsConnected(true);
-    }
+  // useEffect(() => {
+  //   function onConnect() {
+  //     setIsConnected(true);
+  //   }
     
-    function onDisconnect() {
-      setIsConnected(false);
-    }
+  //   function onDisconnect() {
+  //     setIsConnected(false);
+  //   }
     
-    function onFooEvent(value) {
-      setFooEvents((previous) => [...previous, value]);
-    }
+  //   function onFooEvent(value) {
+  //     setFooEvents((previous) => [...previous, value]);
+  //   }
     
-    /* socket io */
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
-    socket.on("foo", onFooEvent);
+  //   /* socket io */
+  //   socket.on("connect", onConnect);
+  //   socket.on("disconnect", onDisconnect);
+  //   socket.on("foo", onFooEvent);
 
-    return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
-      socket.off("foo", onFooEvent);
-    };
-  }, []);
+  //   return () => {
+  //     socket.off("connect", onConnect);
+  //     socket.off("disconnect", onDisconnect);
+  //     socket.off("foo", onFooEvent);
+  //   };
+  // }, []);
   /* end socket io */
 
     const { loading, error, data } = useQuery(QUERY_USER, {
@@ -192,17 +192,17 @@ console.log(data);
               padding: "1px 1px 1px 1px",
             }}
           >
-          <a href="https://kylyote.github.io/natural-spaces/maps.html" target="_blank" style={{textAlign: "center" }}> Natural Spaces</a>
-          <div>
+          <a href="https://codemantic-e7e316dea174.herokuapp.com/" target="_blank" style={{textAlign: "center" }}> Natural Spaces</a>
+         
  <a href="https://www.google.com" target="_blank">
    <iframe
-     src="https://kylyote.github.io/natural-spaces/maps.html"
+     src="https://codemantic-e7e316dea174.herokuapp.com/"
      height="100%"
      width="100%"
      title="Project "
    ></iframe>
  </a>
-</div>
+
 
           </div>
           <div
@@ -218,14 +218,14 @@ console.log(data);
             <a href="https://luis00809.github.io/Group-3-project/" target="_blank">
               Vidya
             </a>
-            <div>
+            
             <iframe
               src="https://luis00809.github.io/Group-3-project/"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
-        </div>
+        
           </div>
         
           <div
@@ -241,14 +241,14 @@ console.log(data);
             <a href="https://fitfolio-acfec075c4c6.herokuapp.com/login" target="_blank">
               Fitfolio
             </a>
-            <div>
+           
             <iframe
               src="https://fitfolio-acfec075c4c6.herokuapp.com/login"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
-            </div>
+            
           </div>
 
           <div
@@ -264,14 +264,14 @@ console.log(data);
             <a href="https://briimcfly.github.io/socialite/" target="_blank">
               Socialit
             </a>
-            <div>
+           
             <iframe
               src="https://briimcfly.github.io/socialite/"
               height="100%"
               width="100%"
               title="Project "
             ></iframe>
-            </div>
+            
           </div>
         </div>
       </div>
