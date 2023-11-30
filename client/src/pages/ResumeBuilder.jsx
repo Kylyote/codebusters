@@ -63,63 +63,162 @@ const resumeBuilder = () => {
     doc.text('Skills', 132, 182);
     doc.setFontSize(12);
     doc.text(`${form.title1} - ${form.company1}`, 12, 125)
-    doc.text(`${form.title2} - ${form.company2}`, 12, 155)
-    doc.text(`${form.title3} - ${form.company3}`, 12, 185)
+    doc.text(`${form.title2} - ${form.company2}`, 12, 165)
+    doc.text(`${form.title3} - ${form.company3}`, 12, 205)
     doc.text(form.university, 132, 125)
     doc.text(`- ${form.skill1}`, 132, 190)
     doc.text(`- ${form.skill2}`, 132, 200)
     doc.text(`- ${form.skill3}`, 132, 210)
     doc.setFontSize(10);
     doc.text(form.jobDescription1, 12, 130, {maxWidth: 108})
-    doc.text(form.jobDescription2, 12, 160, {maxWidth: 108})
-    doc.text(form.jobDescription3, 12, 190, {maxWidth: 108})
+    doc.text(form.jobDescription2, 12, 170, {maxWidth: 108})
+    doc.text(form.jobDescription3, 12, 210, {maxWidth: 108})
     doc.text(form.degree, 132, 130)
 
-
-    
     setTimeout(function() {
-      doc.save('resume.pdf');
+      doc.save(`${form.firstName}-${form.lastName}.pdf`);
    }, 1000);
   }
 
+  const formDiv = {
+    color: '#00ff00',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+  }
+
+  const internalFormDiv = {
+    paddingTop: '2rem',
+    marginLeft: '2rem',
+    marginRight: '2rem',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  }
+  
+  const labelDiv = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '30%'
+  }
+  
+  const wideDiv = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '50%'
+  }
   
   return (
     <>
+    <div style={formDiv}>
     <form className='resumeForm' onSubmit={handleFormSubmit}>
-      <label htmlFor="firstName">First Name:</label>
-      <input type="text" name="firstName" id="firstName" onChange={handleFormChange} /><br />
-      <label htmlFor="lastName">Last Name:</label>
-      <input type="text" name="lastName" id="lastName" onChange={handleFormChange} /><br />
-      <label htmlFor="address">Address:</label>
-      <input type="text" name="address" id="address" onChange={handleFormChange} /><br />
-      <label htmlFor="email">Email:</label>
-      <input type="email" name="email" id="email" onChange={handleFormChange} /><br />
-      <label htmlFor="phone">Phone:</label>
-      <input type="tel" name="phone" id="phone" onChange={handleFormChange} placeholder="Format: (555) 555-555"/><br />
-      <label htmlFor="university">Education:</label>
-      <input type="text" name="university" id="university" onChange={handleFormChange} placeholder="University"/><br />
-      <input type="text" name="degree" id="degree" onChange={handleFormChange} placeholder="Degree"/><br />
-      <label htmlFor="experience">Work Experience:</label>
-      <input type="text" name="title1" id="title1" onChange={handleFormChange} placeholder="Current Job Title"/><br />
-      <input type="text" name="company1" id="company1" onChange={handleFormChange} placeholder="Current Company"/><br />
-      <input type="text" name="jobDescription1" id="jobDescription1" onChange={handleFormChange} placeholder="Current Job Description"/><br />
-      <label htmlFor="experience">Previous:</label>
-      <input type="text" name="title2" id="title2" onChange={handleFormChange} placeholder="Previous Job Title"/><br />
-      <input type="text" name="company2" id="company2" onChange={handleFormChange} placeholder="Previous Company"/><br />
-      <input type="text" name="jobDescription2" id="jobDescription2" onChange={handleFormChange} placeholder="Previous Job Description"/><br />
-      <input type="text" name="title3" id="title3" onChange={handleFormChange} placeholder="Previous Job Title"/><br />
-      <input type="text" name="company3" id="company3" onChange={handleFormChange} placeholder="Previous Company"/><br />
-      <input type="text" name="jobDescription3" id="jobDescription3" onChange={handleFormChange} placeholder="Previous Job Description"/><br />
-      <label htmlFor="skills">Skills:</label>
-      <input type="text" name="skill1" id="skill1" onChange={handleFormChange} placeholder="Skill"/><br />
-      <input type="text" name="skill2" id="skill2" onChange={handleFormChange} placeholder="Skill"/><br />
-      <input type="text" name="skill3" id="skill3" onChange={handleFormChange} placeholder="Skill"/><br />
-      <label htmlFor="portfolio">Portfolio:</label>
-      <input type="text" name="portfolio" id="portfolio" onChange={handleFormChange} placeholder="Format: https://www.exampleportfolio.com"/><br />
-      <label htmlFor="objective">Career Objective:</label>
-      <input type="textarea" name="objective" id="objective" onChange={handleFormChange} style={{height: '100px', paddingBottom: '55px', paddingLeft: '10px'}}/><br />
-      <input type="submit" value="Generate Resume"/>
+      <h3 style={{alignSelf: 'center', marginTop: '2rem'}}>Resume Builder</h3>
+      <hr style={{alignSelf: "center", width: '50%'}}/>
+      <div style={internalFormDiv}>
+        <div style={labelDiv}>
+          <label>First Name</label>
+          <hr />
+          <input type="text" name="firstName" id="firstName" onChange={handleFormChange} placeholder="First Name"/><br />
+        </div>
+
+        <div style={labelDiv}>
+          <label>Last Name</label>
+          <hr />
+          <input type="text" name="lastName" id="lastName" onChange={handleFormChange} placeholder="Last Name"/><br />
+        </div>
+
+        <div style={labelDiv}>
+          <label>Email</label>
+          <hr />
+          <input type="email" name="email" id="email" onChange={handleFormChange} placeholder="Email"/><br />
+        </div>
+      </div>
+
+      <div style={internalFormDiv}>
+        <div style={labelDiv}>
+          <label htmlFor="address">Address</label>
+          <hr style={{width: '150%'}}/>
+          <input type="text" name="address" id="address" onChange={handleFormChange} style={{width: '150%'}} placeholder="555 Highway Street Road, Coolcity, Coolstate 98765"/><br />
+        </div>
+
+        <div style={labelDiv}>
+          <label htmlFor="phone">Phone</label>
+          <hr />
+          <input type="tel" name="phone" id="phone" onChange={handleFormChange} placeholder="(555) 555-555"/><br />
+        </div>
+      </div>
+
+      <div style={internalFormDiv}>
+        <div style={wideDiv}>
+          <label htmlFor="university">Education</label>
+          <hr />
+          <input type="text" name="university" id="university" onChange={handleFormChange} placeholder="University"/><br />
+          <input type="text" name="degree" id="degree" onChange={handleFormChange} placeholder="Degree"/><br />
+        </div>
+      </div>
+
+      <h4 style={{alignSelf: 'center', marginTop: '3rem'}}>Work Experience</h4>
+      <hr style={{alignSelf: "center", width: '50%'}}/>
+
+      <div style={internalFormDiv}>
+
+        <div style={labelDiv}>
+          <label htmlFor="experience">Current Job</label>
+          <hr />
+          <input type="text" name="title1" id="title1" onChange={handleFormChange} placeholder="Current Job Title"/><br />
+          <input type="text" name="company1" id="company1" onChange={handleFormChange} placeholder="Current Company"/><br />
+          <textarea type="text" name="jobDescription1" id="jobDescription1" onChange={handleFormChange} placeholder="Current Job Description"/><br />
+        </div>
+
+        <div style={labelDiv}>
+          <label htmlFor="experience">Previous Work</label>
+          <hr />
+          <input type="text" name="title2" id="title2" onChange={handleFormChange} placeholder="Previous Job Title"/><br />
+          <input type="text" name="company2" id="company2" onChange={handleFormChange} placeholder="Previous Company"/><br />
+          <textarea type="text" name="jobDescription2" id="jobDescription2" onChange={handleFormChange} placeholder="Previous Job Description"/><br />
+        </div>
+
+        <div style={labelDiv}>
+        <label htmlFor="experience">Previous Work</label>
+          <hr />
+          <input type="text" name="title3" id="title3" onChange={handleFormChange} placeholder="Previous Job Title"/><br />
+          <input type="text" name="company3" id="company3" onChange={handleFormChange} placeholder="Previous Company"/><br />
+          <textarea type="text" name="jobDescription3" id="jobDescription3" onChange={handleFormChange} placeholder="Previous Job Description"/><br />
+        </div>
+
+      </div>
+
+      <div style={internalFormDiv}>
+        <div style={wideDiv}>
+          <label htmlFor="skills">Skills</label>
+          <hr />
+          <input type="text" name="skill1" id="skill1" onChange={handleFormChange} placeholder="Skill"/><br />
+          <input type="text" name="skill2" id="skill2" onChange={handleFormChange} placeholder="Skill"/><br />
+          <input type="text" name="skill3" id="skill3" onChange={handleFormChange} placeholder="Skill"/><br />
+        </div>
+      </div>
+
+      <div style={internalFormDiv}>
+        <div style={wideDiv}>
+          <label htmlFor="portfolio">Portfolio</label>
+          <hr />
+          <input type="text" name="portfolio" id="portfolio" onChange={handleFormChange} placeholder="Format: https://www.exampleportfolio.com"/><br />
+        </div>
+      </div>
+
+      <div style={internalFormDiv}>
+        <div style={wideDiv}>
+          <label htmlFor="objective">Career Objective</label>
+          <hr />
+          <textarea type="textarea" name="objective" id="objective" onChange={handleFormChange}/><br />
+          <input type="submit" value="Generate Resume" style={{margin: '2rem', backgroundColor: '#00ff00'}}/>
+        </div>
+      </div>
+      
     </form>
+    </div>
     </>
   )
 };
