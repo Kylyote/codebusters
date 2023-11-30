@@ -285,9 +285,15 @@ input:focus {
  }
  
  .resumeForm {
+  width: 100%;
+  border-radius: 1rem;
+  justify-content: center;
+  background-color: #232f3e;
   display: flex;
   flex-direction: column;
   margin: 2rem;
+  margin-left: 15%;
+  margin-right: 15%;
  }
  
  

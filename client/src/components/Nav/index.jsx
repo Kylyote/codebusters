@@ -38,7 +38,7 @@ function Nav() {
           </li>
           <li className="mx-1" style={{listStyleType: 'none'}}>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()} style={{marginRight: '10px'}}>
+            <a href="/" onClick={() => Auth.logout()} style={{marginLeft: '10px'}}>
               Logout
             </a>
           </li> 
